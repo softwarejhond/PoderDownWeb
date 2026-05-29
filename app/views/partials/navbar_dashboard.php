@@ -1,7 +1,7 @@
 <!-- ============================================================
      app/views/partials/navbar_dashboard.php
      Navbar del dashboard — colores del Manual de Marca Cami
-     Paleta: #003366 (azul oscuro) + #4ed2ad (turquesa) + #efb810 (amarillo)
+     Paleta: #1A3A5C (azul oscuro) + #3CAEE0 (turquesa) + #F5C518 (amarillo)
      ============================================================ -->
 
 <!-- Google Fonts para el dashboard también -->
@@ -11,20 +11,20 @@
 <style>
   /* Navbar del dashboard usando la paleta oficial de la marca */
   .navbar-dash {
-    background: #003366; /* Azul oscuro del manual */
-    border-bottom: 3px solid #4ed2ad; /* Línea turquesa de acento */
+    background: #1A3A5C; /* Azul oscuro del manual */
+    border-bottom: 3px solid #3CAEE0; /* Línea turquesa de acento */
   }
   .navbar-dash .navbar-brand {
-    font-family: 'Kranky', cursive;
+    font-family: 'Nunito', 'Gilroy', sans-serif;
     font-size: 1.35rem;
     color: #ffffff;
     letter-spacing: 1px;
   }
-  .navbar-dash .navbar-brand .acento { color: #4ed2ad; }
+  .navbar-dash .navbar-brand .acento { color: #3CAEE0; }
   .navbar-dash .badge-dash {
-    background: #efb810;
-    color: #003366;
-    font-family: 'Playpen Sans', sans-serif;
+    background: #F5C518;
+    color: #1A3A5C;
+    font-family: 'Archivo', sans-serif;
     font-size: .6rem;
     font-weight: 700;
     border-radius: 50px;
@@ -33,7 +33,7 @@
     margin-left: .3rem;
   }
   .navbar-dash .nav-link {
-    font-family: 'Playpen Sans', sans-serif;
+    font-family: 'Archivo', sans-serif;
     font-weight: 600;
     color: rgba(255,255,255,.78);
     font-size: .88rem;
@@ -43,15 +43,15 @@
   }
   .navbar-dash .nav-link:hover,
   .navbar-dash .nav-link.active {
-    color: #003366;
-    background: #4ed2ad;
+    color: #1A3A5C;
+    background: #3CAEE0;
   }
   .btn-ver-tienda {
     background: transparent;
-    color: #4ed2ad;
-    border: 1.5px solid #4ed2ad;
+    color: #3CAEE0;
+    border: 1.5px solid #3CAEE0;
     border-radius: 50px;
-    font-family: 'Playpen Sans', sans-serif;
+    font-family: 'Archivo', sans-serif;
     font-weight: 700;
     font-size: .82rem;
     padding: .4rem 1.1rem;
@@ -62,8 +62,8 @@
     gap: .4rem;
   }
   .btn-ver-tienda:hover {
-    background: #4ed2ad;
-    color: #003366;
+    background: #3CAEE0;
+    color: #1A3A5C;
   }
 </style>
 
@@ -94,7 +94,7 @@
                     <a class="nav-link <?= basename($_SERVER['PHP_SELF']) === 'pedidos.php' ? 'active' : '' ?>"
                        href="<?= BASE_URL ?>/dashboard/pedidos.php">
                         <i class="bi bi-bag-check me-1"></i>Pedidos
-                        <span class="badge-dash" id="badgePedidosPendientes" style="display:none;background:#e45b63;color:white;"></span>
+                        <span class="badge-dash" id="badgePedidosPendientes" style="display:none;background:#F2677C;color:white;"></span>
                     </a>
                 </li>
             </ul>

@@ -1,23 +1,70 @@
 # ============================================================
-# .htaccess — Configuración Apache para MAMP / XAMPP
+# .htaccess raíz — Seguridad global Poder Down
+# QA: protección carpetas sensibles, headers de seguridad,
+#     bloqueo de ataques comunes, HTTPS redirect
 # ============================================================
 
-# Habilitar el motor de reescritura de URLs
 Options -Indexes
-RewriteEngine On
+ServerSignature Off
 
-# Redirigir / → index.php
-DirectoryIndex index.php
+# ── Bloquear acceso directo a carpetas sensibles ─────────────
+<IfModule mod_rewrite.c>
+  RewriteEngine On
 
-# Cabeceras de seguridad básicas
-<IfModule mod_headers.c>
-    Header always set X-Content-Type-Options "nosniff"
-    Header always set X-Frame-Options "SAMEORIGIN"
+  # Forzar HTTPS (descomentar en producción)
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Bloquear acceso a config/, app/, database/
+  RewriteRule ^(config|app|database)(/|$) - [F,L]
+
+  # Bloquear archivos .env
+  RewriteRule ^\.env - [F,L]
+  RewriteRule ^\.git - [F,L]
+
+  # Bloquear extensiones peligrosas
+  RewriteRule \.(bak|sql|log|sh|ini|env|git|md|json)$ - [F,L]
 </IfModule>
 
-# Habilitar CORS para la carpeta /api/
-<FilesMatch "\.php$">
-    Header set Access-Control-Allow-Origin "*"
-    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
-    Header set Access-Control-Allow-Headers "Content-Type"
+# ── Headers de seguridad HTTP ─────────────────────────────────
+<IfModule mod_headers.c>
+  Header always set X-Frame-Options "DENY"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
+  Header always set Content-Security-Policy "default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self';"
+
+  # Eliminar headers que revelan tecnología
+  Header unset X-Powered-By
+  Header unset Server
+</IfModule>
+
+# ── Bloquear User-Agents maliciosos ──────────────────────────
+<IfModule mod_rewrite.c>
+  RewriteCond %{HTTP_USER_AGENT} (havij|nikto|sqlmap|nmap|masscan|zgrab|hydra|nessus|openvas) [NC]
+  RewriteRule .* - [F,L]
+</IfModule>
+
+# ── Bloquear query strings con SQL Injection patterns ─────────
+<IfModule mod_rewrite.c>
+  RewriteCond %{QUERY_STRING} (union.*select|select.*from|insert.*into|drop.*table|delete.*from|update.*set|exec\(|script.*alert|<script|javascript:) [NC]
+  RewriteRule .* - [F,L]
+</IfModule>
+
+# ── Protección de archivos sensibles ─────────────────────────
+<FilesMatch "\.(htaccess|htpasswd|env|sql|bak|log|sh|config)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
 </FilesMatch>
+
+# ── Límite de tamaño de petición (anti DoS) ─────────────────
+LimitRequestBody 2097152
+
+# ── Charset ──────────────────────────────────────────────────
+AddDefaultCharset UTF-8

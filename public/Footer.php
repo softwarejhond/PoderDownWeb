@@ -6,7 +6,9 @@
 
       <!-- Columna 1: Marca -->
       <div class="col-md-4">
-        <p class="fl-brand">Poder Down<span class="fl-brand-dot">.</span></p>
+        <div class="mb-2">
+          <img src="css/logo_poderdown.png" alt="Poder Down" style="height:50px;width:auto;object-fit:contain;">
+        </div>
         <p class="fl-brand-desc">
           El poder de creer e incluir.<br>
           Inspirando desde la autenticidad y la inclusión real.
@@ -88,6 +90,8 @@
 </div>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Oregano:ital@0;1&family=Nunito:wght@700;800;900&display=swap');
+
 @font-face {
   font-family: 'Sparose';
   src: url('css/fonts/fonnts.com-Sparose.ttf') format('truetype');
@@ -101,19 +105,19 @@
   background: #ebeae4;
   border-top: 2px solid #d6d4cc;
   padding: 3rem 0 1rem; /* 5rem abajo para no quedar tapado por la barra fija */
-  font-family: 'Playpen Sans', sans-serif;
-  color: #003366;
+  font-family: 'Archivo', sans-serif;
+  color: #1A3A5C;
   box-shadow: 0 -4px 20px rgba(0,51,102,.06);
 }
 
 .fl-brand {
-  font-family: 'Kranky', cursive;
+  font-family: 'Nunito', 'Gilroy', sans-serif;
   font-size: 1.7rem;
-  color: #003366;
+  color: #1A3A5C;
   margin: 0;
   line-height: 1;
 }
-.fl-brand-dot { color: #4ed2ad; }
+.fl-brand-dot { color: #3CAEE0; }
 .fl-brand-desc {
   font-size: .85rem;
   line-height: 1.75;
@@ -126,7 +130,7 @@
 .fl-social-btn {
   width: 36px; height: 36px;
   border-radius: 50%;
-  background: #003366;
+  background: #1A3A5C;
   color: white;
   display: inline-flex;
   align-items: center;
@@ -136,13 +140,13 @@
   transition: background .2s, transform .2s;
 }
 .fl-social-btn:hover {
-  background: #4ed2ad;
-  color: #003366;
+  background: #3CAEE0;
+  color: #1A3A5C;
   transform: translateY(-3px);
 }
 
 .fl-col-title {
-  color: #003366;
+  color: #1A3A5C;
   font-weight: 700;
   font-size: .9rem;
   margin-bottom: 1rem;
@@ -153,7 +157,7 @@
   text-decoration: none;
   transition: color .2s;
 }
-.fl-list a:hover { color: #4ed2ad; }
+.fl-list a:hover { color: #3CAEE0; }
 
 .fl-contact-link {
   display: flex;
@@ -164,8 +168,8 @@
   text-decoration: none;
   transition: color .2s;
 }
-.fl-contact-link:hover { color: #4ed2ad; }
-.fl-icon-accent { color: #4ed2ad; }
+.fl-contact-link:hover { color: #3CAEE0; }
+.fl-icon-accent { color: #3CAEE0; }
 
 .fl-newsletter-desc {
   font-size: .84rem;
@@ -178,16 +182,16 @@
   padding: .55rem .9rem;
   border: 2px solid #d6d4cc;
   border-radius: 50px;
-  font-family: 'Playpen Sans', sans-serif;
+  font-family: 'Archivo', sans-serif;
   font-size: .84rem;
-  color: #003366;
+  color: #1A3A5C;
   background: white;
   outline: none;
   transition: border-color .2s;
 }
-.fl-input:focus { border-color: #4ed2ad; }
+.fl-input:focus { border-color: #3CAEE0; }
 .fl-btn-send {
-  background: #e45b63;
+  background: #F2677C;
   color: white;
   border: none;
   border-radius: 50px;
@@ -201,14 +205,14 @@
 .fl-btn-send:hover { background: #c94851; transform: translateY(-2px); }
 
 .fl-btn-invite {
-  background: #4ed2ad;
-  color: #003366;
+  background: #3CAEE0;
+  color: #1A3A5C;
   border: none;
   border-radius: 50px;
   padding: .6rem 1.4rem;
   font-size: .84rem;
   font-weight: 700;
-  font-family: 'Playpen Sans', sans-serif;
+  font-family: 'Archivo', sans-serif;
   cursor: pointer;
   text-decoration: none;
   display: inline-flex;
@@ -219,7 +223,7 @@
 .fl-btn-invite:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 22px rgba(78,210,173,.4);
-  color: #003366;
+  color: #1A3A5C;
 }
 
 .fl-trust-bar {
@@ -271,19 +275,45 @@
   text-align: center;
   font-size: .82rem;
   color: rgba(0,51,102,.6);
-  font-family: 'Playpen Sans', sans-serif;
+  font-family: 'Archivo', sans-serif;
   box-shadow: 0 -2px 12px rgba(0,51,102,.06);
   z-index: 1000;
 }
 
 /* Compartidos */
-.fl-heart { color: #e45b63; }
+.fl-heart { color: #F2677C; }
 .fl-eagle-link {
-  color: #003366;
+  color: #1A3A5C;
   text-decoration: none;
   font-weight: 700;
   font-family: 'Sparose', sans-serif;
   transition: color .2s;
 }
-.fl-eagle-link:hover { color: #4ed2ad; }
+.fl-eagle-link:hover { color: #3CAEE0; }
+
+/* ===== RESPONSIVE FOOTER ===== */
+@media (max-width:767px) {
+  .footer-landing { padding: 2.5rem 0 1rem; }
+  .fl-brand-desc { max-width: 100%; }
+  .fl-trust-bar { gap: .4rem 1rem; }
+  .fl-trust-item { font-size: .72rem; }
+}
+@media (max-width:575px) {
+  .footer-landing { padding: 2rem 0 1rem; }
+  /* Logo footer más pequeño */
+  .footer-landing img[alt="Poder Down"] { height: 38px !important; }
+  /* Columnas de nav y contacto en una fila */
+  .fl-col-title { font-size: .84rem; margin-bottom: .7rem; }
+  .fl-list a,
+  .fl-contact-link { font-size: .8rem; }
+  /* Newsletter full width */
+  .fl-input { font-size: .8rem; padding: .48rem .8rem; }
+  .fl-trust-bar { flex-direction: column; align-items: center; gap: .3rem; }
+  .fl-trust-item { font-size: .73rem; text-align: center; }
+  /* Barra fija más compacta */
+  .fl-bar-fija { font-size: .73rem; padding: .6rem 1rem; }
+}
+@media (max-width:359px) {
+  .footer-landing { padding: 1.5rem 0 .8rem; }
+}
 </style>
