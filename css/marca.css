@@ -1,0 +1,359 @@
+/* ============================================================
+   public/css/marca.css
+   Estilos globales — Manual de Marca Poder Down
+   By María Camila González Torres
+
+   PALETA OFICIAL:
+     Fondo:         #ebeae4  (Beige)
+     Azul principal:#3CAEE0  (Poder Down blue)
+     Coral:         #F2677C  (Secundario)
+     Amarillo:      #F5C518  (Terciario)
+     Azul oscuro:   #1A3A5C  (Tipografía)
+
+   TIPOGRAFÍAS:
+     Gilroy:        Títulos y subtítulos   (self-hosted via CDN fallback: Nunito ExtraBold)
+     Archivo:       Cuerpos de texto
+     Oregano:       Palabras puntuales / acentos
+============================================================ */
+
+/* Google Fonts — Archivo + Oregano (Gilroy via @font-face or fallback) */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Oregano:ital@0;1&family=Nunito:wght@700;800;900&display=swap');
+
+/* -------------------------------------------------------
+   Gilroy — @font-face (si tienes el archivo, si no usa Nunito como fallback)
+------------------------------------------------------- */
+/* Usando Nunito ExtraBold como fallback cercano a Gilroy */
+
+:root {
+  /* Colores del manual Poder Down */
+  --pd-bg:          #ebeae4;   /* Fondo beige */
+  --pd-azul:        #3CAEE0;   /* Azul principal Poder Down */
+  --pd-coral:       #F2677C;   /* Coral secundario */
+  --pd-amarillo:    #F5C518;   /* Amarillo terciario */
+  --pd-oscuro:      #1A3A5C;   /* Tipografía / texto oscuro */
+  --pd-blanco:      #ffffff;
+  --pd-beige-borde: #d6d4cc;
+  --pd-azul-light:  rgba(60,174,224,0.12);
+
+  /* Tipografías del manual */
+  --font-gilroy:   'Nunito', 'Gilroy', sans-serif;  /* T1: Títulos y subtítulos */
+  --font-archivo:  'Archivo', sans-serif;            /* T2: Cuerpos de texto */
+  --font-oregano:  'Oregano', cursive;               /* T3: Palabras puntuales */
+
+  /* Alias compatibilidad */
+  --font-kranky:   var(--font-gilroy);
+  --font-playpen:  var(--font-archivo);
+
+  /* Espaciados y radios */
+  --radius-blob:    40% 60% 55% 45% / 45% 55% 45% 55%;
+  --radius-card:    24px;
+  --radius-pill:    50px;
+  --shadow-suave:   0 8px 32px rgba(26,58,92,0.10);
+  --shadow-card:    0 4px 20px rgba(60,174,224,0.18);
+
+  /* Colores legacy compat */
+  --cami-bg:        var(--pd-bg);
+  --cami-turquesa:  var(--pd-azul);
+  --cami-turq:      var(--pd-azul);
+  --cami-coral:     var(--pd-coral);
+  --cami-amarillo:  var(--pd-amarillo);
+  --cami-azul:      var(--pd-oscuro);
+  --cami-blanco:    var(--pd-blanco);
+  --cami-beige-oscuro: var(--pd-beige-borde);
+  --cami-border:    var(--pd-beige-borde);
+}
+
+/* -------------------------------------------------------
+   Reset y base
+------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--pd-bg);
+  color: var(--pd-oscuro);
+  font-family: var(--font-archivo);
+  overflow-x: hidden;
+}
+
+/* -------------------------------------------------------
+   Tipografía de marca
+------------------------------------------------------- */
+.font-gilroy   { font-family: var(--font-gilroy) !important; }
+.font-archivo  { font-family: var(--font-archivo) !important; }
+.font-oregano  { font-family: var(--font-oregano) !important; }
+
+/* Aliases legacy */
+.font-kranky   { font-family: var(--font-gilroy) !important; }
+.font-playpen  { font-family: var(--font-archivo) !important; }
+
+h1, h2, h3, .display-title {
+  font-family: var(--font-gilroy);
+  font-weight: 800;
+  color: var(--pd-oscuro);
+  line-height: 1.1;
+}
+
+h4, h5, h6 {
+  font-family: var(--font-archivo);
+  font-weight: 700;
+  color: var(--pd-oscuro);
+}
+
+/* Acentos especiales con Oregano */
+.accent-oregano,
+.palabra-clave {
+  font-family: var(--font-oregano) !important;
+  font-style: italic;
+}
+
+/* -------------------------------------------------------
+   Logo de marca
+------------------------------------------------------- */
+.logo-poderdown {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+.logo-poderdown-lg {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* -------------------------------------------------------
+   Formas orgánicas de la marca (blobs)
+------------------------------------------------------- */
+.blob {
+  position: absolute;
+  border-radius: 40% 60% 55% 45% / 45% 55% 45% 55%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.50;
+  animation: blobFloat 8s ease-in-out infinite alternate;
+}
+.blob-turquesa { background: var(--pd-azul); }
+.blob-coral    { background: var(--pd-coral); }
+.blob-amarillo { background: var(--pd-amarillo); }
+
+@keyframes blobFloat {
+  0%   { border-radius: 40% 60% 55% 45% / 45% 55% 45% 55%; transform: translate(0, 0) scale(1); }
+  50%  { border-radius: 55% 45% 40% 60% / 55% 45% 60% 40%; transform: translate(6px, -8px) scale(1.03); }
+  100% { border-radius: 60% 40% 50% 50% / 40% 60% 50% 50%; transform: translate(-4px, 6px) scale(0.97); }
+}
+
+.circulo-marca {
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* -------------------------------------------------------
+   Botones de la marca
+------------------------------------------------------- */
+.btn-cami-primary {
+  background: var(--pd-azul);
+  color: var(--pd-blanco);
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-archivo);
+  font-weight: 700;
+  padding: .75rem 2rem;
+  font-size: .95rem;
+  transition: transform .2s, box-shadow .2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  cursor: pointer;
+}
+.btn-cami-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(60,174,224,.45);
+  color: var(--pd-blanco);
+}
+
+.btn-cami-secondary {
+  background: transparent;
+  color: var(--pd-oscuro);
+  border: 2px solid var(--pd-oscuro);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-archivo);
+  font-weight: 600;
+  padding: .72rem 1.8rem;
+  font-size: .95rem;
+  transition: all .2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  cursor: pointer;
+}
+.btn-cami-secondary:hover {
+  background: var(--pd-oscuro);
+  color: var(--pd-blanco);
+}
+
+.btn-cami-coral {
+  background: var(--pd-coral);
+  color: var(--pd-blanco);
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-archivo);
+  font-weight: 700;
+  padding: .65rem 1.6rem;
+  font-size: .88rem;
+  transition: transform .2s, box-shadow .2s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+.btn-cami-coral:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(242,103,124,.4);
+}
+
+/* -------------------------------------------------------
+   Tarjeta de producto
+------------------------------------------------------- */
+.product-card-cami {
+  background: var(--pd-blanco);
+  border-radius: var(--radius-card);
+  border: 2px solid transparent;
+  overflow: hidden;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+  cursor: pointer;
+  position: relative;
+}
+.product-card-cami:hover {
+  transform: translateY(-8px) rotate(-0.5deg);
+  box-shadow: var(--shadow-card);
+  border-color: var(--pd-azul);
+}
+.product-card-cami .img-wrap {
+  background: var(--pd-bg);
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.product-card-cami .img-wrap i {
+  font-size: 3.5rem;
+  color: var(--pd-beige-borde);
+}
+.product-card-cami .badge-cat {
+  position: absolute;
+  top: 12px; left: 12px;
+  background: var(--pd-azul);
+  color: var(--pd-blanco);
+  font-family: var(--font-archivo);
+  font-weight: 700;
+  font-size: .7rem;
+  border-radius: var(--radius-pill);
+  padding: .25rem .8rem;
+}
+.product-card-cami .badge-agotado {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: var(--pd-coral);
+  color: var(--pd-blanco);
+  font-family: var(--font-archivo);
+  font-weight: 700;
+  font-size: .7rem;
+  border-radius: var(--radius-pill);
+  padding: .25rem .8rem;
+}
+.product-card-cami .card-body {
+  padding: 1.2rem 1.3rem;
+}
+.product-card-cami .product-name {
+  font-family: var(--font-archivo);
+  font-weight: 700;
+  font-size: .92rem;
+  color: var(--pd-oscuro);
+  margin-bottom: .3rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.product-card-cami .product-desc {
+  font-size: .78rem;
+  color: #888;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: .9rem;
+}
+.product-card-cami .product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.product-card-cami .product-price {
+  font-family: var(--font-gilroy);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--pd-oscuro);
+}
+.btn-add-cami {
+  background: var(--pd-oscuro);
+  color: var(--pd-blanco);
+  border: none;
+  border-radius: 50%;
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  transition: background .2s, transform .2s;
+  cursor: pointer;
+}
+.btn-add-cami:hover {
+  background: var(--pd-azul);
+  color: var(--pd-blanco);
+  transform: scale(1.12);
+}
+.btn-add-cami:disabled {
+  background: var(--pd-beige-borde);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* -------------------------------------------------------
+   Sección título
+------------------------------------------------------- */
+.section-eyebrow {
+  font-family: var(--font-archivo);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--pd-coral);
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: .8rem;
+}
+.section-title-cami {
+  font-family: var(--font-gilroy);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--pd-oscuro);
+  letter-spacing: 0.5px;
+}
+
+/* -------------------------------------------------------
+   Badges stock dashboard
+------------------------------------------------------- */
+.badge-stock-ok    { background:#d0f5ea; color:#00704a; }
+.badge-stock-bajo  { background:#fff3cd; color:#856404; }
+.badge-stock-vacio { background:#fde0e2; color:#a71d2a; }
+
+/* -------------------------------------------------------
+   Scrollbar personalizado
+------------------------------------------------------- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--pd-bg); }
+::-webkit-scrollbar-thumb { background: var(--pd-azul); border-radius: 10px; }
