@@ -1,9 +1,7 @@
 <!-- ===== FOOTER GRANDE — Poder Down ===== -->
 <footer class="footer-landing" id="contacto">
   <div class="container">
-
     <div class="row g-4 pb-4">
-
       <!-- Columna 1: Marca -->
       <div class="col-md-4">
         <div class="mb-2">
