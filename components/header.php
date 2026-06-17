@@ -88,9 +88,9 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
       color: white;
       border-radius: 50%;
       font-size: .65rem;
-      width: 18px;
+      min-width: 18px;
       height: 18px;
-      display: inline-flex;
+      display: none;
       align-items: center;
       justify-content: center;
       margin-left: -6px;
@@ -590,7 +590,7 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
         <a class="nav-link-cami" href="index.php<?= $activePage === 'inicio' ? '#sobre-mi' : '#sobre-mi' ?>">Sobre mí</a>
         <a class="nav-link-cami <?= $activePage === 'productos' ? 'active' : '' ?>" href="productos.php">Productos</a>
         <a class="nav-link-cami" href="index.php#galeria">Galería</a>
-        <a class="nav-link-cami" href="index.php#blog">Blog</a>
+        <a class="nav-link-cami <?= $activePage === 'blog' ? 'active' : '' ?>" href="blog.php">Blog</a>
         <a class="nav-link-cami" href="index.php#contacto">Contacto</a>
       </div>
       <div class="d-flex align-items-center gap-2">
@@ -631,7 +631,7 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
       <a class="nav-link-cami" href="index.php#sobre-mi" onclick="closeMobileMenu()">Sobre mí</a>
       <a class="nav-link-cami <?= $activePage === 'productos' ? 'active' : '' ?>" href="productos.php" onclick="closeMobileMenu()">Productos</a>
       <a class="nav-link-cami" href="index.php#galeria" onclick="closeMobileMenu()">Galería</a>
-      <a class="nav-link-cami" href="index.php#blog" onclick="closeMobileMenu()">Blog</a>
+      <a class="nav-link-cami <?= $activePage === 'blog' ? 'active' : '' ?>" href="blog.php" onclick="closeMobileMenu()">Blog</a>
       <a class="nav-link-cami" href="index.php#contacto" onclick="closeMobileMenu()">Contacto</a>
       <?php if ($isLoggedIn): ?>
       <a class="nav-link-cami" href="perfil.php" onclick="closeMobileMenu()"><i class="bi bi-person me-1"></i> Mi Perfil</a>
@@ -660,3 +660,4 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
     }
   });
   </script>
+  <script src="components/carrito.js"></script>

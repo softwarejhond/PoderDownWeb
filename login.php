@@ -34,7 +34,6 @@ require 'components/header.php';
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
     padding: 2rem 1rem;
 }
 

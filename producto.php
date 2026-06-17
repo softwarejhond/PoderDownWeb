@@ -1,6 +1,9 @@
 <?php
 $id = (int)($_GET['id'] ?? 0);
-if ($id <= 0) { header('Location: productos.php'); exit; }
+if ($id <= 0) {
+  header('Location: productos.php');
+  exit;
+}
 
 $pageTitle = 'Producto — Poder Down';
 $pageDescription = 'Detalle del producto';
@@ -8,41 +11,429 @@ $activePage = 'productos';
 require 'components/header.php';
 ?>
 <style>
-  .pd-breadcrumb { display:flex;gap:.5rem;align-items:center;font-size:.82rem;margin-bottom:1.5rem;flex-wrap:wrap; }
-  .pd-breadcrumb a { color:var(--cami-turq);text-decoration:none; }
-  .pd-breadcrumb a:hover { text-decoration:underline; }
-  .pd-breadcrumb span { opacity:.45; }
-  .pd-carousel { border-radius:20px;overflow:hidden;background:linear-gradient(135deg,rgba(60,174,224,.12),rgba(0,51,102,.04)); }
-  .pd-carousel .carousel-item { height:420px;display:flex;align-items:center;justify-content:center; }
-  .pd-carousel .carousel-item img { width:100%;height:100%;object-fit:contain;padding:1.5rem; }
-  .pd-carousel .carousel-item .no-img { font-size:6rem;opacity:.15; }
-  .pd-carousel .carousel-indicators { bottom:-10px; }
-  .pd-carousel .carousel-indicators button { width:10px;height:10px;border-radius:50%;background:var(--cami-azul);opacity:.3; }
-  .pd-carousel .carousel-indicators button.active { opacity:1;background:var(--cami-turq); }
-  .pd-carousel .carousel-control-prev,.pd-carousel .carousel-control-next { width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.08);top:50%;transform:translateY(-50%); }
-  .pd-carousel .carousel-control-prev-icon,.pd-carousel .carousel-control-next-icon { filter:invert(.4); }
-  .pd-info { padding:1rem 0; }
-  .pd-cat { display:inline-block;background:var(--cami-turq);color:var(--cami-azul);border-radius:50px;padding:.3rem 1rem;font-size:.78rem;font-weight:700;margin-bottom:.8rem; }
-  .pd-nombre { font-family:var(--font-kranky);font-size:clamp(1.4rem,3vw,2rem);color:var(--cami-azul);margin:0 0 .5rem;line-height:1.2; }
-  .pd-sku { font-size:.78rem;opacity:.4;margin-bottom:1rem; }
-  .pd-precio-wrap { display:flex;align-items:baseline;gap:1rem;margin:1.2rem 0; }
-  .pd-precio { font-family:var(--font-kranky);font-size:2.4rem;color:var(--cami-azul); }
-  .pd-precio-old { font-size:1.1rem;opacity:.35;text-decoration:line-through; }
-  .pd-descripcion { font-size:.92rem;line-height:1.9;opacity:.72;margin:1rem 0 1.5rem; }
-  .pd-stock { display:inline-flex;align-items:center;gap:.4rem;background:rgba(60,174,224,.12);color:var(--cami-azul);border-radius:50px;padding:.4rem 1rem;font-size:.82rem;font-weight:700; }
-  .pd-stock.agotado { background:rgba(242,103,124,.15);color:var(--cami-coral); }
-  .pd-actions { display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem; }
-  .pd-actions .btn-p1,.pd-actions .btn-p-coral { padding:.8rem 2rem;font-size:.95rem;flex:1;justify-content:center;min-width:180px; }
-  .pd-tags { margin-top:1.5rem;padding-top:1.2rem;border-top:2px solid var(--cami-border); }
-  .pd-tag { display:inline-block;background:var(--cami-bg);border-radius:50px;padding:.25rem .8rem;font-size:.73rem;margin:.2rem;opacity:.7; }
-  @media (max-width:767px) {
-    .pd-carousel .carousel-item { height:300px; }
-    .pd-precio { font-size:2rem; }
-    .pd-actions .btn-p1,.pd-actions .btn-p-coral { min-width:140px;font-size:.88rem;padding:.7rem 1.4rem; }
+  .pd-breadcrumb {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    font-size: .82rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
   }
+
+  .pd-breadcrumb a {
+    color: var(--cami-turq);
+    text-decoration: none;
+  }
+
+  .pd-breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .pd-breadcrumb span {
+    opacity: .45;
+  }
+
+  .pd-carousel-wrap {
+    position: relative;
+  }
+
+  .pd-carousel {
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(60, 174, 224, .12), rgba(0, 51, 102, .04));
+    position: relative;
+  }
+
+  .pd-carousel .pd-slides {
+    display: flex;
+    transition: transform .45s cubic-bezier(.25, .46, .45, .94);
+    will-change: transform;
+  }
+
+  .pd-carousel .pd-slide {
+    min-width: 100%;
+    height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-in;
+    position: relative;
+  }
+
+  .pd-carousel .pd-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 1.5rem;
+    user-select: none;
+    pointer-events: auto;
+  }
+
+  .pd-carousel .pd-slide .no-img {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    opacity: .15;
+    pointer-events: none;
+  }
+
+  .pd-carousel .pd-btn-prev,
+  .pd-carousel .pd-btn-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(26, 58, 92, .12);
+    backdrop-filter: blur(4px);
+    border: none;
+    color: var(--cami-azul);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    opacity: .85;
+    transition: opacity .2s, background .2s;
+    z-index: 4;
+  }
+
+  .pd-carousel .pd-btn-prev:hover,
+  .pd-carousel .pd-btn-next:hover {
+    background: rgba(26, 58, 92, .22);
+    opacity: 1;
+  }
+
+  .pd-carousel .pd-btn-prev {
+    left: 10px;
+  }
+
+  .pd-carousel .pd-btn-next {
+    right: 10px;
+  }
+
+  .pd-counter {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background: rgba(26, 58, 92, .65);
+    color: #fff;
+    border-radius: 50px;
+    padding: .2rem .7rem;
+    font-size: .72rem;
+    font-weight: 600;
+    z-index: 5;
+    pointer-events: none;
+    letter-spacing: .3px;
+  }
+
+  .pd-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 4;
+  }
+
+  .pd-dots .pd-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--cami-azul);
+    opacity: .3;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity .25s;
+  }
+
+  .pd-dots .pd-dot.active {
+    opacity: 1;
+    background: var(--cami-turq);
+  }
+
+  .pd-thumbnails {
+    display: flex;
+    gap: .5rem;
+    margin-top: .8rem;
+    overflow-x: auto;
+    padding: .2rem .1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--cami-border) transparent;
+  }
+
+  .pd-thumbnails::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .pd-thumbnails::-webkit-scrollbar-thumb {
+    background: var(--cami-border);
+    border-radius: 4px;
+  }
+
+  .pd-thumb {
+    flex-shrink: 0;
+    width: 68px;
+    height: 68px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: border-color .25s, opacity .25s;
+    opacity: .5;
+    background: linear-gradient(135deg, rgba(60, 174, 224, .08), rgba(0, 51, 102, .02));
+  }
+
+  .pd-thumb:hover {
+    opacity: .75;
+  }
+
+  .pd-thumb.active {
+    border-color: var(--cami-turq);
+    opacity: 1;
+  }
+
+  .pd-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .pd-thumb .thumb-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: var(--cami-border);
+  }
+
+  .pd-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .93);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity .25s;
+  }
+
+  .pd-lightbox.open {
+    display: flex;
+    opacity: 1;
+  }
+
+  .pd-lightbox img {
+    max-width: 92vw;
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, .4);
+  }
+
+  .pd-lightbox .lb-close,
+  .pd-lightbox .lb-prev,
+  .pd-lightbox .lb-next {
+    position: absolute;
+    background: rgba(255, 255, 255, .12);
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.3rem;
+    transition: background .2s;
+    z-index: 2;
+  }
+
+  .pd-lightbox .lb-close:hover,
+  .pd-lightbox .lb-prev:hover,
+  .pd-lightbox .lb-next:hover {
+    background: rgba(255, 255, 255, .28);
+  }
+
+  .pd-lightbox .lb-close {
+    top: 20px;
+    right: 20px;
+  }
+
+  .pd-lightbox .lb-prev {
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .pd-lightbox .lb-next {
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .pd-lightbox .lb-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, .65);
+    font-size: .82rem;
+    font-weight: 600;
+  }
+
+  .pd-info {
+    padding: 1rem 0;
+  }
+
+  .pd-cat {
+    display: inline-block;
+    background: var(--cami-turq);
+    color: var(--cami-azul);
+    border-radius: 50px;
+    padding: .3rem 1rem;
+    font-size: .78rem;
+    font-weight: 700;
+    margin-bottom: .8rem;
+  }
+
+  .pd-nombre {
+    font-family: var(--font-kranky);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--cami-azul);
+    margin: 0 0 .5rem;
+    line-height: 1.2;
+  }
+
+  .pd-sku {
+    font-size: .78rem;
+    opacity: .4;
+    margin-bottom: 1rem;
+  }
+
+  .pd-precio-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin: 1.2rem 0;
+  }
+
+  .pd-precio {
+    font-family: var(--font-kranky);
+    font-size: 2.4rem;
+    color: var(--cami-azul);
+  }
+
+  .pd-precio-old {
+    font-size: 1.1rem;
+    opacity: .35;
+    text-decoration: line-through;
+  }
+
+  .pd-descripcion {
+    font-size: .92rem;
+    line-height: 1.9;
+    opacity: .72;
+    margin: 1rem 0 1.5rem;
+  }
+
+  .pd-stock {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    background: rgba(60, 174, 224, .12);
+    color: var(--cami-azul);
+    border-radius: 50px;
+    padding: .4rem 1rem;
+    font-size: .82rem;
+    font-weight: 700;
+  }
+
+  .pd-stock.agotado {
+    background: rgba(242, 103, 124, .15);
+    color: var(--cami-coral);
+  }
+
+  .pd-actions {
+    display: flex;
+    gap: .8rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .pd-actions .btn-p1,
+  .pd-actions .btn-p-coral {
+    padding: .8rem 2rem;
+    font-size: .95rem;
+    flex: 1;
+    justify-content: center;
+    min-width: 180px;
+  }
+
+  .pd-tags {
+    margin-top: 1.5rem;
+    padding-top: 1.2rem;
+    border-top: 2px solid var(--cami-border);
+  }
+
+  .pd-tag {
+    display: inline-block;
+    background: var(--cami-bg);
+    border-radius: 50px;
+    padding: .25rem .8rem;
+    font-size: .73rem;
+    margin: .2rem;
+    opacity: .7;
+  }
+
+  .pd-carousel.nophoto {
+    height: 420px;
+  }
+
+  @media (max-width:767px) {
+    .pd-carousel .pd-slide {
+      height: 300px;
+    }
+
+    .pd-carousel.nophoto {
+      height: 300px;
+    }
+
+    .pd-precio {
+      font-size: 2rem;
+    }
+
+    .pd-actions .btn-p1,
+    .pd-actions .btn-p-coral {
+      min-width: 140px;
+      font-size: .88rem;
+      padding: .7rem 1.4rem;
+    }
+  }
+
   @media (max-width:575px) {
-    .pd-carousel .carousel-item { height:240px; }
-    .pd-carousel .carousel-item img { padding:.5rem; }
+    .pd-carousel .pd-slide {
+      height: 240px;
+    }
+
+    .pd-carousel .pd-slide img {
+      padding: .5rem;
+    }
+
+    .pd-carousel.nophoto {
+      height: 240px;
+    }
   }
 </style>
 
@@ -63,81 +454,209 @@ require 'components/header.php';
   </div>
 </div>
 
+<div class="pd-lightbox" id="pdLightbox" onclick="if(event.target===this)cerrarLightbox()">
+  <button class="lb-close" onclick="cerrarLightbox()" aria-label="Cerrar"><i class="bi bi-x-lg"></i></button>
+  <button class="lb-prev" id="lbPrev" onclick="navegarLightbox(-1)" aria-label="Anterior"><i class="bi bi-chevron-left"></i></button>
+  <button class="lb-next" id="lbNext" onclick="navegarLightbox(1)" aria-label="Siguiente"><i class="bi bi-chevron-right"></i></button>
+  <span class="lb-counter" id="lbCounter"></span>
+  <img src="" alt="" id="lbImg">
+</div>
+
 <?php require_once __DIR__ . '/footer.php'; ?>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
 <script>
 const API_URL = 'components/productos/cargar_productos.php';
 const PRODUCTO_ID = <?= $id ?>;
-let carrito = [];
+let imagenesProducto = [];
 
-/* ─── TOGGLES (header) ─── */
-function toggleMobileMenu() {
-  const m = document.getElementById('navMobileMenu'), i = document.getElementById('hamburger-icon');
-  m.classList.toggle('open'); i.className = m.classList.contains('open') ? 'bi bi-x-lg' : 'bi bi-list';
-}
-function closeMobileMenu() {
-  document.getElementById('navMobileMenu').classList.remove('open');
-  document.getElementById('hamburger-icon').className = 'bi bi-list';
-}
+  /* ─── TOGGLES (header) ─── */
+  function toggleMobileMenu() {
+    const m = document.getElementById('navMobileMenu'),
+      i = document.getElementById('hamburger-icon');
+    m.classList.toggle('open');
+    i.className = m.classList.contains('open') ? 'bi bi-x-lg' : 'bi bi-list';
+  }
 
-async function cargarProducto() {
-  try {
-    const [prodRes, imgRes] = await Promise.all([
-      fetch(`${API_URL}?action=product&id=${PRODUCTO_ID}`),
-      fetch(`${API_URL}?action=product_images&id=${PRODUCTO_ID}`)
-    ]);
-    const prod = await prodRes.json();
-    const imgs = await imgRes.json();
+  function closeMobileMenu() {
+    document.getElementById('navMobileMenu').classList.remove('open');
+    document.getElementById('hamburger-icon').className = 'bi bi-list';
+  }
 
-    if (!prod.exito || !prod.datos[0]) {
-      document.getElementById('productoWrap').innerHTML = `
+  async function cargarProducto() {
+    try {
+      const [prodRes, imgRes] = await Promise.all([
+        fetch(`${API_URL}?action=product&id=${PRODUCTO_ID}`),
+        fetch(`${API_URL}?action=product_images&id=${PRODUCTO_ID}`)
+      ]);
+      const prod = await prodRes.json();
+      const imgs = await imgRes.json();
+
+      if (!prod.exito || !prod.datos[0]) {
+        document.getElementById('productoWrap').innerHTML = `
         <div class="col-12 empty-state"><i class="bi bi-emoji-frown"></i><p style="opacity:.6;">Producto no encontrado.</p>
         <a href="productos.php" class="btn-p2 mt-3">← Volver a tienda</a></div>`;
-      return;
-    }
-    const p = prod.datos[0];
-    const imagenes = imgs.exito ? imgs.datos : [];
-    const agotado = p.stock_agotado || parseInt(p.stock) === 0;
+        return;
+      }
+      const p = prod.datos[0];
+      const imagenes = imgs.exito ? imgs.datos : [];
+      const agotado = p.stock_agotado || parseInt(p.stock) === 0;
 
-    document.getElementById('bcProducto').textContent = p.nombre;
-    renderizar(p, imagenes, agotado);
-  } catch (e) {
-    document.getElementById('productoWrap').innerHTML = `
+      document.getElementById('bcProducto').textContent = p.nombre;
+      renderizar(p, imagenes, agotado);
+    } catch (e) {
+      document.getElementById('productoWrap').innerHTML = `
       <div class="col-12 empty-state"><i class="bi bi-wifi-off"></i><p>Error al cargar el producto.</p>
       <a href="productos.php" class="btn-p2 mt-3">← Volver a tienda</a></div>`;
+    }
   }
-}
+
+  /* ─── CARRUSEL CUSTOM ─── */
+  let slideActual = 0;
+  let totalSlidesCarousel = 0;
+
+  function construirCarousel(imagenes, nombreProducto) {
+    if (!imagenes.length) {
+      return `<div class="pd-carousel-wrap"><div class="pd-carousel nophoto d-flex align-items-center justify-content-center"><i class="bi bi-image no-img"></i></div></div>`;
+    }
+
+    totalSlidesCarousel = imagenes.length;
+    slideActual = 0;
+
+    let slidesHtml = '',
+      dotsHtml = '',
+      thumbsHtml = '';
+    imagenes.forEach((img, i) => {
+      const altText = (img.alt || nombreProducto).replace(/"/g, '&quot;');
+      slidesHtml += `<div class="pd-slide">
+      <img src="${img.url}" alt="${altText}" loading="${i===0?'eager':'lazy'}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" onclick="abrirLightbox(${i})">
+      <div class="no-img" style="display:none"><i class="bi bi-image"></i></div>
+    </div>`;
+      dotsHtml += `<button class="pd-dot${i===0?' active':''}" onclick="irASlide(${i})" aria-label="Imagen ${i+1}"></button>`;
+      thumbsHtml += `<div class="pd-thumb${i===0?' active':''}" onclick="irASlide(${i})">
+      <img src="${img.url}" alt="${altText}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="thumb-placeholder" style="display:none"><i class="bi bi-image"></i></div>
+    </div>`;
+    });
+
+    const controles = imagenes.length > 1 ? `
+    <button class="pd-btn-prev" onclick="slideAnterior()" aria-label="Anterior"><i class="bi bi-chevron-left"></i></button>
+    <button class="pd-btn-next" onclick="slideSiguiente()" aria-label="Siguiente"><i class="bi bi-chevron-right"></i></button>` : '';
+
+    return `<div class="pd-carousel-wrap" id="pdCarouselWrap">
+    <div class="pd-carousel" id="pdCarousel">
+      <span class="pd-counter">1 / ${imagenes.length}</span>
+      <div class="pd-slides" id="pdSlides">${slidesHtml}</div>
+      <div class="pd-dots">${dotsHtml}</div>
+      ${controles}
+    </div>
+    ${imagenes.length > 1 ? `<div class="pd-thumbnails">${thumbsHtml}</div>` : ''}
+  </div>`;
+  }
+
+  function irASlide(index) {
+    if (index < 0 || index >= totalSlidesCarousel) return;
+    slideActual = index;
+    const slides = document.getElementById('pdSlides');
+    if (slides) slides.style.transform = `translateX(-${index * 100}%)`;
+
+    document.querySelectorAll('.pd-dot').forEach((d, i) => d.classList.toggle('active', i === index));
+    document.querySelectorAll('.pd-thumb').forEach((t, i) => t.classList.toggle('active', i === index));
+    const counter = document.querySelector('.pd-counter');
+    if (counter) counter.textContent = `${index + 1} / ${totalSlidesCarousel}`;
+  }
+
+  function slideAnterior() {
+    irASlide((slideActual - 1 + totalSlidesCarousel) % totalSlidesCarousel);
+  }
+
+  function slideSiguiente() {
+    irASlide((slideActual + 1) % totalSlidesCarousel);
+  }
+
+  function inicializarCarousel() {
+    const slides = document.getElementById('pdSlides');
+    if (!slides || totalSlidesCarousel <= 1) return;
+
+    let touchStartX = 0,
+      touchEndX = 0;
+    slides.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+    }, {
+      passive: true
+    });
+    slides.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].clientX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) slideSiguiente();
+        else slideAnterior();
+      }
+    });
+
+    document.addEventListener('keydown', function tecladoCarousel(e) {
+      if (!document.getElementById('pdCarousel')) {
+        document.removeEventListener('keydown', tecladoCarousel);
+        return;
+      }
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        slideAnterior();
+      }
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        slideSiguiente();
+      }
+      if (e.key === 'Escape') {
+        cerrarLightbox();
+      }
+    });
+  }
+
+  /* ─── LIGHTBOX ─── */
+  let indiceLightbox = 0;
+
+  function abrirLightbox(index) {
+    if (!imagenesProducto.length) return;
+    indiceLightbox = index;
+    const img = imagenesProducto[index];
+    if (!img) return;
+    const lb = document.getElementById('pdLightbox');
+    const lbImg = document.getElementById('lbImg');
+    lbImg.src = img.url;
+    lbImg.alt = img.alt || '';
+    document.getElementById('lbCounter').textContent = imagenesProducto.length > 1 ? `${index + 1} / ${imagenesProducto.length}` : '';
+    document.getElementById('lbPrev').style.display = imagenesProducto.length > 1 ? '' : 'none';
+    document.getElementById('lbNext').style.display = imagenesProducto.length > 1 ? '' : 'none';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function cerrarLightbox() {
+    document.getElementById('pdLightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function navegarLightbox(dir) {
+    if (!imagenesProducto.length) return;
+    indiceLightbox = (indiceLightbox + dir + imagenesProducto.length) % imagenesProducto.length;
+    const img = imagenesProducto[indiceLightbox];
+    document.getElementById('lbImg').src = img.url;
+    document.getElementById('lbImg').alt = img.alt || '';
+    document.getElementById('lbCounter').textContent = `${indiceLightbox + 1} / ${imagenesProducto.length}`;
+  }
 
 function renderizar(p, imagenes, agotado) {
-  // Carrusel
-  let carouselHtml;
-  if (imagenes.length > 0) {
-    let items = '', indicators = '';
-    imagenes.forEach((img, i) => {
-      const active = i === 0 ? ' active' : '';
-      items += `<div class="carousel-item${active}">
-        <img src="${img.url}" alt="${(img.alt||p.nombre).replace(/"/g,'&quot;')}" onerror="this.outerHTML='<div class=\\'carousel-item${active}\\'><div class=\\'no-img\\'><i class=\\'bi bi-image\\'></i></div></div>'">
-      </div>`;
-      indicators += `<button type="button" data-bs-target="#pdCarousel" data-bs-slide-to="${i}" class="${active? 'active':''}" aria-label="${img.alt||'Imagen '+(i+1)}"></button>`;
-    });
-    carouselHtml = `<div id="pdCarousel" class="carousel slide pd-carousel" data-bs-ride="false">
-      <div class="carousel-indicators">${indicators}</div>
-      <div class="carousel-inner">${items}</div>
-      ${imagenes.length > 1 ? `
-      <button class="carousel-control-prev" type="button" data-bs-target="#pdCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
-      <button class="carousel-control-next" type="button" data-bs-target="#pdCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>` : ''}
-    </div>`;
-  } else {
-    carouselHtml = `<div class="pd-carousel d-flex align-items-center justify-content-center" style="height:420px;"><i class="bi bi-image no-img"></i></div>`;
-  }
+  imagenesProducto = imagenes;
+  const carouselHtml = construirCarousel(imagenes, p.nombre);
+  const primeraImagen = imagenes.length > 0 ? imagenes[0].url : '';
 
-  const tieneDescuento = p.precio_compare && parseFloat(p.precio_compare) > parseFloat(p.precio);
-  const tags = p.tags ? p.tags.split(',').map(t => `<span class="pd-tag">${t.trim()}</span>`).join('') : '';
+    const tieneDescuento = p.precio_compare && parseFloat(p.precio_compare) > parseFloat(p.precio);
+    const tags = p.tags ? p.tags.split(',').map(t => `<span class="pd-tag">${t.trim()}</span>`).join('') : '';
 
-  const html = `
+    const html = `
     <div class="col-lg-6">
       ${carouselHtml}
     </div>
@@ -158,7 +677,7 @@ function renderizar(p, imagenes, agotado) {
         </span>
         <p class="pd-descripcion">${p.descripcion || 'Sin descripción disponible.'}</p>
         <div class="pd-actions">
-          <button class="btn-p1" onclick="agregarAlCarrito(${p.id},'${encodeURIComponent(p.nombre)}',${p.precio})" ${agotado?'disabled':''}>
+          <button class="btn-p1" onclick="agregarAlCarrito(${p.id},'${encodeURIComponent(p.nombre)}',${p.precio},'${primeraImagen.replace(/'/g,"\\'")}')" ${agotado?'disabled':''}>
             <i class="bi bi-cart-plus"></i> Agregar al carrito
           </button>
           <button class="btn-p-coral" onclick="comprarAhora(${p.id},${p.precio})" ${agotado?'disabled':''}>
@@ -169,73 +688,53 @@ function renderizar(p, imagenes, agotado) {
       </div>
     </div>`;
 
-  document.getElementById('productoWrap').innerHTML = html;
+    document.getElementById('productoWrap').innerHTML = html;
+    inicializarCarousel();
 }
 
-/* ─── AGREGAR AL CARRITO ─── */
-function agregarAlCarrito(id, nombre, precio) {
-  nombre = decodeURIComponent(nombre);
-  const ex = carrito.find(i => i.id === id);
-  if (ex) ex.cantidad++;
-  else carrito.push({ id, nombre, precio: Number(precio), cantidad: 1 });
-  actualizarContadorCarrito();
-  Swal.fire({ toast: true, position: 'bottom-end', icon: 'success', title: `¡${nombre} agregado!`, showConfirmButton: false, timer: 2200, timerProgressBar: true, background: '#ebeae4', color: '#1A3A5C' });
-}
-function actualizarContadorCarrito() {
-  document.getElementById('contadorCarrito').textContent = carrito.reduce((a,i) => a+i.cantidad, 0);
-}
-
-/* ─── COMPRAR AHORA ─── */
-function comprarAhora(id, precio) {
-  window.location.href = `checkout.php?id=${id}&precio=${precio}`;
-}
-
-/* ─── CARRITO (modal) ─── */
-function verCarrito() {
-  if (!carrito.length) {
-    Swal.fire({ title: '<span style="font-family:var(--font-kranky)">Carrito vacío 🛍️</span>', html: '<p style="font-family:var(--font-archivo)">Agrega productos desde el catálogo.</p>', confirmButtonColor: '#3CAEE0', confirmButtonText: 'Seguir comprando' });
-    return;
+  /* ─── COMPRAR AHORA ─── */
+  function comprarAhora(id, precio) {
+    window.location.href = `checkout.php?id=${id}&precio=${precio}`;
   }
-  const ti = carrito.reduce((a,i)=>a+i.cantidad,0), tp = carrito.reduce((a,i)=>a+i.precio*i.cantidad,0);
-  Swal.fire({
-    title: '<span style="font-family:var(--font-kranky)">Mi carrito 🛍️</span>',
-    html: `<div style="text-align:left;font-family:var(--font-archivo);">${carrito.map(i=>`
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid var(--cami-border);gap:.5rem;">
-        <span style="font-size:.88rem;flex:1;">${i.nombre.replace(/</g,"&lt;").replace(/>/g,"&gt;")}</span>
-        <div style="display:flex;align-items:center;gap:.4rem;flex-shrink:0;">
-          <button onclick="cambiarCantidad(${i.id},-1)" style="background:var(--cami-bg);border:none;border-radius:50%;width:26px;height:26px;cursor:pointer;">−</button>
-          <span style="background:var(--cami-turq);color:var(--cami-azul);border-radius:50px;padding:.2rem .7rem;font-size:.75rem;font-weight:700;">×${i.cantidad}</span>
-          <button onclick="cambiarCantidad(${i.id},+1)" style="background:var(--cami-turq);border:none;border-radius:50%;width:26px;height:26px;cursor:pointer;color:var(--cami-azul);">+</button>
-          <button onclick="quitarItem(${i.id})" style="background:rgba(242,103,124,.15);border:none;border-radius:50%;width:26px;height:26px;cursor:pointer;color:var(--cami-coral);">✕</button>
-        </div>
-      </div>`).join('')}
-      <div style="display:flex;justify-content:space-between;margin-top:1rem;font-weight:700;padding-top:.5rem;border-top:2px solid var(--cami-border);"><span>${ti} artículo${ti!==1?'s':''}</span><span style="color:var(--cami-azul);font-family:var(--font-kranky);font-size:1.1rem;">$${tp.toLocaleString('es-CO',{minimumFractionDigits:0})}</span></div></div>`,
-    confirmButtonText: '🛒 Finalizar compra', showCancelButton: true, cancelButtonText: 'Seguir comprando', confirmButtonColor: '#3CAEE0',
-  }).then(r=>{if(r.isConfirmed) window.location.href='checkout.php?'+carrito.map(i=>'items[]='+i.id+'&qty[]='+i.cantidad).join('&')+'&total='+tp;});
-}
-function cambiarCantidad(id, delta) {
-  const item = carrito.find(i=>i.id===id); if(!item) return;
-  item.cantidad = Math.max(1, item.cantidad+delta); actualizarContadorCarrito();
-  Swal.close(); setTimeout(()=>verCarrito(), 50);
-}
-function quitarItem(id) {
-  carrito = carrito.filter(i=>i.id!==id); actualizarContadorCarrito();
-  Swal.close(); if(carrito.length>0) setTimeout(()=>verCarrito(), 50);
-}
 
-/* ─── FAB / DISLEXIA (mismos que en header) ─── */
-function toggleFabSocial() {
-  const l=document.getElementById('fabSocialLinks'),i=document.getElementById('fabIconMain');
-  l.classList.toggle('open');i.className=l.classList.contains('open')?'bi bi-x-lg':'bi bi-share-fill';
-}
-document.addEventListener('click',e=>{const w=document.getElementById('fabSocialWrap');if(w&&!w.contains(e.target)){document.getElementById('fabSocialLinks')?.classList.remove('open');const i=document.getElementById('fabIconMain');if(i)i.className='bi bi-share-fill';}});
+  /* ─── FAB / DISLEXIA ─── */
+  function toggleFabSocial() {
+    const l = document.getElementById('fabSocialLinks'),
+      i = document.getElementById('fabIconMain');
+    l.classList.toggle('open');
+    i.className = l.classList.contains('open') ? 'bi bi-x-lg' : 'bi bi-share-fill';
+  }
+  document.addEventListener('click', e => {
+    const w = document.getElementById('fabSocialWrap');
+    if (w && !w.contains(e.target)) {
+      document.getElementById('fabSocialLinks')?.classList.remove('open');
+      const i = document.getElementById('fabIconMain');
+      if (i) i.className = 'bi bi-share-fill';
+    }
+  });
 
-let dyslexiaOn=localStorage.getItem('pd_dyslexia')==='1';
-function applyDyslexia(){document.body.classList.toggle('dyslexia-mode',dyslexiaOn);const l=document.getElementById('dyslexiaLabelMain'),b=document.getElementById('btnDyslexiaFloat');if(l)l.textContent=dyslexiaOn?'Normal':'Dislexia';if(b){b.style.background=dyslexiaOn?'var(--cami-turq)':'var(--cami-azul)';b.style.color=dyslexiaOn?'var(--cami-azul)':'white';}}
-function toggleDyslexia(){dyslexiaOn=!dyslexiaOn;localStorage.setItem('pd_dyslexia',dyslexiaOn?'1':'0');applyDyslexia();}
-applyDyslexia();
+  let dyslexiaOn = localStorage.getItem('pd_dyslexia') === '1';
 
-cargarProducto();
+  function applyDyslexia() {
+    document.body.classList.toggle('dyslexia-mode', dyslexiaOn);
+    const l = document.getElementById('dyslexiaLabelMain'),
+      b = document.getElementById('btnDyslexiaFloat');
+    if (l) l.textContent = dyslexiaOn ? 'Normal' : 'Dislexia';
+    if (b) {
+      b.style.background = dyslexiaOn ? 'var(--cami-turq)' : 'var(--cami-azul)';
+      b.style.color = dyslexiaOn ? 'var(--cami-azul)' : 'white';
+    }
+  }
+
+  function toggleDyslexia() {
+    dyslexiaOn = !dyslexiaOn;
+    localStorage.setItem('pd_dyslexia', dyslexiaOn ? '1' : '0');
+    applyDyslexia();
+  }
+  applyDyslexia();
+
+  cargarProducto();
 </script>
 </body>
+
 </html>

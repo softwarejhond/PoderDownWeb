@@ -255,16 +255,15 @@ require 'components/header.php';
 
 <?php require_once __DIR__ . '/footer.php'; ?>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
 <script>
 const API_URL = 'components/productos/cargar_productos.php';
 const PROD_POR_PAGINA = 16;
 let paginaActual = 1,
   categoriaId = 0,
-  totalProductos = 0,
-  carrito = [];
+  totalProductos = 0;
 
 /* ─── MOBILE MENU ─── */
 function toggleMobileMenu() {
@@ -387,7 +386,7 @@ function tarjetaProducto(p) {
       <div class="product-footer">
         <span class="product-price">$${Number(p.precio).toLocaleString('es-CO',{minimumFractionDigits:0})}</span>
         <button class="btn-add-cami"
-          data-pid="${p.id}" data-nombre="${encodeURIComponent(p.nombre)}" data-precio="${p.precio}" onclick="agregarAlCarritoBtn(event,this)"
+          data-pid="${p.id}" data-nombre="${encodeURIComponent(p.nombre)}" data-precio="${p.precio}" data-imagen="${p.imagen || ''}" onclick="agregarAlCarritoBtn(event,this)"
           ${agotado ? 'disabled' : ''} title="${agotado ? 'Agotado' : 'Agregar al carrito'}">
           <i class="bi bi-${agotado ? 'x' : 'plus-lg'}"></i>
         </button>
@@ -480,100 +479,9 @@ async function verProducto(id) {
       cancelButtonText: 'Cerrar',
       confirmButtonColor: '#3CAEE0',
     }).then(r => {
-      if (r.isConfirmed && !agotado) agregarAlCarritoDirecto(p.id, p.nombre, p.precio);
+      if (r.isConfirmed && !agotado) agregarAlCarrito(p.id, p.nombre, p.precio, p.imagen || '');
     });
   } catch (e) {}
-}
-
-/* ─── CARRITO ─── */
-function agregarAlCarritoBtn(event, el) {
-  event.stopPropagation();
-  agregarAlCarritoDirecto(parseInt(el.dataset.pid), decodeURIComponent(el.dataset.nombre), parseFloat(el.dataset.precio));
-}
-function agregarAlCarritoDirecto(id, nombre, precio) {
-  const ex = carrito.find(i => i.id === id);
-  if (ex) ex.cantidad++;
-  else carrito.push({ id, nombre, precio: Number(precio), cantidad: 1 });
-  actualizarContadorCarrito();
-  Swal.fire({ toast: true, position: 'bottom-end', icon: 'success', title: `¡${nombre} agregado!`, showConfirmButton: false, timer: 2200, timerProgressBar: true, background: '#ebeae4', color: '#1A3A5C' });
-}
-function actualizarContadorCarrito() {
-  document.getElementById('contadorCarrito').textContent = carrito.reduce((a, i) => a + i.cantidad, 0);
-}
-
-function verCarrito() {
-  if (!carrito.length) {
-    Swal.fire({ title: `<span style="font-family:var(--font-kranky)">Carrito vacío 🛍️</span>`, html: `<p style="font-family:var(--font-archivo)">Agrega productos desde el catálogo.</p>`, confirmButtonColor: '#3CAEE0', confirmButtonText: 'Seguir comprando' });
-    return;
-  }
-  const ti = carrito.reduce((a, i) => a + i.cantidad, 0);
-  const tp = carrito.reduce((a, i) => a + i.precio * i.cantidad, 0);
-  Swal.fire({
-    title: `<span style="font-family:var(--font-kranky)">Mi carrito 🛍️</span>`,
-    html: `<div style="text-align:left;font-family:var(--font-archivo);">${carrito.map(i => `
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid var(--cami-border);gap:.5rem;">
-        <span style="font-size:.88rem;flex:1;">${i.nombre.replace(/</g,"&lt;").replace(/>/g,"&gt;")}</span>
-        <div style="display:flex;align-items:center;gap:.4rem;flex-shrink:0;">
-          <button onclick="cambiarCantidad(${i.id},-1)" style="background:var(--cami-bg);border:none;border-radius:50%;width:26px;height:26px;cursor:pointer;">−</button>
-          <span style="background:var(--cami-turq);color:var(--cami-azul);border-radius:50px;padding:.2rem .7rem;font-size:.75rem;font-weight:700;">×${i.cantidad}</span>
-          <button onclick="cambiarCantidad(${i.id},+1)" style="background:var(--cami-turq);border:none;border-radius:50%;width:26px;height:26px;cursor:pointer;color:var(--cami-azul);">+</button>
-          <button onclick="quitarItem(${i.id})" style="background:rgba(242,103,124,.15);border:none;border-radius:50%;width:26px;height:26px;cursor:pointer;color:var(--cami-coral);">✕</button>
-        </div>
-      </div>`).join('')}
-      <div style="display:flex;justify-content:space-between;margin-top:1rem;font-weight:700;padding-top:.5rem;border-top:2px solid var(--cami-border);">
-        <span>${ti} artículo${ti!==1?'s':''}</span>
-        <span style="color:var(--cami-azul);font-family:var(--font-kranky);font-size:1.1rem;">$${tp.toLocaleString('es-CO',{minimumFractionDigits:0})}</span>
-      </div></div>`,
-    confirmButtonText: '🛒 Finalizar compra', showCancelButton: true, cancelButtonText: 'Seguir comprando', confirmButtonColor: '#3CAEE0',
-  }).then(r => { if (r.isConfirmed) abrirCheckout(); });
-}
-function cambiarCantidad(id, delta) {
-  const item = carrito.find(i => i.id === id);
-  if (!item) return;
-  item.cantidad = Math.max(1, item.cantidad + delta);
-  actualizarContadorCarrito();
-  Swal.close();
-  setTimeout(() => verCarrito(), 50);
-}
-function quitarItem(id) {
-  carrito = carrito.filter(i => i.id !== id);
-  actualizarContadorCarrito();
-  Swal.close();
-  if (carrito.length > 0) setTimeout(() => verCarrito(), 50);
-}
-function abrirCheckout() {
-  const tp = carrito.reduce((a,i)=>a+i.precio*i.cantidad,0);
-  Swal.fire({
-    title: `<span style="font-family:var(--font-kranky)">Datos de envío</span>`,
-    html: `<div style="text-align:left;font-family:var(--font-archivo);display:flex;flex-direction:column;gap:.8rem;">
-      <p style="font-size:.82rem;opacity:.6;margin:0;">Total: <strong>$${tp.toLocaleString('es-CO',{minimumFractionDigits:0})}</strong></p>
-      <div><label style="font-size:.8rem;font-weight:700;color:var(--cami-azul);">Nombre completo *</label><input id="chkNombre" type="text" placeholder="Tu nombre" style="width:100%;padding:.6rem .9rem;border:2px solid var(--cami-border);border-radius:12px;font-size:.88rem;margin-top:.3rem;outline:none;box-sizing:border-box;"></div>
-      <div><label style="font-size:.8rem;font-weight:700;color:var(--cami-azul);">Email *</label><input id="chkEmail" type="email" placeholder="tu@correo.com" style="width:100%;padding:.6rem .9rem;border:2px solid var(--cami-border);border-radius:12px;font-size:.88rem;margin-top:.3rem;outline:none;box-sizing:border-box;"></div>
-      <div><label style="font-size:.8rem;font-weight:700;color:var(--cami-azul);">WhatsApp *</label><input id="chkTelefono" type="tel" placeholder="313 746 8039" style="width:100%;padding:.6rem .9rem;border:2px solid var(--cami-border);border-radius:12px;font-size:.88rem;margin-top:.3rem;outline:none;box-sizing:border-box;"></div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;"><div><label style="font-size:.8rem;font-weight:700;color:var(--cami-azul);">Ciudad *</label><input id="chkCiudad" type="text" placeholder="Medellín" style="width:100%;padding:.6rem .9rem;border:2px solid var(--cami-border);border-radius:12px;font-size:.88rem;margin-top:.3rem;outline:none;box-sizing:border-box;"></div><div><label style="font-size:.8rem;font-weight:700;color:var(--cami-azul);">Dirección *</label><input id="chkDireccion" type="text" placeholder="Cra 10 #20-30" style="width:100%;padding:.6rem .9rem;border:2px solid var(--cami-border);border-radius:12px;font-size:.88rem;margin-top:.3rem;outline:none;box-sizing:border-box;"></div></div>
-      <p style="font-size:.73rem;color:#aaa;margin:0;">📦 Sin registro. Envíos a toda Colombia.</p></div>`,
-    confirmButtonText: '✅ Confirmar pedido', showCancelButton: true, cancelButtonText: '← Volver', confirmButtonColor: '#3CAEE0', width: 520,
-    preConfirm: () => {
-      const n=(document.getElementById('chkNombre')?.value?.trim()||'').substring(0,120);
-      const e=(document.getElementById('chkEmail')?.value?.trim()||'').substring(0,120);
-      const t=(document.getElementById('chkTelefono')?.value?.trim()||'').substring(0,30);
-      const c=(document.getElementById('chkCiudad')?.value?.trim()||'').substring(0,100);
-      const d=(document.getElementById('chkDireccion')?.value?.trim()||'').substring(0,200);
-      if(!n||!e||!t||!c||!d){Swal.showValidationMessage('Completa todos los campos (*)');return false;}
-      if(!e.includes('@')){Swal.showValidationMessage('Email inválido');return false;}
-      return{nombre:n,email:e,telefono:t,ciudad:c,direccion:d};
-    }
-  }).then(async r=>{if(!r.isConfirmed||!r.value){verCarrito();return;}await procesarCompra(r.value);});
-}
-async function procesarCompra(datosCliente) {
-  Swal.fire({title:'Procesando tu pedido...',allowOutsideClick:false,didOpen:()=>Swal.showLoading()});
-  try {
-    const body={...datosCliente,items:carrito.map(i=>({producto_id:i.id,nombre:i.nombre,precio:i.precio,cantidad:i.cantidad})),total:carrito.reduce((a,i)=>a+i.precio*i.cantidad,0)};
-    const res=await fetch('pedidos.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
-    const json=await res.json();
-    if(json.exito||res.ok){carrito=[];actualizarContadorCarrito();Swal.fire({icon:'success',title:'¡Pedido confirmado! 🎉',html:'<p style="font-family:var(--font-archivo)">Recibiste un email de confirmación.</p>',confirmButtonColor:'#3CAEE0'});}
-    else throw new Error(json.mensaje||'Error');
-  } catch(e){Swal.fire({icon:'error',title:'Oops...',text:'Hubo un problema. Contáctanos por WhatsApp.',confirmButtonColor:'#3CAEE0'});}
 }
 
 /* ─── REDES FLOTANTES ─── */
