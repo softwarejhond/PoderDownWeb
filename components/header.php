@@ -4,6 +4,10 @@ $pageDescription = $pageDescription ?? 'Descubre obras únicas de Cami y lleva e
 $activePage = $activePage ?? 'inicio';
 $showNavSearch = $showNavSearch ?? false;
 $ogTitle = $ogTitle ?? 'Poder Down';
+
+require_once __DIR__ . '/../controller/auth.php';
+$isLoggedIn = isLoggedIn();
+$currentUser = $isLoggedIn ? getCurrentUser() : null;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,7 +24,7 @@ $ogTitle = $ogTitle ?? 'Poder Down';
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Oregano:ital@0;1&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/public/css/marca.css">
+  <link rel="stylesheet" href="css/marca.css">
   <style>
     :root {
       --cami-bg: #ebeae4;
@@ -201,6 +205,85 @@ $ogTitle = $ogTitle ?? 'Poder Down';
     }
     .btn-carrito:hover {
       background: #00254d;
+    }
+    .btn-user {
+      background: transparent;
+      color: var(--cami-azul);
+      border: 2px solid var(--cami-border);
+      border-radius: 50px;
+      padding: .42rem 1.1rem;
+      font-weight: 700;
+      font-family: var(--font-playpen);
+      font-size: .82rem;
+      cursor: pointer;
+      transition: all .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      text-decoration: none;
+    }
+    .btn-user:hover {
+      background: var(--cami-azul);
+      color: #fff;
+      border-color: var(--cami-azul);
+    }
+    .btn-user-logged {
+      background: var(--cami-turq);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: .42rem 1.1rem;
+      font-weight: 700;
+      font-family: var(--font-playpen);
+      font-size: .82rem;
+      cursor: pointer;
+      transition: all .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      text-decoration: none;
+    }
+    .btn-user-logged:hover {
+      background: var(--cami-azul);
+      color: #fff;
+    }
+    .user-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .user-dropdown-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: calc(100% + 8px);
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(26,58,92,.14);
+      min-width: 180px;
+      z-index: 1000;
+      padding: .5rem 0;
+      animation: ddFadeIn .2s ease;
+    }
+    @keyframes ddFadeIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .user-dropdown-menu.show { display: block; }
+    .user-dropdown-menu a {
+      display: block;
+      padding: .55rem 1.2rem;
+      font-size: .84rem;
+      color: var(--cami-azul);
+      text-decoration: none;
+      font-family: var(--font-playpen);
+      font-weight: 600;
+      transition: background .15s;
+    }
+    .user-dropdown-menu a:hover { background: var(--cami-bg); }
+    .user-dropdown-menu hr {
+      margin: .3rem 0;
+      border-color: var(--cami-border);
+      opacity: .5;
     }
     /* FILTROS Y SEARCH */
     .filtro-btn {
@@ -480,6 +563,7 @@ $ogTitle = $ogTitle ?? 'Poder Down';
     @media (max-width:575px) {
       .navbar-brand-cami img { height: 30px; }
       .btn-carrito { padding: .45rem .9rem; font-size: .8rem; }
+      .btn-user, .btn-user-logged { padding: .4rem .8rem; font-size: .75rem; }
       .product-card-cami .img-wrap { height: 160px; }
       .product-name { font-size: .9rem; }
       .product-price { font-size: 1.2rem; }
@@ -520,6 +604,23 @@ $ogTitle = $ogTitle ?? 'Poder Down';
           <i class="bi bi-bag-heart"></i>
           <span class="badge-carrito" id="contadorCarrito">0</span>
         </button>
+        <?php if ($isLoggedIn): ?>
+        <div class="user-dropdown">
+          <button class="btn-user-logged" onclick="toggleUserMenu(event)" aria-label="Mi cuenta">
+            <i class="bi bi-person-circle"></i> <span class="d-none d-md-inline"><?= htmlspecialchars(explode(' ', $currentUser['first_name'])[0]) ?></span>
+          </button>
+          <div class="user-dropdown-menu" id="userDropdown">
+            <a href="perfil.php"><i class="bi bi-person me-1"></i> Mi Perfil</a>
+            <a href="#"><i class="bi bi-box-seam me-1"></i> Mis Pedidos</a>
+            <hr>
+            <a href="logout.php" style="color:var(--pd-coral);"><i class="bi bi-box-arrow-right me-1"></i> Cerrar Sesión</a>
+          </div>
+        </div>
+        <?php else: ?>
+        <a href="login.php" class="btn-user">
+          <i class="bi bi-person"></i> <span class="d-none d-md-inline">Ingresar</span>
+        </a>
+        <?php endif; ?>
         <button class="nav-mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menú">
           <i class="bi bi-list" id="hamburger-icon"></i>
         </button>
@@ -532,6 +633,13 @@ $ogTitle = $ogTitle ?? 'Poder Down';
       <a class="nav-link-cami" href="index.php#galeria" onclick="closeMobileMenu()">Galería</a>
       <a class="nav-link-cami" href="index.php#blog" onclick="closeMobileMenu()">Blog</a>
       <a class="nav-link-cami" href="index.php#contacto" onclick="closeMobileMenu()">Contacto</a>
+      <?php if ($isLoggedIn): ?>
+      <a class="nav-link-cami" href="perfil.php" onclick="closeMobileMenu()"><i class="bi bi-person me-1"></i> Mi Perfil</a>
+      <a class="nav-link-cami" href="logout.php" onclick="closeMobileMenu()" style="color:var(--pd-coral);"><i class="bi bi-box-arrow-right me-1"></i> Cerrar Sesión</a>
+      <?php else: ?>
+      <a class="nav-link-cami <?= $activePage === 'login' ? 'active' : '' ?>" href="login.php" onclick="closeMobileMenu()"><i class="bi bi-box-arrow-in-right me-1"></i> Iniciar Sesión</a>
+      <a class="nav-link-cami <?= $activePage === 'registro' ? 'active' : '' ?>" href="registro.php" onclick="closeMobileMenu()"><i class="bi bi-person-plus me-1"></i> Registrarte</a>
+      <?php endif; ?>
       <?php if (!$showNavSearch): ?>
       <input type="text" class="form-control input-search-cami mt-2"
         placeholder="Buscar producto..."
@@ -539,3 +647,16 @@ $ogTitle = $ogTitle ?? 'Poder Down';
       <?php endif; ?>
     </div>
   </nav>
+  <script>
+  function toggleUserMenu(e) {
+    e.stopPropagation();
+    var menu = document.getElementById('userDropdown');
+    if (menu) menu.classList.toggle('show');
+  }
+  document.addEventListener('click', function(e) {
+    var menu = document.getElementById('userDropdown');
+    if (menu && menu.classList.contains('show') && !e.target.closest('.user-dropdown')) {
+      menu.classList.remove('show');
+    }
+  });
+  </script>
