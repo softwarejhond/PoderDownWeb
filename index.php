@@ -54,75 +54,289 @@ require 'components/header.php';
     margin: 1.4rem 0 2.2rem;
   }
 
-  .hero-stats {
-    display: flex;
-    gap: 2.5rem;
-    flex-wrap: wrap;
-    margin-top: 2.5rem;
-    padding-top: 2rem;
-    border-top: 2px solid var(--cami-border);
-  }
 
-  .hero-stat-num {
-    font-family: var(--font-kranky);
-    font-size: 2rem;
-    display: block;
-    color: var(--cami-azul);
-    line-height: 1;
-  }
-
-  .hero-stat-label {
-    font-size: .74rem;
-    font-weight: 600;
-    opacity: .55;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
 
   .hero-visual {
     position: relative;
     width: 100%;
-    max-width: 420px;
+    max-width: 460px;
     margin: 0 auto;
-  }
-
-  .blob-main {
-    width: 380px;
-    height: 380px;
-    background: var(--cami-turq);
-    border-radius: 46% 54% 62% 38% / 50% 44% 56% 50%;
+    height: 500px;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    animation: blobFloat 8s ease-in-out infinite alternate;
-    margin: 0 auto;
   }
 
-  .blob-main i {
-    font-size: 9rem;
-    color: rgba(0, 51, 102, .18);
+  .hero-photo-circle {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    background: var(--cami-azul);
+    border-radius: 42% 58% 62% 38% / 45% 52% 48% 55%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-40%);
+    z-index: 1;
+    animation: blobFloat 6s ease-in-out infinite alternate;
+  }
+
+  .hero-photo {
+    position: relative;
+    z-index: 2;
+    bottom: 0;
+    left: 70%;
+    transform: translate(-70%, 70px);
+    height: 160%;
+    width: auto;
+    max-width: 160%;
+    object-fit: contain;
+    object-position: bottom center;
+    pointer-events: none;
+  }
+
+  .hero-quote-card {
+    position: absolute;
+    top: 30px;
+    right: -5px;
+    background: white;
+    border-radius: 18px;
+    padding: 1rem 1.3rem;
+    box-shadow: 0 12px 36px rgba(0, 51, 102, .15);
+    max-width: 175px;
+    font-size: .85rem;
+    line-height: 1.55;
+    color: var(--cami-azul);
+    font-weight: 500;
+    z-index: 3;
+    animation: blobFloat 5s ease-in-out infinite alternate;
+  }
+
+  .hero-qmark {
+    font-family: var(--font-kranky);
+    font-size: 1.6rem;
+    color: var(--cami-turq);
+    line-height: .8;
+    display: block;
+    margin-bottom: .3rem;
+  }
+
+  .hero-qheart {
+    display: block;
+    margin-top: .7rem;
+    color: var(--cami-coral);
+    font-size: 1rem;
+  }
+
+  .hero-dots-deco {
+    position: absolute;
+    bottom: 70px;
+    right: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 10px);
+    gap: 9px;
+    z-index: 2;
+  }
+
+  .hero-dots-deco span {
+    width: 9px;
+    height: 9px;
+    background: var(--cami-turq);
+    border-radius: 50%;
+    opacity: .6;
+    display: block;
   }
 
   .blob-dot-coral {
     position: absolute;
-    bottom: 10px;
-    right: 0;
+    bottom: -5px;
+    right: -15px;
     width: 90px;
     height: 90px;
     background: var(--cami-coral);
     border-radius: 50%;
     animation: blobFloat 6s ease-in-out infinite alternate-reverse;
+    z-index: 0;
   }
 
   .blob-dot-yellow {
     position: absolute;
-    top: 20px;
-    right: 30px;
+    top: -15px;
+    right: -50px;
     width: 55px;
     height: 55px;
     background: var(--cami-amarillo);
     border-radius: 50%;
     animation: blobFloat 7s ease-in-out infinite alternate;
+    z-index: 4;
+  }
+
+  /* HERO STATS & CLIENTS */
+  .hero-stats-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border-radius: 18px;
+    padding: 1.4rem 2.5rem;
+    margin-top: 3rem;
+    box-shadow: 0 4px 24px rgba(0, 51, 102, .07);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .hero-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .3rem;
+    flex: 1;
+    min-width: 100px;
+  }
+
+  .hero-stat-num {
+    font-family: var(--font-kranky);
+    font-size: 2rem;
+    color: var(--cami-azul);
+    line-height: 1;
+  }
+
+  .hero-stat-lbl {
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--cami-azul);
+    opacity: .6;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .hero-stat-sep {
+    width: 1px;
+    height: 36px;
+    background: var(--cami-border);
+    flex-shrink: 0;
+  }
+
+  .hero-clients-bar {
+    background: white;
+    border-radius: 18px;
+    padding: 1.2rem 2rem;
+    margin-top: 1rem;
+    box-shadow: 0 4px 24px rgba(0, 51, 102, .06);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-clients-label {
+    font-size: .72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--cami-azul);
+    opacity: .5;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .hero-clients-logos {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-client-logo {
+    font-size: .8rem;
+    font-weight: 700;
+    color: var(--cami-azul);
+    opacity: .55;
+    white-space: nowrap;
+    transition: opacity .2s;
+  }
+
+  .hero-client-logo:hover {
+    opacity: .85;
+  }
+
+  .hero-client-sep {
+    color: var(--cami-border);
+    font-size: .9rem;
+  }
+
+  .hero-aliados-strip {
+    margin-top: 1.4rem;
+    position: relative;
+  }
+  .hero-aliados-label {
+    font-size: .68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    color: var(--cami-azul);
+    opacity: .45;
+    margin-bottom: .6rem;
+    text-align: center;
+  }
+  .hero-aliados-track-wrap {
+    overflow: hidden;
+    position: relative;
+    padding: .3rem 0;
+    border-radius: 14px;
+    background: white;
+    box-shadow: 0 2px 16px rgba(0, 51, 102, .05);
+  }
+  .hero-aliados-track-wrap::before,
+  .hero-aliados-track-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 60px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .hero-aliados-track-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, white, transparent);
+  }
+  .hero-aliados-track-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, white, transparent);
+  }
+  .hero-aliados-track {
+    display: flex;
+    gap: 1rem;
+    animation: aliadosScroll 50s linear infinite;
+    width: max-content;
+  }
+  .hero-aliados-track:hover { animation-play-state: paused; }
+
+  .hero-aliado-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px;
+    height: 56px;
+    border: 1.5px solid var(--cami-border);
+    border-radius: 12px;
+    padding: .4rem .8rem;
+    text-decoration: none;
+    transition: all .25s;
+    flex-shrink: 0;
+    background: white;
+    overflow: hidden;
+  }
+  .hero-aliado-card:hover {
+    border-color: var(--cami-turq);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 51, 102, .1);
+  }
+  .hero-aliado-card svg {
+    width: 100%;
+    height: 100%;
+    display: block;
   }
 
   @keyframes blobFloat {
@@ -525,6 +739,7 @@ require 'components/header.php';
   .blog-desc {
     font-size: .82rem;
     line-height: 1.7;
+    color: var(--cami-azul);
     opacity: .68;
     margin: 0;
   }
@@ -844,9 +1059,16 @@ require 'components/header.php';
       padding: 3rem 0 2.5rem;
     }
 
-    .blob-main {
+    .hero-photo-circle {
       width: 300px;
       height: 300px;
+    }
+    .hero-photo {
+      height: 140%;
+      max-width: 140%;
+    }
+    .hero-visual {
+      height: 400px;
     }
 
     .hero-sub {
@@ -868,18 +1090,22 @@ require 'components/header.php';
       margin: 1rem 0 1.8rem;
     }
 
-    .hero-stats {
-      gap: 1.2rem;
+    .hero-visual {
+      display: none;
+    }
+    .hero-stats-row {
+      padding: 1rem 1.5rem;
       margin-top: 2rem;
       padding-top: 1.5rem;
     }
-
-    .hero-stat-num {
-      font-size: 1.6rem;
-    }
-
-    .hero-visual {
+    .hero-stat-sep {
       display: none;
+    }
+    .hero-clients-bar {
+      padding: 1rem 1.5rem;
+    }
+    .hero-clients-logos {
+      gap: .8rem;
     }
 
     section[style*="padding:5rem"] {
@@ -1079,6 +1305,23 @@ require 'components/header.php';
       font-size: .85rem;
       padding: .65rem 1.4rem;
     }
+    .hero-stats-row {
+      justify-content: center;
+      gap: .6rem;
+      padding: 1rem .8rem;
+    }
+    .hero-stat-item {
+      min-width: 80px;
+    }
+    .hero-clients-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: .6rem;
+      padding: .8rem 1rem;
+    }
+    .hero-client-logo {
+      font-size: .75rem;
+    }
   }
 </style>
 
@@ -1110,16 +1353,46 @@ require 'components/header.php';
           <a href="#catalogo" class="btn-p1"><i class="bi bi-bag-heart"></i>Lleva mi arte contigo</a>
           <a href="#sobre-mi" class="btn-p2"><i class="bi bi-person-heart"></i>Conoce mi historia</a>
         </div>
-        <div class="hero-stats fade-up" style="animation-delay:.6s;">
-          <div><span class="hero-stat-num">+150</span><span class="hero-stat-label">Experiencias<br>compartidas</span></div>
-          <div><span class="hero-stat-num">+13K</span><span class="hero-stat-label">Personas<br>impactadas</span></div>
-          <div><span class="hero-stat-num">+60</span><span class="hero-stat-label">Empresas de<br>varios sectores</span></div>
-          <div><span class="hero-stat-num">+5</span><span class="hero-stat-label">Países<br>alcanzados</span></div>
+        <div class="hero-aliados-strip fade-up" style="animation-delay:.72s;">
+          <p class="hero-aliados-label"><i class="bi bi-building-check me-1"></i>Organizaciones que confían en este mensaje</p>
+          <div class="hero-aliados-track-wrap">
+            <div class="hero-aliados-track">
+              <?php
+              $heroAliados = [
+                ['nombre' => 'La Casa de Carlota', 'svg' => '<svg viewBox="0 0 140 56" xmlns="http://www.w3.org/2000/svg"><rect width="140" height="56" rx="8" fill="#FFF0F5"/><path d="M16 40 L16 22 L28 16 L40 22 L40 40 Z" fill="#E91E8C" opacity="0.9"/><rect x="22" y="30" width="12" height="10" fill="white"/><text x="48" y="30" font-family="Arial,sans-serif" font-weight="700" font-size="10" fill="#C2185B">La Casa</text><text x="48" y="44" font-family="Arial,sans-serif" font-weight="700" font-size="10" fill="#C2185B">de Carlota</text></svg>'],
+                ['nombre' => 'Comfama', 'svg' => '<svg viewBox="0 0 130 56" xmlns="http://www.w3.org/2000/svg"><rect width="130" height="56" rx="8" fill="#fff"/><circle cx="24" cy="28" r="14" fill="#E91E8C"/><circle cx="24" cy="28" r="8" fill="white"/><circle cx="24" cy="28" r="4" fill="#E91E8C"/><text x="44" y="26" font-family="Arial,sans-serif" font-weight="900" font-size="15" fill="#E91E8C">comfama</text><text x="46" y="40" font-family="Arial,sans-serif" font-size="7" fill="#666">CAJA DE COMPENSACIÓN</text></svg>'],
+                ['nombre' => 'SENA', 'svg' => '<svg viewBox="0 0 120 56" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="56" rx="8" fill="#fff"/><polygon points="18,44 18,20 30,12 42,20 42,44" fill="#007A3D"/><circle cx="30" cy="26" r="6" fill="white"/><circle cx="30" cy="26" r="3" fill="#007A3D"/><text x="48" y="26" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="16" fill="#007A3D">SENA</text><text x="48" y="40" font-family="Arial,sans-serif" font-size="6.5" fill="#555">Servicio de Aprendizaje</text></svg>'],
+                ['nombre' => 'UdeA', 'svg' => '<svg viewBox="0 0 120 56" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="56" rx="8" fill="#fff"/><circle cx="22" cy="28" r="14" fill="#006633"/><circle cx="22" cy="28" r="10" fill="none" stroke="#C5A028" stroke-width="1.5"/><text x="22" y="32" text-anchor="middle" font-family="Times New Roman,serif" font-weight="700" font-size="11" fill="white">U</text><text x="42" y="22" font-family="Arial,sans-serif" font-weight="700" font-size="7" fill="#006633">UNIVERSIDAD</text><text x="42" y="33" font-family="Arial,sans-serif" font-weight="900" font-size="10" fill="#006633">de Antioquia</text><text x="42" y="44" font-family="Arial,sans-serif" font-size="7" fill="#888">Alma Máter</text></svg>'],
+                ['nombre' => 'Colegio San Ignacio', 'svg' => '<svg viewBox="0 0 140 56" xmlns="http://www.w3.org/2000/svg"><rect width="140" height="56" rx="8" fill="#fff"/><rect x="10" y="12" width="26" height="30" rx="3" fill="#003087"/><text x="23" y="23" text-anchor="middle" font-family="Times New Roman,serif" font-weight="700" font-size="8" fill="white">IHS</text><line x1="14" y1="26" x2="32" y2="26" stroke="#C5A028" stroke-width="1"/><text x="23" y="36" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="white">Jesuitas</text><text x="44" y="22" font-family="Arial,sans-serif" font-weight="700" font-size="8" fill="#003087">COLEGIO</text><text x="44" y="34" font-family="Arial,sans-serif" font-weight="900" font-size="9" fill="#003087">SAN IGNACIO</text><text x="44" y="45" font-family="Arial,sans-serif" font-size="7" fill="#999">de Loyola</text></svg>'],
+                ['nombre' => 'Municipio de Medellín', 'svg' => '<svg viewBox="0 0 140 56" xmlns="http://www.w3.org/2000/svg"><rect width="140" height="56" rx="8" fill="#fff"/><circle cx="22" cy="28" r="14" fill="#00703C"/><path d="M16 32 L22 18 L28 32 Z" fill="white" opacity="0.9"/><rect x="19" y="30" width="6" height="5" fill="#00703C"/><text x="44" y="22" font-family="Arial,sans-serif" font-weight="700" font-size="7.5" fill="#00703C">MUNICIPIO DE</text><text x="44" y="34" font-family="Arial,sans-serif" font-weight="900" font-size="11" fill="#00703C">Medellín</text><text x="44" y="46" font-family="Arial,sans-serif" font-size="7" fill="#999">Alcaldía</text></svg>'],
+                ['nombre' => 'Lupines', 'svg' => '<svg viewBox="0 0 110 56" xmlns="http://www.w3.org/2000/svg"><rect width="110" height="56" rx="8" fill="#FFF8F0"/><circle cx="18" cy="22" r="6" fill="#9C27B0" opacity="0.8"/><circle cx="28" cy="20" r="6" fill="#E91E8C" opacity="0.8"/><circle cx="38" cy="22" r="6" fill="#FF9800" opacity="0.8"/><path d="M20 28 Q28 42 36 28" fill="#4CAF50" opacity="0.7"/><text x="48" y="30" font-family="Arial,sans-serif" font-weight="700" font-size="13" fill="#9C27B0">Lupines</text><text x="48" y="42" font-family="Arial,sans-serif" font-size="7" fill="#888">Fundación</text></svg>'],
+                ['nombre' => 'Universidad San Martín', 'svg' => '<svg viewBox="0 0 140 56" xmlns="http://www.w3.org/2000/svg"><rect width="140" height="56" rx="8" fill="#fff"/><circle cx="24" cy="28" r="14" fill="#8B1A1A" opacity="0.9"/><text x="24" y="32" text-anchor="middle" font-family="Times New Roman,serif" font-weight="700" font-size="12" fill="white">USM</text><text x="44" y="22" font-family="Arial,sans-serif" font-weight="700" font-size="7.5" fill="#8B1A1A">UNIVERSIDAD</text><text x="44" y="34" font-family="Arial,sans-serif" font-weight="900" font-size="9.5" fill="#8B1A1A">SAN MARTÍN</text><text x="44" y="46" font-family="Arial,sans-serif" font-size="7" fill="#999">Colombia</text></svg>'],
+                ['nombre' => 'Crear Unidos', 'svg' => '<svg viewBox="0 0 120 56" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="56" rx="8" fill="#FFF5F0"/><circle cx="18" cy="28" r="8" fill="#FF7043" opacity="0.9"/><circle cx="32" cy="28" r="8" fill="#FFA726" opacity="0.9"/><circle cx="25" cy="22" r="8" fill="#EF5350" opacity="0.85"/><text x="46" y="26" font-family="Arial,sans-serif" font-weight="700" font-size="11" fill="#D84315">Crear</text><text x="46" y="40" font-family="Arial,sans-serif" font-weight="700" font-size="11" fill="#E65100">Unidos</text></svg>'],
+                ['nombre' => 'Sin Etiquetas', 'svg' => '<svg viewBox="0 0 120 56" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="56" rx="8" fill="#F5FFF8"/><circle cx="24" cy="28" r="14" fill="none" stroke="#2196F3" stroke-width="2"/><line x1="14" y1="18" x2="34" y2="38" stroke="#F44336" stroke-width="2.5" stroke-linecap="round"/><text x="46" y="24" font-family="Arial,sans-serif" font-weight="700" font-size="9" fill="#1976D2">Sin</text><text x="46" y="37" font-family="Arial,sans-serif" font-weight="700" font-size="9" fill="#1976D2">Etiquetas</text><text x="46" y="47" font-family="Arial,sans-serif" font-size="6.5" fill="#888">Fundación</text></svg>'],
+                ['nombre' => 'DiversoLab', 'svg' => '<svg viewBox="0 0 120 56" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="56" rx="8" fill="#F8F0FF"/><rect x="12" y="18" width="10" height="22" rx="2" fill="#9C27B0"/><rect x="25" y="24" width="10" height="16" rx="2" fill="#3F51B5"/><rect x="38" y="20" width="10" height="20" rx="2" fill="#00BCD4"/><text x="54" y="26" font-family="Arial,sans-serif" font-weight="900" font-size="11" fill="#6A0DAD">Diverso</text><text x="54" y="40" font-family="Arial,sans-serif" font-weight="900" font-size="11" fill="#00BCD4">Lab</text></svg>'],
+                ['nombre' => 'Artesas', 'svg' => '<svg viewBox="0 0 110 56" xmlns="http://www.w3.org/2000/svg"><rect width="110" height="56" rx="8" fill="#FFFBF0"/><rect x="12" y="12" width="32" height="32" rx="3" fill="none" stroke="#C77800" stroke-width="2"/><path d="M16 36 Q27 18 38 36" fill="none" stroke="#C77800" stroke-width="2"/><circle cx="27" cy="22" r="3" fill="#C77800" opacity="0.7"/><text x="48" y="30" font-family="Georgia,serif" font-weight="700" font-size="13" fill="#8B5A00">Artesas</text><text x="48" y="43" font-family="Arial,sans-serif" font-size="7" fill="#AAA">Arte e inclusión</text></svg>'],
+                ['nombre' => 'Universidad María Cano', 'svg' => '<svg viewBox="0 0 140 56" xmlns="http://www.w3.org/2000/svg"><rect width="140" height="56" rx="8" fill="#fff"/><circle cx="22" cy="28" r="14" fill="#1B5E20"/><path d="M16 28 Q22 18 28 28 Q22 38 16 28Z" fill="#C5A028" opacity="0.9"/><text x="22" y="32" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="7" fill="white">UMC</text><text x="44" y="22" font-family="Arial,sans-serif" font-weight="700" font-size="7.5" fill="#1B5E20">UNIVERSIDAD</text><text x="44" y="34" font-family="Arial,sans-serif" font-weight="900" font-size="9" fill="#1B5E20">MARÍA CANO</text><text x="44" y="46" font-family="Arial,sans-serif" font-size="7" fill="#666">Colombia</text></svg>'],
+              ];
+              $heroAliadosDup = array_merge($heroAliados, $heroAliados);
+              foreach ($heroAliadosDup as $al): ?>
+                <div class="hero-aliado-card" title="<?= htmlspecialchars($al['nombre']) ?>"><?= $al['svg'] ?></div>
+              <?php endforeach; ?>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-lg-6 d-flex justify-content-center fade-up d3">
         <div class="hero-visual">
-          <div class="blob-main"><i class="bi bi-palette2"></i></div>
+          <div class="hero-photo-circle"></div>
+          <img src="img/foto_hero_2.png" alt="María Camila González Torres — Poder Down" class="hero-photo">
+          <div class="hero-quote-card">
+            <span class="hero-qmark">"</span>
+            El arte es mi voz,<br>la inclusión es<br>mi propósito.
+            <span class="hero-qheart"><i class="bi bi-heart-fill"></i></span>
+          </div>
+          <div class="hero-dots-deco">
+            <?php for($i=0;$i<9;$i++): ?><span></span><?php endfor; ?>
+          </div>
           <div class="blob-dot-coral"></div>
           <div class="blob-dot-yellow"></div>
         </div>
@@ -1207,12 +1480,12 @@ require 'components/header.php';
         <p class="cami-body">La neuroplasticidad funciona mejor cuando empezamos temprano. Mi familia siempre creyó en mí, me llevaron a terapias y me dieron las mismas oportunidades que a mi hermana.</p>
         <p class="cami-body mt-3">Finalicé mi bachillerato, estudié en la <strong style="color:var(--cami-turq);">Universidad de Antioquia</strong> en el programa UIncluye para personas con discapacidad intelectual, he trabajado en varias empresas. He participado en eventos nacionales e internacionales, compartido en más de 150 experiencias con más de 13.000 personas impactadas y más de 60 empresas de varios sectores.</p>
         <div class="mt-4">
-          <span class="cami-chip">🎓 Bachillerato completo</span>
-          <span class="cami-chip">🎓 UdeA UIncluye</span>
-          <span class="cami-chip">💼 5+ empleos exitosos</span>
-          <span class="cami-chip">🌍 +5 países</span>
-          <span class="cami-chip">🎨 Artista</span>
-          <span class="cami-chip">🎤 Speaker motivacional</span>
+          <span class="cami-chip"><i class="bi bi-mortarboard-fill me-1"></i>Bachillerato completo</span>
+          <span class="cami-chip"><i class="bi bi-mortarboard-fill me-1"></i>UdeA UIncluye</span>
+          <span class="cami-chip"><i class="bi bi-briefcase-fill me-1"></i>5+ empleos exitosos</span>
+          <span class="cami-chip"><i class="bi bi-globe-americas me-1"></i>+5 países</span>
+          <span class="cami-chip"><i class="bi bi-palette-fill me-1"></i>Artista</span>
+          <span class="cami-chip"><i class="bi bi-mic-fill me-1"></i>Speaker motivacional</span>
         </div>
       </div>
       <div class="col-lg-6">
@@ -1353,7 +1626,7 @@ require 'components/header.php';
     <div class="mini-banner">
       <div class="mini-banner-item text-center"><span class="mini-banner-num">+30</span><span class="mini-banner-label">Charlas internacionales</span></div>
       <div class="mini-banner-item text-center"><span class="mini-banner-num">+5</span><span class="mini-banner-label">Países alcanzados</span></div>
-      <div class="mini-banner-item text-center"><span class="mini-banner-num">🎤</span><span class="mini-banner-label">Una sola misión</span></div>
+      <div class="mini-banner-item text-center"><span class="mini-banner-num"><i class="bi bi-mic-fill"></i></span><span class="mini-banner-label">Una sola misión</span></div>
     </div>
     <div class="text-center mb-4">
       <p class="section-eyebrow justify-content-center" style="color:var(--cami-turq);"><i class="bi bi-building"></i>Aliados que confían en mí</p>
@@ -1395,11 +1668,11 @@ require 'components/header.php';
       <p style="opacity:.65;">Pinturas únicas disponibles para disfrutar.</p>
     </div>
     <div class="row g-4">
-      <?php $obras = [['🌈', 'Colores del alma', 'Acrílico sobre lienzo', 'Alegría pura'], ['🌸', 'Florecer', 'Técnica mixta', 'Resiliencia y vida'], ['🌊', 'Marea de colores', 'Acuarela', 'Libertad interior'], ['🦋', 'Metamorfosis', 'Óleo sobre lienzo', 'Transformación real'], ['🌟', 'Brillar diferente', 'Acrílico', 'El poder de ser tú'], ['🎨', 'El mundo en colores', 'Técnica mixta', 'Visión propia']];
-      foreach ($obras as [$emoji, $titulo, $tecnica, $desc]): ?>
+      <?php $obras = [['bi-palette-fill', 'Colores del alma', 'Acrílico sobre lienzo', 'Alegría pura'], ['bi-flower1', 'Florecer', 'Técnica mixta', 'Resiliencia y vida'], ['bi-water', 'Marea de colores', 'Acuarela', 'Libertad interior'], ['bi-stars', 'Metamorfosis', 'Óleo sobre lienzo', 'Transformación real'], ['bi-star-fill', 'Brillar diferente', 'Acrílico', 'El poder de ser tú'], ['bi-brush-fill', 'El mundo en colores', 'Técnica mixta', 'Visión propia']];
+      foreach ($obras as [$icono, $titulo, $tecnica, $desc]): ?>
         <div class="col-6 col-md-4">
           <div class="blog-card">
-            <div class="blog-img" style="background:linear-gradient(135deg,rgba(78,210,173,.2),rgba(239,184,16,.15));"><?= $emoji ?></div>
+            <div class="blog-img" style="background:linear-gradient(135deg,rgba(78,210,173,.2),rgba(239,184,16,.15));color:var(--cami-azul);"><i class="bi <?= $icono ?>"></i></div>
             <div class="blog-body">
               <p class="blog-title"><?= htmlspecialchars($titulo) ?></p>
               <p class="blog-desc"><strong><?= htmlspecialchars($tecnica) ?></strong> — <?= htmlspecialchars($desc) ?></p>
@@ -1429,9 +1702,9 @@ require 'components/header.php';
         <div class="col-md-4">
           <div class="blog-card">
             <?php if ($imgSrc): ?>
-            <div class="blog-img" style="background-image:url('<?= $imgSrc ?>');background-size:cover;background-position:center;"></div>
+              <div class="blog-img" style="background-image:url('<?= $imgSrc ?>');background-size:cover;background-position:center;"></div>
             <?php else: ?>
-            <div class="blog-img" style="background:linear-gradient(135deg,rgba(60,174,224,.15),rgba(242,103,124,.1));display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:var(--cami-border);"><i class="bi bi-journal-richtext"></i></div>
+              <div class="blog-img" style="background:linear-gradient(135deg,rgba(60,174,224,.15),rgba(242,103,124,.1));display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:var(--cami-border);"><i class="bi bi-journal-richtext"></i></div>
             <?php endif; ?>
             <div class="blog-body">
               <small style="font-size:.72rem;opacity:.55;"><?= htmlspecialchars(date('d M Y', strtotime($blog['created_at']))) ?></small>
@@ -1443,45 +1716,12 @@ require 'components/header.php';
         </div>
       <?php endforeach; ?>
       <?php if (empty($latestBlogs)): ?>
-        <div class="col-12 text-center py-4"><p style="opacity:.5;">Próximamente artículos disponibles.</p></div>
+        <div class="col-12 text-center py-4">
+          <p style="opacity:.5;">Próximamente artículos disponibles.</p>
+        </div>
       <?php endif; ?>
     </div>
     <div class="text-center mt-5"><a href="blog.php" class="btn-p1"><i class="bi bi-journal-richtext"></i>Leer más artículos</a></div>
-  </div>
-</section>
-
-<!-- ALIADOS CARRUSEL -->
-<section style="background:white;padding:4rem 0;" id="nuestros-aliados">
-  <div class="container">
-    <div class="text-center mb-4">
-      <p class="section-eyebrow justify-content-center"><i class="bi bi-building-check"></i>Aliados que creen en Poder Down</p>
-      <h2 class="section-title">Organizaciones que confían<br><span style="color:var(--cami-turq);">en este mensaje</span></h2>
-    </div>
-    <div class="aliados-track-wrap">
-      <div class="aliados-track" id="aliadosTrack">
-        <?php
-        $aliados_logos = [
-          ['nombre' => 'La Casa de Carlota', 'url' => 'https://lacasadecarlota.com', 'svg' => '<svg viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="70" rx="8" fill="#FFF0F5"/><path d="M20 50 L20 28 L35 20 L50 28 L50 50 Z" fill="#E91E8C" opacity="0.9"/><rect x="27" y="38" width="16" height="12" fill="white"/><text x="60" y="36" font-family="Arial,sans-serif" font-weight="700" font-size="11" fill="#C2185B">La Casa</text><text x="60" y="50" font-family="Arial,sans-serif" font-weight="700" font-size="11" fill="#C2185B">de Carlota</text></svg>'],
-          ['nombre' => 'Comfama', 'url' => 'https://comfama.com.co', 'svg' => '<svg viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="70" rx="8" fill="#fff"/><circle cx="30" cy="35" r="18" fill="#E91E8C"/><circle cx="30" cy="35" r="11" fill="white"/><circle cx="30" cy="35" r="6" fill="#E91E8C"/><text x="56" y="31" font-family="Arial,sans-serif" font-weight="900" font-size="18" fill="#E91E8C">comfama</text><text x="58" y="47" font-family="Arial,sans-serif" font-size="8" fill="#666" letter-spacing="1">CAJA DE COMPENSACIÓN</text></svg>'],
-          ['nombre' => 'SENA', 'url' => 'https://www.sena.edu.co', 'svg' => '<svg viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="70" rx="8" fill="#fff"/><polygon points="22,55 22,25 38,15 54,25 54,55" fill="#007A3D"/><circle cx="38" cy="33" r="7" fill="white"/><circle cx="38" cy="33" r="3" fill="#007A3D"/><text x="62" y="30" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="20" fill="#007A3D">SENA</text><text x="62" y="46" font-family="Arial,sans-serif" font-size="7" fill="#555" letter-spacing="0.5">Servicio Nacional de Aprendizaje</text></svg>'],
-          ['nombre' => 'Universidad San Martín', 'url' => 'https://www.sanmartin.edu.co', 'svg' => '<svg viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="70" rx="8" fill="#fff"/><circle cx="30" cy="35" r="18" fill="#8B1A1A" opacity="0.9"/><text x="30" y="40" text-anchor="middle" font-family="Times New Roman,serif" font-weight="700" font-size="14" fill="white">USM</text><text x="56" y="26" font-family="Arial,sans-serif" font-weight="700" font-size="9" fill="#8B1A1A">UNIVERSIDAD</text><text x="56" y="38" font-family="Arial,sans-serif" font-weight="900" font-size="11" fill="#8B1A1A">SAN MARTÍN</text><text x="56" y="50" font-family="Arial,sans-serif" font-size="8" fill="#999">Colombia</text></svg>'],
-          ['nombre' => 'Colegio San Ignacio', 'url' => 'https://www.sanignacio.edu.co', 'svg' => '<svg viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="70" rx="8" fill="#fff"/><rect x="14" y="17" width="32" height="36" rx="3" fill="#003087"/><text x="30" y="29" text-anchor="middle" font-family="Times New Roman,serif" font-weight="700" font-size="9" fill="white">IHS</text><line x1="18" y1="33" x2="42" y2="33" stroke="#C5A028" stroke-width="1"/><text x="30" y="45" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="white">Jesuitas</text><text x="55" y="26" font-family="Arial,sans-serif" font-weight="700" font-size="9" fill="#003087">COLEGIO</text><text x="55" y="38" font-family="Arial,sans-serif" font-weight="900" font-size="10" fill="#003087">SAN IGNACIO</text><text x="55" y="50" font-family="Arial,sans-serif" font-size="8" fill="#999">de Loyola</text></svg>'],
-          ['nombre' => 'Universidad María Cano', 'url' => 'https://www.mariacano.edu.co', 'svg' => '<svg viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="70" rx="8" fill="#fff"/><circle cx="28" cy="35" r="18" fill="#1B5E20"/><path d="M20 35 Q28 22 36 35 Q28 48 20 35Z" fill="#C5A028" opacity="0.9"/><text x="28" y="39" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="9" fill="white">UMC</text><text x="54" y="25" font-family="Arial,sans-serif" font-weight="700" font-size="8" fill="#1B5E20">UNIVERSIDAD</text><text x="54" y="37" font-family="Arial,sans-serif" font-weight="900" font-size="10" fill="#1B5E20">MARÍA CANO</text><text x="54" y="50" font-family="Arial,sans-serif" font-size="7.5" fill="#666">Medellín, Colombia</text></svg>'],
-          ['nombre' => 'UdeA', 'url' => 'https://www.udea.edu.co', 'svg' => '<svg viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="70" rx="8" fill="#fff"/><circle cx="28" cy="35" r="18" fill="#006633"/><circle cx="28" cy="35" r="14" fill="none" stroke="#C5A028" stroke-width="1.5"/><text x="28" y="40" text-anchor="middle" font-family="Times New Roman,serif" font-weight="700" font-size="13" fill="white">U</text><text x="54" y="24" font-family="Arial,sans-serif" font-weight="700" font-size="8" fill="#006633">UNIVERSIDAD</text><text x="54" y="36" font-family="Arial,sans-serif" font-weight="900" font-size="12" fill="#006633">de Antioquia</text><text x="54" y="50" font-family="Arial,sans-serif" font-size="8" fill="#888">Alma Máter</text></svg>'],
-          ['nombre' => 'Lupines', 'url' => '#', 'svg' => '<svg viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="70" rx="8" fill="#FFF8F0"/><circle cx="22" cy="25" r="7" fill="#9C27B0" opacity="0.8"/><circle cx="35" cy="22" r="7" fill="#E91E8C" opacity="0.8"/><circle cx="48" cy="25" r="7" fill="#FF9800" opacity="0.8"/><path d="M25 32 Q35 52 45 32" fill="#4CAF50" opacity="0.7"/><text x="58" y="33" font-family="Arial,sans-serif" font-weight="700" font-size="16" fill="#9C27B0">Lupines</text><text x="60" y="47" font-family="Arial,sans-serif" font-size="8" fill="#888">Fundación</text></svg>'],
-          ['nombre' => 'Artesas', 'url' => '#', 'svg' => '<svg viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="70" rx="8" fill="#FFFBF0"/><rect x="14" y="14" width="40" height="40" rx="4" fill="none" stroke="#C77800" stroke-width="2"/><path d="M20 44 Q34 20 48 44" fill="none" stroke="#C77800" stroke-width="2.5"/><circle cx="34" cy="26" r="4" fill="#C77800" opacity="0.7"/><text x="62" y="33" font-family="Georgia,serif" font-weight="700" font-size="16" fill="#8B5A00">Artesas</text><text x="62" y="48" font-family="Arial,sans-serif" font-size="8" fill="#AAA">Arte e inclusión</text></svg>'],
-          ['nombre' => 'Sin Etiquetas', 'url' => '#', 'svg' => '<svg viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="70" rx="8" fill="#F5FFF8"/><circle cx="35" cy="35" r="18" fill="none" stroke="#2196F3" stroke-width="2.5"/><line x1="22" y1="22" x2="48" y2="48" stroke="#F44336" stroke-width="3" stroke-linecap="round"/><text x="60" y="28" font-family="Arial,sans-serif" font-weight="700" font-size="10" fill="#1976D2">Sin</text><text x="60" y="42" font-family="Arial,sans-serif" font-weight="700" font-size="10" fill="#1976D2">Etiquetas</text><text x="60" y="54" font-family="Arial,sans-serif" font-size="7.5" fill="#888">Fundación</text></svg>'],
-          ['nombre' => 'DiversoLab', 'url' => '#', 'svg' => '<svg viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="70" rx="8" fill="#F8F0FF"/><rect x="14" y="20" width="12" height="30" rx="3" fill="#9C27B0"/><rect x="30" y="28" width="12" height="22" rx="3" fill="#3F51B5"/><rect x="46" y="24" width="12" height="26" rx="3" fill="#00BCD4"/><text x="66" y="29" font-family="Arial,sans-serif" font-weight="900" font-size="13" fill="#6A0DAD">Diverso</text><text x="66" y="44" font-family="Arial,sans-serif" font-weight="900" font-size="13" fill="#00BCD4">Lab</text><text x="66" y="56" font-family="Arial,sans-serif" font-size="7.5" fill="#888">Inclusión laboral</text></svg>'],
-          ['nombre' => 'Municipio de Medellín', 'url' => 'https://www.medellin.gov.co', 'svg' => '<svg viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="70" rx="8" fill="#fff"/><circle cx="28" cy="35" r="18" fill="#00703C"/><path d="M20 40 L28 22 L36 40 Z" fill="white" opacity="0.9"/><rect x="24" y="38" width="8" height="6" fill="#00703C"/><text x="54" y="24" font-family="Arial,sans-serif" font-weight="700" font-size="8" fill="#00703C">MUNICIPIO DE</text><text x="54" y="37" font-family="Arial,sans-serif" font-weight="900" font-size="12" fill="#00703C">Medellín</text><text x="54" y="50" font-family="Arial,sans-serif" font-size="8" fill="#999">Alcaldía</text></svg>'],
-          ['nombre' => 'Crear Unidos', 'url' => '#', 'svg' => '<svg viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg"><rect width="160" height="70" rx="8" fill="#FFF5F0"/><circle cx="22" cy="35" r="10" fill="#FF7043" opacity="0.9"/><circle cx="38" cy="35" r="10" fill="#FFA726" opacity="0.9"/><circle cx="30" cy="28" r="10" fill="#EF5350" opacity="0.85"/><text x="56" y="30" font-family="Arial,sans-serif" font-weight="700" font-size="12" fill="#D84315">Crear</text><text x="56" y="46" font-family="Arial,sans-serif" font-weight="700" font-size="12" fill="#E65100">Unidos</text><text x="56" y="57" font-family="Arial,sans-serif" font-size="7" fill="#AAA">Corporación</text></svg>'],
-        ];
-        $todos = array_merge($aliados_logos, $aliados_logos);
-        foreach ($todos as $al): $href = htmlspecialchars($al['url'], ENT_QUOTES, 'UTF-8');
-          $name = htmlspecialchars($al['nombre'], ENT_QUOTES, 'UTF-8'); ?>
-          <a href="<?= $href ?>" target="<?= $al['url'] !== '#' ? '_blank' : '_self' ?>" rel="noopener noreferrer" class="aliado-logo-card" aria-label="<?= $name ?>" title="<?= $name ?>"><?= $al['svg'] ?></a>
-        <?php endforeach; ?>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1587,11 +1827,11 @@ require 'components/header.php';
         <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;">
           <span style="font-family:var(--font-kranky);font-size:1.9rem;color:var(--cami-azul);">$${Number(p.precio).toLocaleString('es-CO',{minimumFractionDigits:0})}</span>
           <span style="background:${agotado?'var(--cami-coral)':'rgba(60,174,224,.18)'};color:${agotado?'white':'var(--cami-azul)'};border-radius:50px;padding:.35rem 1rem;font-size:.78rem;font-weight:700;">
-            ${agotado?'Sin stock':'✅ '+p.stock+' disponibles'}
+            ${agotado?'Sin stock':p.stock+' disponibles'}
           </span>
         </div></div>`,
         showCancelButton: true,
-        confirmButtonText: agotado ? '🔔 Notificarme' : '🛍️ Agregar al carrito',
+        confirmButtonText: agotado ? 'Notificarme' : 'Agregar al carrito',
         cancelButtonText: 'Cerrar',
         confirmButtonColor: '#3CAEE0',
       }).then(r => {

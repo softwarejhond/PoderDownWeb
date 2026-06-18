@@ -73,11 +73,11 @@
 
     <!-- Barra de confianza -->
     <div class="fl-trust-bar">
-      <span class="fl-trust-item">🏆 +5 Conferencias Internacionales</span>
-      <span class="fl-trust-item">🌎 +5 Países Alcanzados</span>
-      <span class="fl-trust-item">🎨 Artista</span>
-      <span class="fl-trust-item">🎤 Speaker Motivacional</span>
-      <span class="fl-trust-item">💼 5 Empleos Exitosos</span>
+      <span class="fl-trust-item"><i class="bi bi-trophy-fill me-1"></i>+5 Conferencias Internacionales</span>
+      <span class="fl-trust-item"><i class="bi bi-globe-americas me-1"></i>+5 Países Alcanzados</span>
+      <span class="fl-trust-item"><i class="bi bi-palette-fill me-1"></i>Artista</span>
+      <span class="fl-trust-item"><i class="bi bi-mic-fill me-1"></i>Speaker Motivacional</span>
+      <span class="fl-trust-item"><i class="bi bi-briefcase-fill me-1"></i>5 Empleos Exitosos</span>
     </div>
 
   </div>

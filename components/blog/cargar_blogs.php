@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../controller/conexion.php';
 function getLatestBlogs(int $limit = 3): array
 {
     global $conn;
-    $stmt = mysqli_prepare($conn, 'SELECT id, title, slug, excerpt, featured_image, author, created_at FROM blog_posts WHERE status = ? ORDER BY created_at DESC LIMIT ?');
+    $stmt = mysqli_prepare($conn, 'SELECT bp.id, bp.title, bp.slug, bp.excerpt, bp.featured_image, COALESCE(u.nombre, bp.author) AS author, bp.created_at FROM blog_posts bp LEFT JOIN users u ON u.username = bp.author WHERE bp.status = ? ORDER BY bp.created_at DESC LIMIT ?');
     $status = 'published';
     mysqli_stmt_bind_param($stmt, 'si', $status, $limit);
     mysqli_stmt_execute($stmt);
@@ -22,12 +22,12 @@ function getBlogs(int $page = 1, int $perPage = 15, string $search = ''): array
     global $conn;
     $offset = ($page - 1) * $perPage;
 
-    $where = "WHERE status = 'published'";
+    $where = "WHERE bp.status = 'published'";
     $params = [];
     $types = '';
 
     if (!empty($search)) {
-        $where .= " AND (title LIKE ? OR excerpt LIKE ? OR content LIKE ?)";
+        $where .= " AND (bp.title LIKE ? OR bp.excerpt LIKE ? OR bp.content LIKE ?)";
         $searchParam = '%' . $search . '%';
         $params[] = $searchParam;
         $params[] = $searchParam;
@@ -35,7 +35,7 @@ function getBlogs(int $page = 1, int $perPage = 15, string $search = ''): array
         $types = 'sss';
     }
 
-    $sql = "SELECT id, title, slug, excerpt, featured_image, author, created_at FROM blog_posts {$where} ORDER BY created_at DESC LIMIT ? OFFSET ?";
+    $sql = "SELECT bp.id, bp.title, bp.slug, bp.excerpt, bp.featured_image, COALESCE(u.nombre, bp.author) AS author, bp.created_at FROM blog_posts bp LEFT JOIN users u ON u.username = bp.author {$where} ORDER BY bp.created_at DESC LIMIT ? OFFSET ?";
     $types .= 'ii';
     $params[] = $perPage;
     $params[] = $offset;
@@ -82,7 +82,7 @@ function getTotalBlogs(string $search = ''): int
 function getBlogBySlug(string $slug): ?array
 {
     global $conn;
-    $stmt = mysqli_prepare($conn, 'SELECT * FROM blog_posts WHERE slug = ? AND status = ?');
+    $stmt = mysqli_prepare($conn, 'SELECT bp.*, COALESCE(u.nombre, bp.author) AS author FROM blog_posts bp LEFT JOIN users u ON u.username = bp.author WHERE bp.slug = ? AND bp.status = ?');
     $status = 'published';
     mysqli_stmt_bind_param($stmt, 'ss', $slug, $status);
     mysqli_stmt_execute($stmt);

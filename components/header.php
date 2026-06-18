@@ -575,6 +575,7 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
   </style>
 </head>
 <body>
+  <?php require_once __DIR__ . '/wcag.php'; ?>
   <noscript>
     <div style="background:#F2677C;color:white;text-align:center;padding:1rem;font-weight:700;">Esta página requiere JavaScript para funcionar correctamente.</div>
   </noscript>
@@ -592,6 +593,7 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
         <a class="nav-link-cami" href="index.php#galeria">Galería</a>
         <a class="nav-link-cami <?= $activePage === 'blog' ? 'active' : '' ?>" href="blog.php">Blog</a>
         <a class="nav-link-cami" href="index.php#contacto">Contacto</a>
+        <a class="nav-link-cami" href="index.php#faq">FAQ</a>
       </div>
       <div class="d-flex align-items-center gap-2">
         <?php if ($showNavSearch): ?>
@@ -633,6 +635,7 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
       <a class="nav-link-cami" href="index.php#galeria" onclick="closeMobileMenu()">Galería</a>
       <a class="nav-link-cami <?= $activePage === 'blog' ? 'active' : '' ?>" href="blog.php" onclick="closeMobileMenu()">Blog</a>
       <a class="nav-link-cami" href="index.php#contacto" onclick="closeMobileMenu()">Contacto</a>
+      <a class="nav-link-cami" href="index.php#faq" onclick="closeMobileMenu()">FAQ</a>
       <?php if ($isLoggedIn): ?>
       <a class="nav-link-cami" href="perfil.php" onclick="closeMobileMenu()"><i class="bi bi-person me-1"></i> Mi Perfil</a>
       <a class="nav-link-cami" href="logout.php" onclick="closeMobileMenu()" style="color:var(--pd-coral);"><i class="bi bi-box-arrow-right me-1"></i> Cerrar Sesión</a>

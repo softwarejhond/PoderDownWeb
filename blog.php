@@ -141,7 +141,7 @@ if ($slug) {
         <a href="blog.php" class="d-inline-flex align-items-center gap-2 mb-3" style="color:var(--cami-turq);text-decoration:none;font-size:.85rem;font-weight:600;"><i class="bi bi-arrow-left"></i> Volver al blog</a>
         <h1 style="font-family:var(--font-kranky);color:white;font-size:clamp(1.8rem,5vw,3rem);max-width:700px;"><?= htmlspecialchars($post['title']) ?></h1>
         <div class="post-meta mt-3">
-          <span><i class="bi bi-person-circle me-1"></i><?= htmlspecialchars($post['author']) ?></span>
+          <span><i class="bi bi-person-circle me-1"></i><?= htmlspecialchars(mb_convert_case($post['author'], MB_CASE_TITLE, 'UTF-8')) ?></span>
           <span><i class="bi bi-calendar3 me-1"></i><?= htmlspecialchars(date('d \d\e M, Y', strtotime($post['created_at']))) ?></span>
         </div>
       </div>
@@ -261,6 +261,7 @@ require 'components/header.php';
   .blog-list-excerpt {
     font-size: .84rem;
     line-height: 1.7;
+    color: var(--cami-azul);
     opacity: .65;
     margin-bottom: .8rem;
     display: -webkit-box;
@@ -385,7 +386,7 @@ require 'components/header.php';
               <p class="blog-list-title"><?= htmlspecialchars($blog['title']) ?></p>
               <p class="blog-list-excerpt"><?= htmlspecialchars($blog['excerpt'] ?? '') ?></p>
               <div class="blog-list-meta">
-                <span><i class="bi bi-person-circle me-1"></i><?= htmlspecialchars($blog['author']) ?></span>
+                <span><i class="bi bi-person-circle me-1"></i><?= htmlspecialchars(mb_convert_case($blog['author'], MB_CASE_TITLE, 'UTF-8')) ?></span>
                 <span><i class="bi bi-calendar3 me-1"></i><?= htmlspecialchars(date('d/m/Y', strtotime($blog['created_at']))) ?></span>
               </div>
             </div>
