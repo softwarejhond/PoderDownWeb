@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $pageTitle = 'Poder Down — El poder de creer e incluir';
 $pageDescription = 'Descubre obras únicas de Cami y lleva el mensaje de Poder Down a tu espacio. Charlas, arte y productos para una inclusión real.';
 $activePage = 'inicio';

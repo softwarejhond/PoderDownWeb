@@ -12,7 +12,7 @@ if ($slug) {
         $activePage = 'blog';
         require 'components/header.php';
         echo '<section style="background:white;padding:5rem 0;min-height:60vh;"><div class="container text-center"><i class="bi bi-journal-x" style="font-size:4rem;opacity:.2;display:block;margin-bottom:1rem;"></i><h2 style="font-family:var(--font-kranky);">Artículo no encontrado</h2><p style="opacity:.6;">El artículo que buscas no existe o ha sido retirado.</p><a href="blog.php" class="btn-p1 mt-3"><i class="bi bi-arrow-left"></i> Volver al blog</a></div></section>';
-        require_once __DIR__ . '/footer.php';
+        require_once __DIR__ . '/Footer.php';
         exit;
     }
     $pageTitle = htmlspecialchars($post['title']) . ' — Blog Poder Down';
@@ -118,8 +118,8 @@ if ($slug) {
         border-radius: 0 12px 12px 0;
       }
       .post-featured-img {
+        aspect-ratio: 16 / 9;
         width: 100%;
-        max-height: 420px;
         object-fit: cover;
         border-radius: 20px;
         margin: -2rem auto 0;
@@ -133,7 +133,7 @@ if ($slug) {
         .post-content { padding: 2rem 0 4rem; }
         .post-content h2 { font-size: 1.5rem; }
         .post-content p { font-size: .95rem; }
-        .post-featured-img { max-height: 280px; border-radius: 14px; margin-top: -1.5rem; }
+        .post-featured-img { border-radius: 14px; margin-top: -1.5rem; }
       }
     </style>
     <section class="post-hero">
@@ -159,7 +159,7 @@ if ($slug) {
       </div>
     </div>
     <?php
-    require_once __DIR__ . '/footer.php';
+    require_once __DIR__ . '/Footer.php';
     exit;
 }
 
@@ -228,7 +228,8 @@ require 'components/header.php';
     box-shadow: 0 16px 40px rgba(0,51,102,.1);
   }
   .blog-list-img {
-    height: 200px;
+    aspect-ratio: 16 / 9;
+    width: 100%;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -236,8 +237,9 @@ require 'components/header.php';
     justify-content: center;
   }
   .blog-list-img-placeholder {
+    aspect-ratio: 16 / 9;
+    width: 100%;
     background: linear-gradient(135deg,rgba(60,174,224,.12),rgba(242,103,124,.08));
-    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -332,7 +334,6 @@ require 'components/header.php';
 
   @media (max-width:767px) {
     .page-header { padding: 3rem 0 2rem; }
-    .blog-list-img, .blog-list-img-placeholder { height: 160px; }
     .blog-list-body { padding: 1.2rem; }
     .blog-list-title { font-size: 1rem; }
   }
@@ -416,8 +417,9 @@ require 'components/header.php';
   </div>
 </section>
 
-<?php require_once __DIR__ . '/footer.php'; ?>
+<?php require_once __DIR__ . '/Footer.php'; ?>
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
