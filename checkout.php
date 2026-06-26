@@ -1,6 +1,7 @@
 <?php
 $productoId = (int)($_GET['id'] ?? 0);
 $precioDirecto = (float)($_GET['precio'] ?? 0);
+$variantId = (int)($_GET['variant_id'] ?? 0);
 
 $pageTitle = 'Checkout — Poder Down';
 $pageDescription = 'Finaliza tu compra en Poder Down';
@@ -80,6 +81,7 @@ require 'components/header_simple.php';
 const API_URL = 'components/productos/cargar_productos.php';
 const PRODUCTO_ID = <?= $productoId ?>;
 const PRECIO_DIRECTO = <?= $precioDirecto ?>;
+const VARIANT_ID = <?= $variantId ?>;
 
 async function initCheckout() {
   if (!PRODUCTO_ID) {
@@ -108,6 +110,11 @@ function renderizarCheckout(p) {
     return;
   }
 
+  let variantNameHtml = '';
+  if (VARIANT_ID > 0) {
+    variantNameHtml = '<div style="font-size:.75rem;opacity:.5;margin-top:2px;">Variante #' + VARIANT_ID + '</div>';
+  }
+
   const precio = PRECIO_DIRECTO > 0 ? PRECIO_DIRECTO : parseFloat(p.precio);
   const imgHtml = p.imagen
     ? `<img src="${p.imagen}" alt="${p.nombre.replace(/"/g,'&quot;')}" onerror="this.outerHTML='<div class=\\'chk-placeholder\\'><i class=\\'bi bi-image\\'></i></div>'">`
@@ -120,6 +127,7 @@ function renderizarCheckout(p) {
         ${imgHtml}
         <div class="info">
           <p class="name">${p.nombre}</p>
+          ${variantNameHtml}
           <p class="price">$${Number(precio).toLocaleString('es-CO',{minimumFractionDigits:0})}</p>
         </div>
       </div>
@@ -174,7 +182,7 @@ function renderizarCheckout(p) {
     </form>
 
     <div class="text-center mt-3">
-      <a href="producto.php?id=${PRODUCTO_ID}" style="font-size:.82rem;color:var(--cami-turq);"><i class="bi bi-arrow-left"></i> Volver al producto</a>
+      <a href="producto.php?id=${PRODUCTO_ID}${VARIANT_ID > 0 ? '&variant_preselect=' + VARIANT_ID : ''}" style="font-size:.82rem;color:var(--cami-turq);"><i class="bi bi-arrow-left"></i> Volver al producto</a>
     </div>
   `;
 
@@ -206,11 +214,12 @@ async function procesarPedido(e) {
 
   const body = {
     producto_id: PRODUCTO_ID,
+    variant_id: VARIANT_ID > 0 ? VARIANT_ID : null,
     nombre, email, telefono, ciudad, direccion, notas,
     cantidad: 1,
     total: PRECIO_DIRECTO > 0 ? PRECIO_DIRECTO : 0,
     metodo_pago: 'epayco',
-    items: [{ producto_id: PRODUCTO_ID, nombre: 'Producto', precio: PRECIO_DIRECTO, cantidad: 1 }]
+    items: [{ producto_id: PRODUCTO_ID, variant_id: VARIANT_ID > 0 ? VARIANT_ID : null, nombre: 'Producto', precio: PRECIO_DIRECTO, cantidad: 1 }]
   };
 
   try {

@@ -1,9 +1,15 @@
 <?php
 //datos local
-$server = "148.113.221.17";
-$username = "poderdow_34Gl3s0Ftw4r3";
-$password = "P@Kg[z%u[jalmte%";
-$bd = "poderdow_3C0M3rs";
+$server = "db";
+$username = "root";
+$password = "root";
+$bd = "tienda_virtual";
+
+// $server = "148.113.221.17";
+// $username = "poderdow_34Gl3s0Ftw4r3";
+// $password = "P@Kg[z%u[jalmte%";
+// $bd = "poderdow_3C0M3rs";
+
 
 //creamos una conexión
 $conn = mysqli_connect($server, $username, $password, $bd);

@@ -52,6 +52,7 @@
     '.cart-item-info { flex:1;min-width:0; }' +
     '.cart-item-name { font-family:var(--font-playpen,"Archivo",sans-serif);font-weight:600;font-size:.85rem;color:var(--cami-azul);overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }' +
     '.cart-item-price { font-family:var(--font-kranky,"Nunito",sans-serif);font-size:.9rem;color:var(--cami-turq);margin-top:2px; }' +
+    '.cart-variant-badge { display:inline-block;background:rgba(60,174,224,.12);color:var(--cami-azul);border-radius:50px;padding:.12rem .6rem;font-size:.68rem;font-weight:700;margin-top:3px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }' +
     '.cart-item-qty { display:flex;align-items:center;gap:.35rem;flex-shrink:0; }' +
     '.cart-qty-btn { width:28px;height:28px;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.85rem;transition:all .15s;font-weight:700; }' +
     '.cart-qty-btn.minus { background:var(--cami-bg,#ebeae4);color:var(--cami-azul); }' +
@@ -101,18 +102,23 @@
         var thumbHtml = item.imagen
           ? '<img src="' + item.imagen + '" alt="" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><span class="thumb-fallback" style="display:none"><i class="bi bi-image"></i></span>'
           : '<span class="thumb-fallback"><i class="bi bi-image"></i></span>';
+        var vid = item.variant_id || 0;
+        var variantBadge = item.variant_label
+          ? '<span class="cart-variant-badge">' + item.variant_label.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</span>'
+          : '';
         return '<div class="cart-item">' +
           '<div class="cart-item-thumb">' + thumbHtml + '</div>' +
           '<div class="cart-item-info">' +
           '<div class="cart-item-name">' + item.nombre.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</div>' +
+          variantBadge +
           '<div class="cart-item-price">' + formatearPrecio(item.precio) + ' c/u</div>' +
           '</div>' +
           '<div class="cart-item-qty">' +
-          '<button class="cart-qty-btn minus" onclick="cambiarCantidad(' + item.id + ',-1)" aria-label="Restar">\u2212</button>' +
+          '<button class="cart-qty-btn minus" onclick="cambiarCantidad(' + item.id + ',-1,' + vid + ')" aria-label="Restar">\u2212</button>' +
           '<span class="cart-qty-num">\u00d7' + item.cantidad + '</span>' +
-          '<button class="cart-qty-btn plus" onclick="cambiarCantidad(' + item.id + ',1)" aria-label="Sumar">+</button>' +
+          '<button class="cart-qty-btn plus" onclick="cambiarCantidad(' + item.id + ',1,' + vid + ')" aria-label="Sumar">+</button>' +
           '</div>' +
-          '<button class="cart-item-remove" onclick="quitarItem(' + item.id + ')" aria-label="Quitar"><i class="bi bi-trash3"></i></button>' +
+          '<button class="cart-item-remove" onclick="quitarItem(' + item.id + ',' + vid + ')" aria-label="Quitar"><i class="bi bi-trash3"></i></button>' +
           '</div>';
       }).join('');
 
@@ -129,11 +135,13 @@
     contador.style.display = total > 0 ? '' : 'none';
   };
 
-  window.agregarAlCarrito = function (id, nombre, precio, imagen) {
+  window.agregarAlCarrito = function (id, nombre, precio, imagen, variantId, variantLabel) {
     nombre = typeof nombre === 'string' && nombre.indexOf('%') !== -1 ? decodeURIComponent(nombre) : nombre;
-    var ex = carrito.find(function (i) { return i.id === id; });
+    variantId = variantId || null;
+    variantLabel = variantLabel || '';
+    var ex = carrito.find(function (i) { return i.id === id && i.variant_id === variantId; });
     if (ex) { ex.cantidad++; }
-    else { carrito.push({ id: id, nombre: nombre, precio: Number(precio), cantidad: 1, imagen: imagen || '' }); }
+    else { carrito.push({ id: id, variant_id: variantId, variant_label: variantLabel, nombre: nombre, precio: Number(precio), cantidad: 1, imagen: imagen || '' }); }
     guardar();
     actualizarContadorCarrito();
     if (typeof Swal !== 'undefined') {
@@ -151,7 +159,9 @@
     var nombre = decodeURIComponent(el.dataset.nombre);
     var precio = parseFloat(el.dataset.precio);
     var imagen = el.dataset.imagen || '';
-    window.agregarAlCarrito(id, nombre, precio, imagen);
+    var variantId = el.dataset.variantId ? parseInt(el.dataset.variantId) : null;
+    var variantLabel = el.dataset.variantLabel || '';
+    window.agregarAlCarrito(id, nombre, precio, imagen, variantId, variantLabel);
   };
 
   window.verCarrito = function () {
@@ -165,20 +175,20 @@
     document.body.style.overflow = '';
   };
 
-  window.cambiarCantidad = function (id, delta) {
-    var item = carrito.find(function (i) { return i.id === id; });
+  window.cambiarCantidad = function (id, delta, variantId) {
+    var item = carrito.find(function (i) { return i.id === id && (i.variant_id || null) === (variantId || null); });
     if (!item) return;
     item.cantidad += delta;
     if (item.cantidad <= 0) {
-      carrito = carrito.filter(function (i) { return i.id !== id; });
+      carrito = carrito.filter(function (i) { return !(i.id === id && (i.variant_id || null) === (variantId || null)); });
     }
     guardar();
     actualizarContadorCarrito();
     renderizarCarrito();
   };
 
-  window.quitarItem = function (id) {
-    carrito = carrito.filter(function (i) { return i.id !== id; });
+  window.quitarItem = function (id, variantId) {
+    carrito = carrito.filter(function (i) { return !(i.id === id && (i.variant_id || null) === (variantId || null)); });
     guardar();
     actualizarContadorCarrito();
     renderizarCarrito();
@@ -222,7 +232,7 @@
       var body = {
         nombre: datosCliente.nombre, email: datosCliente.email,
         telefono: datosCliente.telefono, ciudad: datosCliente.ciudad, direccion: datosCliente.direccion,
-        items: carrito.map(function (i) { return { producto_id: i.id, nombre: i.nombre, precio: i.precio, cantidad: i.cantidad }; }),
+        items: carrito.map(function (i) { return { producto_id: i.id, variant_id: i.variant_id || null, nombre: i.nombre, precio: i.precio, cantidad: i.cantidad }; }),
         total: carrito.reduce(function (a, i) { return a + i.precio * i.cantidad; }, 0)
       };
       var res = await fetch('pedidos.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });

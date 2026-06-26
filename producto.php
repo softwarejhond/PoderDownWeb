@@ -401,6 +401,99 @@ require 'components/header.php';
     height: 420px;
   }
 
+  /* ─── VARIANTES ─── */
+  .pd-variantes {
+    margin: 1.2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pd-var-grupo {}
+  .pd-var-label {
+    font-size: .78rem;
+    font-weight: 700;
+    color: var(--cami-azul);
+    margin-bottom: .4rem;
+    display: block;
+  }
+  .pd-var-label .var-selected {
+    font-weight: 400;
+    opacity: .55;
+    margin-left: .3rem;
+  }
+
+  .pd-var-opciones {
+    display: flex;
+    gap: .45rem;
+    flex-wrap: wrap;
+  }
+
+  .pd-var-btn {
+    border: 2px solid var(--cami-border);
+    border-radius: 50px;
+    background: var(--cami-bg);
+    color: var(--cami-azul);
+    font-family: var(--font-playpen);
+    font-weight: 600;
+    font-size: .78rem;
+    padding: .4rem 1rem;
+    cursor: pointer;
+    transition: all .2s;
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    white-space: nowrap;
+  }
+  .pd-var-btn:hover:not(.disabled):not(.activo) {
+    border-color: var(--cami-turq);
+    background: rgba(60,174,224,.1);
+  }
+  .pd-var-btn.activo {
+    background: var(--cami-turq);
+    border-color: var(--cami-turq);
+    color: var(--cami-azul);
+  }
+  .pd-var-btn.disabled {
+    opacity: .3;
+    cursor: not-allowed;
+    text-decoration: line-through;
+  }
+
+  .pd-var-color {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 3px solid var(--cami-border);
+    cursor: pointer;
+    transition: all .2s;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .pd-var-color:hover:not(.disabled):not(.activo) {
+    border-color: var(--cami-turq);
+    transform: scale(1.12);
+  }
+  .pd-var-color.activo {
+    border-color: var(--cami-azul);
+    box-shadow: 0 0 0 3px rgba(60,174,224,.35);
+  }
+  .pd-var-color.disabled {
+    opacity: .25;
+    cursor: not-allowed;
+  }
+  .pd-var-color.disabled::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: var(--cami-coral);
+    transform: translateY(-50%) rotate(-45deg);
+    border-radius: 2px;
+  }
+
   @media (max-width:767px) {
     .pd-carousel .pd-slide {
       height: 300px;
@@ -487,12 +580,14 @@ let imagenesProducto = [];
 
   async function cargarProducto() {
     try {
-      const [prodRes, imgRes] = await Promise.all([
+      const [prodRes, imgRes, varRes] = await Promise.all([
         fetch(`${API_URL}?action=product&id=${PRODUCTO_ID}`),
-        fetch(`${API_URL}?action=product_images&id=${PRODUCTO_ID}`)
+        fetch(`${API_URL}?action=product_images&id=${PRODUCTO_ID}`),
+        fetch(`${API_URL}?action=product_variants&product_id=${PRODUCTO_ID}`)
       ]);
       const prod = await prodRes.json();
       const imgs = await imgRes.json();
+      const vars = await varRes.json();
 
       if (!prod.exito || !prod.datos[0]) {
         document.getElementById('productoWrap').innerHTML = `
@@ -502,10 +597,11 @@ let imagenesProducto = [];
       }
       const p = prod.datos[0];
       const imagenes = imgs.exito ? imgs.datos : [];
+      const variantes = vars.exito && vars.datos?.tiene_variantes ? vars.datos : null;
       const agotado = p.stock_agotado || parseInt(p.stock) === 0;
 
       document.getElementById('bcProducto').textContent = p.nombre;
-      renderizar(p, imagenes, agotado);
+      renderizar(p, imagenes, agotado, variantes);
     } catch (e) {
       document.getElementById('productoWrap').innerHTML = `
       <div class="col-12 empty-state"><i class="bi bi-wifi-off"></i><p>Error al cargar el producto.</p>
@@ -516,6 +612,27 @@ let imagenesProducto = [];
   /* ─── CARRUSEL CUSTOM ─── */
   let slideActual = 0;
   let totalSlidesCarousel = 0;
+
+  const COLOR_MAP = {
+    rojo:'#E53935', azul:'#1E88E5', verde:'#43A047', amarillo:'#FDD835',
+    naranja:'#FB8C00', naranjado:'#FB8C00', morado:'#8E24AA', purpura:'#8E24AA',
+    rosado:'#EC407A', rosa:'#EC407A', negro:'#212121', blanco:'#FAFAFA',
+    gris:'#9E9E9E', cafe:'#795548', marron:'#795548', beige:'#D7CCC8',
+    dorado:'#FFD700', plateado:'#C0C0C0', turquesa:'#00BCD4',
+    celeste:'#81D4FA', vino:'#722F37', mostaza:'#FFB300', oliva:'#827717',
+    coral:'#FF7043', fucsia:'#D81B60', lila:'#CE93D8', violeta:'#7B1FA2',
+    indigo:'#3F51B5', crema:'#FFF8E1', marfil:'#FFFFF0', chocolate:'#5D4037',
+    salmon:'#FF8A65', menta:'#80CBC4', esmeralda:'#2E7D32', rubi:'#C62828',
+    zafiro:'#1565C0', ambar:'#FFCA28', granate:'#880E4F', caqui:'#C5B358',
+    terracota:'#CC5533', caramelo:'#AF6E4D', piel:'#DEB887', cobre:'#B87333',
+    lavanda:'#B39DDB', oro:'#FFD700', plata:'#C0C0C0', bronce:'#CD7F32',
+  };
+
+  function traducirColor(nombre) {
+    var key = nombre.trim().toLowerCase();
+    if (COLOR_MAP[key]) return COLOR_MAP[key];
+    return nombre;
+  }
 
   function construirCarousel(imagenes, nombreProducto) {
     if (!imagenes.length) {
@@ -648,15 +765,50 @@ let imagenesProducto = [];
     document.getElementById('lbCounter').textContent = `${indiceLightbox + 1} / ${imagenesProducto.length}`;
   }
 
-function renderizar(p, imagenes, agotado) {
+let variantesData = null;
+let seleccionActual = {};
+let productoBase = null;
+
+function renderizar(p, imagenes, agotado, variantes) {
   imagenesProducto = imagenes;
+  productoBase = p;
+  variantesData = variantes;
+  seleccionActual = {};
+
+  if (variantes) {
+    variantes.atributos.forEach(attr => {
+      const primerDisp = attr.valores.find(v => v.disponible);
+      if (primerDisp) seleccionActual[attr.id] = primerDisp.id;
+    });
+  }
+
   const carouselHtml = construirCarousel(imagenes, p.nombre);
   const primeraImagen = imagenes.length > 0 ? imagenes[0].url : '';
+  const tieneDescuento = p.precio_compare && parseFloat(p.precio_compare) > parseFloat(p.precio);
+  const tags = p.tags ? p.tags.split(',').map(t => `<span class="pd-tag">${t.trim()}</span>`).join('') : '';
 
-    const tieneDescuento = p.precio_compare && parseFloat(p.precio_compare) > parseFloat(p.precio);
-    const tags = p.tags ? p.tags.split(',').map(t => `<span class="pd-tag">${t.trim()}</span>`).join('') : '';
+  const varianteEncontrada = encontrarVariante();
+  const precioMostrar = varianteEncontrada && varianteEncontrada.precio !== null ? varianteEncontrada.precio : parseFloat(p.precio);
+  const compareMostrar = varianteEncontrada && varianteEncontrada.precio_compare !== null ? varianteEncontrada.precio_compare : p.precio_compare;
+  const stockMostrar = varianteEncontrada ? varianteEncontrada.stock : parseInt(p.stock);
+  const agotadoVariante = stockMostrar === 0;
+  const haySeleccionParcial = variantes && Object.keys(seleccionActual).length > 0;
+  const varianteCompleta = variantes && variantes.atributos.every(a => seleccionActual[a.id]);
+  const puedeComprar = variantes ? (varianteCompleta && !agotadoVariante) : !agotado;
 
-    const html = `
+  const variantesHtml = variantes ? construirSelectoresVariantes(variantes) : '';
+
+  const stockLabel = variantes
+    ? (varianteCompleta
+        ? (agotadoVariante ? 'Agotado' : stockMostrar + ' disponibles')
+        : 'Selecciona opciones')
+    : (agotado ? 'Agotado' : p.stock + ' disponibles');
+
+  const stockIcon = (variantes && !varianteCompleta) ? 'bi-dash-circle'
+    : (agotadoVariante || agotado ? 'bi-x-circle-fill' : 'bi-check-circle-fill');
+  const stockClass = (variantes && varianteCompleta && agotadoVariante) || agotado ? 'agotado' : '';
+
+  const html = `
     <div class="col-lg-6">
       ${carouselHtml}
     </div>
@@ -664,23 +816,24 @@ function renderizar(p, imagenes, agotado) {
       <div class="pd-info">
         <span class="pd-cat">${p.categoria}</span>
         <h1 class="pd-nombre">${p.nombre}</h1>
-        <p class="pd-sku">SKU: ${p.sku || '—'}</p>
+        <p class="pd-sku">SKU: ${varianteEncontrada ? varianteEncontrada.sku : (p.sku || '—')}</p>
         <div class="pd-precio-wrap">
-          <span class="pd-precio">$${Number(p.precio).toLocaleString('es-CO',{minimumFractionDigits:0})}</span>
-          ${tieneDescuento ? `<span class="pd-precio-old">$${Number(p.precio_compare).toLocaleString('es-CO',{minimumFractionDigits:0})}</span>` : ''}
+          <span class="pd-precio" id="pdPrecio">$${Number(precioMostrar).toLocaleString('es-CO',{minimumFractionDigits:0})}</span>
+          ${compareMostrar && parseFloat(compareMostrar) > precioMostrar ? `<span class="pd-precio-old" id="pdPrecioOld">$${Number(compareMostrar).toLocaleString('es-CO',{minimumFractionDigits:0})}</span>` : ''}
         </div>
-        <span class="pd-stock ${agotado?'agotado':''}">
-          <i class="bi ${agotado?'bi-x-circle-fill':'bi-check-circle-fill'}"></i>
-          ${agotado ? 'Agotado' : p.stock + ' disponibles'}
+        <span class="pd-stock ${stockClass}" id="pdStock">
+          <i class="bi ${stockIcon}"></i>
+          ${stockLabel}
           ${p.is_digital ? '· Producto digital' : ''}
           ${!p.requiere_envio && !p.is_digital ? '· Sin envío' : ''}
         </span>
+        ${variantesHtml}
         <p class="pd-descripcion">${p.descripcion || 'Sin descripción disponible.'}</p>
         <div class="pd-actions">
-          <button class="btn-p1" onclick="agregarAlCarrito(${p.id},'${encodeURIComponent(p.nombre)}',${p.precio},'${primeraImagen.replace(/'/g,"\\'")}')" ${agotado?'disabled':''}>
+          <button class="btn-p1" id="btnAgregarCarrito" onclick="agregarAlCarritoConVariante()" ${!puedeComprar ? 'disabled' : ''}>
             <i class="bi bi-cart-plus"></i> Agregar al carrito
           </button>
-          <button class="btn-p-coral" onclick="comprarAhora(${p.id},${p.precio})" ${agotado?'disabled':''}>
+          <button class="btn-p-coral" id="btnComprarAhora" onclick="comprarAhoraConVariante()" ${!puedeComprar ? 'disabled' : ''}>
             <i class="bi bi-lightning-charge-fill"></i> Comprar ahora
           </button>
         </div>
@@ -688,14 +841,162 @@ function renderizar(p, imagenes, agotado) {
       </div>
     </div>`;
 
-    document.getElementById('productoWrap').innerHTML = html;
-    inicializarCarousel();
+  document.getElementById('productoWrap').innerHTML = html;
+  inicializarCarousel();
 }
 
-  /* ─── COMPRAR AHORA ─── */
-  function comprarAhora(id, precio) {
-    window.location.href = `checkout.php?id=${id}&precio=${precio}`;
+function construirSelectoresVariantes(variantes) {
+  return variantes.atributos.map(attr => {
+    const tipoClase = attr.tipo === 'color' ? 'pd-var-color' : 'pd-var-btn';
+    const seleccionado = seleccionActual[attr.id] || null;
+
+    const ops = attr.valores.map(v => {
+      const activo = v.id === seleccionado ? ' activo' : '';
+      const des = !v.disponible ? ' disabled' : '';
+      if (attr.tipo === 'color') {
+        const bg = v.color_hex || traducirColor(v.valor);
+        return `<div class="pd-var-color${activo}${des}"
+          onclick="${v.disponible ? `seleccionarVariante(${attr.id},${v.id})` : ''}"
+          style="background:${bg};"
+          title="${v.valor}${!v.disponible ? ' (agotado)' : ''}"></div>`;
+      }
+      return `<button class="pd-var-btn${activo}${des}"
+        onclick="${v.disponible ? `seleccionarVariante(${attr.id},${v.id})` : ''}"
+        ${!v.disponible ? 'disabled' : ''}>${v.valor}</button>`;
+    }).join('');
+
+    const nombreSeleccionado = seleccionado
+      ? attr.valores.find(v => v.id === seleccionado)
+      : null;
+    const nombreMostrar = nombreSeleccionado ? ': ' + nombreSeleccionado.valor : '';
+
+    return `<div class="pd-var-grupo">
+      <span class="pd-var-label">${attr.nombre}<span class="var-selected">${nombreMostrar}</span></span>
+      <div class="pd-var-opciones">${ops}</div>
+    </div>`;
+  }).join('');
+}
+
+function encontrarVariante() {
+  if (!variantesData) return null;
+  const keys = Object.keys(seleccionActual);
+  if (keys.length === 0) return null;
+
+  for (const v of variantesData.variantes) {
+    let coincide = true;
+    for (const attrId of keys) {
+      if (v.atributos[attrId] !== seleccionActual[attrId]) {
+        coincide = false;
+        break;
+      }
+    }
+    if (coincide) return v;
   }
+  return null;
+}
+
+function seleccionarVariante(attrId, valueId) {
+  if (!variantesData) return;
+  seleccionActual[attrId] = valueId;
+
+  const variante = encontrarVariante();
+  const p = productoBase;
+
+  const precioMostrar = variante && variante.precio !== null ? variante.precio : parseFloat(p.precio);
+  const compareMostrar = variante && variante.precio_compare !== null ? variante.precio_compare : p.precio_compare;
+  const stockMostrar = variante ? variante.stock : parseInt(p.stock);
+  const varianteCompleta = variantesData.atributos.every(a => seleccionActual[a.id]);
+  const agotadoVariante = varianteCompleta && stockMostrar === 0;
+  const puedeComprar = varianteCompleta && !agotadoVariante;
+
+  const precioEl = document.getElementById('pdPrecio');
+  if (precioEl) precioEl.textContent = '$' + Number(precioMostrar).toLocaleString('es-CO', { minimumFractionDigits: 0 });
+
+  const oldEl = document.getElementById('pdPrecioOld');
+  if (oldEl) {
+    if (compareMostrar && parseFloat(compareMostrar) > precioMostrar) {
+      oldEl.textContent = '$' + Number(compareMostrar).toLocaleString('es-CO', { minimumFractionDigits: 0 });
+      oldEl.style.display = '';
+    } else {
+      oldEl.style.display = 'none';
+    }
+  }
+
+  const stockEl = document.getElementById('pdStock');
+  if (stockEl) {
+    const icon = stockEl.querySelector('i');
+    if (varianteCompleta) {
+      stockEl.className = 'pd-stock ' + (agotadoVariante ? 'agotado' : '');
+      if (icon) icon.className = 'bi ' + (agotadoVariante ? 'bi-x-circle-fill' : 'bi-check-circle-fill');
+      stockEl.childNodes[stockEl.childNodes.length - 1].textContent = agotadoVariante ? 'Agotado' : stockMostrar + ' disponibles';
+    } else {
+      stockEl.className = 'pd-stock';
+      if (icon) icon.className = 'bi bi-dash-circle';
+      stockEl.childNodes[stockEl.childNodes.length - 1].textContent = 'Selecciona opciones';
+    }
+    let extras = '';
+    if (p.is_digital) extras += '· Producto digital';
+    if (!p.requiere_envio && !p.is_digital) extras += '· Sin envío';
+    if (extras && stockEl.childNodes.length > 2) {
+      stockEl.childNodes[stockEl.childNodes.length - 1].textContent += ' ' + extras;
+    }
+  }
+
+  const skuEl = document.querySelector('.pd-sku');
+  if (skuEl && variante) skuEl.textContent = 'SKU: ' + variante.sku;
+
+  const btnCart = document.getElementById('btnAgregarCarrito');
+  const btnBuy = document.getElementById('btnComprarAhora');
+  if (btnCart) btnCart.disabled = !puedeComprar;
+  if (btnBuy) btnBuy.disabled = !puedeComprar;
+
+  const labels = document.querySelectorAll('.pd-var-label .var-selected');
+  variantesData.atributos.forEach(attr => {
+    const selId = seleccionActual[attr.id];
+    const valObj = selId ? attr.valores.find(v => v.id === selId) : null;
+    labels.forEach(l => {
+      if (l.parentElement && l.parentElement.textContent.startsWith(attr.nombre)) {
+        l.textContent = valObj ? ': ' + valObj.valor : '';
+      }
+    });
+  });
+
+  document.querySelectorAll('.pd-var-color, .pd-var-btn').forEach(el => el.classList.remove('activo'));
+  variantesData.atributos.forEach(attr => {
+    const selId = seleccionActual[attr.id];
+    if (selId) {
+      document.querySelectorAll(`.pd-var-color[onclick*="seleccionarVariante(${attr.id},${selId})"], .pd-var-btn[onclick*="seleccionarVariante(${attr.id},${selId})"]`).forEach(el => el.classList.add('activo'));
+    }
+  });
+}
+
+function construirLabelVariante() {
+  if (!variantesData) return '';
+  return variantesData.atributos.map(attr => {
+    const selId = seleccionActual[attr.id];
+    const valObj = selId ? attr.valores.find(v => v.id === selId) : null;
+    return valObj ? valObj.valor : '';
+  }).filter(Boolean).join(' / ');
+}
+
+function agregarAlCarritoConVariante() {
+  const p = productoBase;
+  const variante = encontrarVariante();
+  const precio = variante && variante.precio !== null ? variante.precio : parseFloat(p.precio);
+  const varianteId = variante ? variante.id : null;
+  const primeraImagen = imagenesProducto.length > 0 ? imagenesProducto[0].url : '';
+  const imagenVariante = variante && variante.imagen ? variante.imagen : primeraImagen;
+  const variantLabel = construirLabelVariante();
+  window.agregarAlCarrito(p.id, encodeURIComponent(p.nombre), precio, imagenVariante.replace(/'/g, "\\'"), varianteId, variantLabel);
+}
+
+function comprarAhoraConVariante() {
+  const p = productoBase;
+  const variante = encontrarVariante();
+  const precio = variante && variante.precio !== null ? variante.precio : parseFloat(p.precio);
+  const varianteId = variante ? variante.id : null;
+  window.location.href = `checkout.php?id=${p.id}&precio=${precio}${varianteId ? '&variant_id=' + varianteId : ''}`;
+}
 
   /* ─── FAB / DISLEXIA ─── */
   function toggleFabSocial() {

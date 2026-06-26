@@ -381,6 +381,18 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
       font-size: .7rem;
       font-weight: 700;
     }
+    .badge-variantes {
+      position: absolute;
+      top: 2.5rem;
+      left: .8rem;
+      background: var(--cami-azul);
+      color: white;
+      border-radius: 50px;
+      padding: .18rem .65rem;
+      font-size: .66rem;
+      font-weight: 700;
+      opacity: .85;
+    }
     .product-card-cami .card-body { padding: 1.3rem; }
     .product-name {
       font-family: var(--font-kranky);

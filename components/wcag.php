@@ -15,12 +15,13 @@
 #wcag-fab {
   position: fixed;
   left: 16px;
-  bottom: 120px;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 9997;
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: var(--wcag-accent);
+  background: var(--wcag-text);
   color: #fff;
   border: none;
   cursor: pointer;
@@ -31,7 +32,7 @@
   box-shadow: 0 4px 18px rgba(60,174,224,.4);
   transition: transform .25s, box-shadow .25s;
 }
-#wcag-fab:hover { transform: scale(1.12) rotate(8deg); box-shadow: 0 6px 24px rgba(60,174,224,.55); }
+#wcag-fab:hover { transform: scale(1.05) rotate(3deg); box-shadow: 0 5px 20px rgba(60,174,224,.45); }
 #wcag-fab:focus-visible { outline: 3px solid #1A3A5C; outline-offset: 3px; }
 
 #wcag-overlay {

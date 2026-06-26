@@ -378,6 +378,7 @@ function tarjetaProducto(p) {
     <div class="img-wrap" style="position:relative">
       ${imgHtml}
       <span class="badge-cat">${p.categoria}</span>
+      ${p.tiene_variantes ? '<span class="badge-variantes">Opciones</span>' : ''}
       ${agotado ? '<span class="badge-agotado">Agotado</span>' : ''}
     </div>
     <div class="card-body">
