@@ -1,0 +1,106 @@
+[
+  {
+    "slug": "coleccion-permanente",
+    "title": "Colección Permanente",
+    "excerpt": "Ocho obras maestras que iluminan la diversidad y el arte desde la mirada única de Poder Down.",
+    "featured_image": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+    "author": "cami",
+    "created_at": "2024-03-15",
+    "obras": [
+      {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+        "title": "La noche estrellada",
+        "meta": "Vincent van Gogh · 1889 · Óleo sobre lienzo",
+        "desc": "Pintada desde la ventana de su cuarto en el asilo de Saint-Rémy, esta obra transforma el cielo nocturno en un remolino de luz y movimiento sobre un pueblo dormido."
+      },
+      {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/0/0f/1665_Girl_with_a_Pearl_Earring.jpg",
+        "title": "La joven de la perla",
+        "meta": "Johannes Vermeer · c. 1665 · Óleo sobre lienzo",
+        "desc": "Conocida como la 'Mona Lisa del Norte', su mirada directa y el brillo del pendiente convierten un retrato sencillo en un enigma que ha fascinado durante siglos."
+      },
+      {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Tsunami_by_hokusai_19th_century.jpg",
+        "title": "La gran ola de Kanagawa",
+        "meta": "Katsushika Hokusai · c. 1831 · Xilografía",
+        "desc": "Una ola gigante amenaza a tres barcos frente al monte Fuji, capturando el instante exacto entre la fuerza de la naturaleza y la fragilidad humana."
+      },
+      {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg",
+        "title": "Gótico americano",
+        "meta": "Grant Wood · 1930 · Óleo sobre madera",
+        "desc": "Un granjero y su hija posan rígidos frente a su vivienda, símbolo icónico —y a menudo parodiado— del carácter austero del Medio Oeste estadounidense."
+      },
+      {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/4/40/The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg",
+        "title": "El beso",
+        "meta": "Gustav Klimt · 1908 · Óleo y hoja de oro",
+        "desc": "Dos amantes envueltos en mantos dorados de mosaico se funden en un abrazo sobre un campo de flores, cumbre del período dorado del artista vienés."
+      },
+      {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Claude_Monet_038.jpg",
+        "title": "Nenúfares",
+        "meta": "Claude Monet · 1906 · Óleo sobre lienzo",
+        "desc": "Parte de la serie pintada en su jardín de Giverny, disuelve las formas en manchas de luz y color que anticipan la abstracción del siglo XX."
+      },
+      {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg",
+        "title": "El nacimiento de Venus",
+        "meta": "Sandro Botticelli · c. 1485 · Temple sobre lienzo",
+        "desc": "La diosa del amor emerge de una concha marina, un ideal de belleza renacentista inspirado en la mitología y el arte clásico grecorromano."
+      },
+      {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/9/90/Vassily_Kandinsky%2C_1923_-_Composition_8%2C_huile_sur_toile%2C_140_cm_x_201_cm%2C_Mus%C3%A9e_Guggenheim%2C_New_York.jpg",
+        "title": "Composición VIII",
+        "meta": "Vasili Kandinsky · 1923 · Óleo sobre lienzo",
+        "desc": "Círculos, líneas y triángulos flotan en equilibrio geométrico; una de las obras más rigurosas de su etapa en la Bauhaus, donde la forma se vuelve música."
+      }
+    ]
+  },
+  {
+    "slug": "colores-del-alma",
+    "title": "Colores del Alma",
+    "excerpt": "Seis pinturas originales de Cami que capturan emociones a través del pincel y el color.",
+    "featured_image": "",
+    "author": "cami",
+    "created_at": "2024-06-20",
+    "obras": [
+      {
+        "img": "https://picsum.photos/seed/cami1/800/600",
+        "title": "Explosión de alegría",
+        "meta": "Cami · 2023 · Acrílico sobre lienzo",
+        "desc": "Una celebración visual donde cada trazo expresa la felicidad pura de crear sin límites ni etiquetas."
+      },
+      {
+        "img": "https://picsum.photos/seed/cami2/800/600",
+        "title": "Serenidad",
+        "meta": "Cami · 2023 · Acuarela",
+        "desc": "Tonos azules y verdes que evocan la calma después de la tormenta, un refugio para el espíritu."
+      },
+      {
+        "img": "https://picsum.photos/seed/cami3/800/600",
+        "title": "Fuerza interior",
+        "meta": "Cami · 2024 · Técnica mixta",
+        "desc": "Líneas enérgicas y contrastes audaces que representan la determinación de quien enfrenta el mundo con valentía."
+      },
+      {
+        "img": "https://picsum.photos/seed/cami4/800/600",
+        "title": "Sueños compartidos",
+        "meta": "Cami · 2024 · Óleo sobre lienzo",
+        "desc": "Dos figuras se entrelazan en un abrazo de color, recordándonos que juntos somos más fuertes."
+      },
+      {
+        "img": "https://picsum.photos/seed/cami5/800/600",
+        "title": "Libertad",
+        "meta": "Cami · 2024 · Acrílico",
+        "desc": "Un vuelo de mariposas multicolores que rompen el lienzo, símbolo de la inclusión sin barreras."
+      },
+      {
+        "img": "https://picsum.photos/seed/cami6/800/600",
+        "title": "Esperanza",
+        "meta": "Cami · 2024 · Acuarela y tinta",
+        "desc": "La luz al final del túnel pintada con la sensibilidad única de quien ve el mundo desde otra perspectiva."
+      }
+    ]
+  }
+]

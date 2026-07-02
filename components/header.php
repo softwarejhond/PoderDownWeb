@@ -602,7 +602,7 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
         <a class="nav-link-cami <?= $activePage === 'inicio' ? 'active' : '' ?>" href="index.php">Inicio</a>
         <a class="nav-link-cami" href="index.php<?= $activePage === 'inicio' ? '#sobre-mi' : '#sobre-mi' ?>">Sobre mí</a>
         <a class="nav-link-cami <?= $activePage === 'productos' ? 'active' : '' ?>" href="productos.php">Productos</a>
-        <a class="nav-link-cami" href="index.php#galeria">Galería</a>
+        <a class="nav-link-cami <?= $activePage === 'galeria' ? 'active' : '' ?>" href="galeria.php">Galería</a>
         <a class="nav-link-cami <?= $activePage === 'blog' ? 'active' : '' ?>" href="blog.php">Blog</a>
         <a class="nav-link-cami" href="index.php#contacto">Contacto</a>
         <a class="nav-link-cami" href="index.php#faq">FAQ</a>
@@ -644,7 +644,7 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
       <a class="nav-link-cami <?= $activePage === 'inicio' ? 'active' : '' ?>" href="index.php" onclick="closeMobileMenu()">Inicio</a>
       <a class="nav-link-cami" href="index.php#sobre-mi" onclick="closeMobileMenu()">Sobre mí</a>
       <a class="nav-link-cami <?= $activePage === 'productos' ? 'active' : '' ?>" href="productos.php" onclick="closeMobileMenu()">Productos</a>
-      <a class="nav-link-cami" href="index.php#galeria" onclick="closeMobileMenu()">Galería</a>
+      <a class="nav-link-cami <?= $activePage === 'galeria' ? 'active' : '' ?>" href="galeria.php" onclick="closeMobileMenu()">Galería</a>
       <a class="nav-link-cami <?= $activePage === 'blog' ? 'active' : '' ?>" href="blog.php" onclick="closeMobileMenu()">Blog</a>
       <a class="nav-link-cami" href="index.php#contacto" onclick="closeMobileMenu()">Contacto</a>
       <a class="nav-link-cami" href="index.php#faq" onclick="closeMobileMenu()">FAQ</a>

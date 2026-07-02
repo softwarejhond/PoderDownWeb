@@ -15,9 +15,7 @@
         </p>
         <div class="d-flex gap-2 mt-3">
           <a href="https://www.instagram.com/diaadiaconcami" target="_blank" rel="noopener noreferrer" class="fl-social-btn"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="fl-social-btn"><i class="bi bi-tiktok"></i></a>
-          <a href="#" class="fl-social-btn"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="fl-social-btn"><i class="bi bi-youtube"></i></a>
+          <a href="https://www.youtube.com/@elmundodecamiysuscuriosida6028" target="_blank" rel="noopener noreferrer" class="fl-social-btn"><i class="bi bi-youtube"></i></a>
         </div>
       </div>
 
@@ -29,7 +27,7 @@
           <li><a href="#sobre-mi">Sobre mí</a></li>
           <li><a href="#catalogo">Productos</a></li>
           <li><a href="#deseo">Charlas</a></li>
-          <li><a href="#galeria">Galería virtual</a></li>
+          <li><a href="galeria.php">Galería virtual</a></li>
           <li><a href="#blog">Blog</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>

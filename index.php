@@ -1669,22 +1669,39 @@ require 'components/header.php';
     <div class="text-center mb-5">
       <p class="section-eyebrow justify-content-center"><i class="bi bi-easel2-fill"></i>Galería permanente</p>
       <h2 class="section-title">Enamórate de mi arte<span style="color:var(--cami-turq);">.</span></h2>
-      <p style="opacity:.65;">Pinturas únicas disponibles para disfrutar.</p>
+      <p style="opacity:.65;">Colecciones de obras únicas disponibles para disfrutar.</p>
     </div>
-    <div class="row g-4">
-      <?php $obras = [['bi-palette-fill', 'Colores del alma', 'Acrílico sobre lienzo', 'Alegría pura'], ['bi-flower1', 'Florecer', 'Técnica mixta', 'Resiliencia y vida'], ['bi-water', 'Marea de colores', 'Acuarela', 'Libertad interior'], ['bi-stars', 'Metamorfosis', 'Óleo sobre lienzo', 'Transformación real'], ['bi-star-fill', 'Brillar diferente', 'Acrílico', 'El poder de ser tú'], ['bi-brush-fill', 'El mundo en colores', 'Técnica mixta', 'Visión propia']];
-      foreach ($obras as [$icono, $titulo, $tecnica, $desc]): ?>
-        <div class="col-6 col-md-4">
-          <div class="blog-card">
-            <div class="blog-img" style="background:linear-gradient(135deg,rgba(78,210,173,.2),rgba(239,184,16,.15));color:var(--cami-azul);"><i class="bi <?= $icono ?>"></i></div>
+    <div class="row g-4 justify-content-center">
+      <?php
+      require_once __DIR__ . '/components/galeria/cargar_galerias.php';
+      $latestGalerias = getLatestGalerias(2);
+      foreach ($latestGalerias as $gal):
+        $imgSrc = !empty($gal['featured_image']) ? htmlspecialchars($gal['featured_image']) : '';
+        $galUrl = 'galeria.php?slug=' . urlencode($gal['slug']);
+      ?>
+        <div class="col-md-6">
+          <a href="<?= $galUrl ?>" class="blog-card" style="display:block;text-decoration:none;">
+            <?php if ($imgSrc): ?>
+              <div class="blog-img" style="background-image:url('<?= $imgSrc ?>');background-size:cover;background-position:center;"></div>
+            <?php else: ?>
+              <div class="blog-img" style="background:linear-gradient(135deg,rgba(78,210,173,.2),rgba(239,184,16,.15));display:flex;align-items:center;justify-content:center;font-size:2.8rem;color:var(--cami-azul);"><i class="bi bi-images"></i></div>
+            <?php endif; ?>
             <div class="blog-body">
-              <p class="blog-title"><?= htmlspecialchars($titulo) ?></p>
-              <p class="blog-desc"><strong><?= htmlspecialchars($tecnica) ?></strong> — <?= htmlspecialchars($desc) ?></p>
+              <small style="font-size:.72rem;opacity:.55;"><i class="bi bi-calendar3 me-1"></i><?= htmlspecialchars(date('d M Y', strtotime($gal['created_at']))) ?></small>
+              <p class="blog-title"><?= htmlspecialchars($gal['title']) ?></p>
+              <p class="blog-desc"><?= htmlspecialchars($gal['excerpt'] ?? '') ?></p>
+              <span class="btn-p2 mt-3" style="font-size:.78rem;padding:.45rem 1rem;">Ver galería →</span>
             </div>
-          </div>
+          </a>
         </div>
       <?php endforeach; ?>
+      <?php if (empty($latestGalerias)): ?>
+        <div class="col-12 text-center py-4">
+          <p style="opacity:.5;">Próximamente galerías disponibles.</p>
+        </div>
+      <?php endif; ?>
     </div>
+    <div class="text-center mt-5"><a href="galeria.php" class="btn-p1"><i class="bi bi-images"></i>Ver toda la galería</a></div>
   </div>
 </section>
 
