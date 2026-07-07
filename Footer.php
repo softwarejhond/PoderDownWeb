@@ -78,6 +78,15 @@
       <span class="fl-trust-item"><i class="bi bi-briefcase-fill me-1"></i>5 Empleos Exitosos</span>
     </div>
 
+    <!-- Enlaces legales -->
+    <div class="fl-legal-bar">
+      <a href="politica-datos" target="_blank" rel="noopener noreferrer">Política de Datos</a>
+      <span class="fl-legal-sep">·</span>
+      <a href="politica-calidad" target="_blank" rel="noopener noreferrer">Política de Calidad</a>
+      <span class="fl-legal-sep">·</span>
+      <a href="terminos-condiciones" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a>
+    </div>
+
   </div>
 </footer>
 
@@ -102,7 +111,7 @@
 .footer-landing {
   background: #ebeae4;
   border-top: 2px solid #d6d4cc;
-  padding: 3rem 0 1rem; /* 5rem abajo para no quedar tapado por la barra fija */
+  padding: 3rem 0 4.5rem; /* espacio abajo para no quedar tapado por la barra fija */
   font-family: 'Archivo', sans-serif;
   color: #1A3A5C;
   box-shadow: 0 -4px 20px rgba(0,51,102,.06);
@@ -241,6 +250,24 @@
   letter-spacing: .3px;
 }
 
+.fl-legal-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: .3rem .7rem;
+  margin-bottom: 1rem;
+}
+.fl-legal-bar a {
+  font-size: .8rem;
+  font-weight: 600;
+  color: rgba(0,51,102,.6);
+  text-decoration: none;
+  transition: color .2s;
+}
+.fl-legal-bar a:hover { color: #3CAEE0; }
+.fl-legal-sep { color: rgba(0,51,102,.35); font-size: .8rem; }
+
 .fl-divider { border-color: #d6d4cc; margin: 0 0 1rem; }
 
 .fl-bottom {
@@ -291,13 +318,13 @@
 
 /* ===== RESPONSIVE FOOTER ===== */
 @media (max-width:767px) {
-  .footer-landing { padding: 2.5rem 0 1rem; }
+  .footer-landing { padding: 2.5rem 0 4.5rem; }
   .fl-brand-desc { max-width: 100%; }
   .fl-trust-bar { gap: .4rem 1rem; }
   .fl-trust-item { font-size: .72rem; }
 }
 @media (max-width:575px) {
-  .footer-landing { padding: 2rem 0 1rem; }
+  .footer-landing { padding: 2rem 0 5rem; }
   /* Logo footer más pequeño */
   .footer-landing img[alt="Poder Down"] { height: 38px !important; }
   /* Columnas de nav y contacto en una fila */
@@ -312,6 +339,6 @@
   .fl-bar-fija { font-size: .73rem; padding: .6rem 1rem; }
 }
 @media (max-width:359px) {
-  .footer-landing { padding: 1.5rem 0 .8rem; }
+  .footer-landing { padding: 1.5rem 0 5rem; }
 }
 </style>

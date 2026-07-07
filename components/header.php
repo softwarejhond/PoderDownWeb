@@ -44,6 +44,10 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
       --font-playpen: var(--font-archivo);
     }
     * { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
     body {
       background: var(--cami-bg);
       color: var(--cami-azul);
@@ -83,20 +87,10 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
       color: var(--cami-turq);
       border-bottom: 2px solid var(--cami-turq);
     }
-    .badge-carrito {
-      background: var(--cami-coral);
-      color: white;
-      border-radius: 50%;
-      font-size: .65rem;
-      min-width: 18px;
-      height: 18px;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      margin-left: -6px;
-      margin-top: -10px;
-      font-weight: 700;
-      vertical-align: top;
+    .cart-count {
+      font-weight: 800;
+      font-size: .92rem;
+      margin-left: .1rem;
     }
     .nav-mobile-toggle {
       display: none;
@@ -599,13 +593,13 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
         <img src="img/logos/logo_pd_horizontal.png" alt="Poder Down">
       </a>
       <div class="d-none d-lg-flex align-items-center gap-3">
-        <a class="nav-link-cami <?= $activePage === 'inicio' ? 'active' : '' ?>" href="index.php">Inicio</a>
-        <a class="nav-link-cami" href="index.php<?= $activePage === 'inicio' ? '#sobre-mi' : '#sobre-mi' ?>">Sobre mí</a>
+        <a class="nav-link-cami <?= $activePage === 'inicio' ? 'active' : '' ?>" href="<?= $activePage === 'inicio' ? '#inicio' : 'index.php' ?>" data-section="inicio">Inicio</a>
+        <a class="nav-link-cami" href="<?= $activePage === 'inicio' ? '#sobre-mi' : 'index.php#sobre-mi' ?>" data-section="sobre-mi">Sobre mí</a>
         <a class="nav-link-cami <?= $activePage === 'productos' ? 'active' : '' ?>" href="productos.php">Productos</a>
         <a class="nav-link-cami <?= $activePage === 'galeria' ? 'active' : '' ?>" href="galeria.php">Galería</a>
         <a class="nav-link-cami <?= $activePage === 'blog' ? 'active' : '' ?>" href="blog.php">Blog</a>
-        <a class="nav-link-cami" href="index.php#contacto">Contacto</a>
-        <a class="nav-link-cami" href="index.php#faq">FAQ</a>
+        <a class="nav-link-cami" href="<?= $activePage === 'inicio' ? '#contacto' : 'index.php#contacto' ?>" data-section="contacto">Contacto</a>
+        <a class="nav-link-cami" href="<?= $activePage === 'inicio' ? '#faq' : 'index.php#faq' ?>" data-section="faq">FAQ</a>
       </div>
       <div class="d-flex align-items-center gap-2">
         <?php if ($showNavSearch): ?>
@@ -615,8 +609,8 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
           onkeydown="if(event.key==='Enter'){buscarProductos()}">
         <?php endif; ?>
         <button class="btn-carrito" onclick="verCarrito()">
-          <i class="bi bi-bag-heart"></i>
-          <span class="badge-carrito" id="contadorCarrito">0</span>
+          <i class="bi bi-cart3"></i>
+          <span class="cart-count" id="contadorCarrito">0</span>
         </button>
         <?php if ($isLoggedIn): ?>
         <div class="user-dropdown">
@@ -641,13 +635,13 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
       </div>
     </div>
     <div class="nav-mobile-menu" id="navMobileMenu">
-      <a class="nav-link-cami <?= $activePage === 'inicio' ? 'active' : '' ?>" href="index.php" onclick="closeMobileMenu()">Inicio</a>
-      <a class="nav-link-cami" href="index.php#sobre-mi" onclick="closeMobileMenu()">Sobre mí</a>
+      <a class="nav-link-cami <?= $activePage === 'inicio' ? 'active' : '' ?>" href="<?= $activePage === 'inicio' ? '#inicio' : 'index.php' ?>" data-section="inicio" onclick="closeMobileMenu()">Inicio</a>
+      <a class="nav-link-cami" href="<?= $activePage === 'inicio' ? '#sobre-mi' : 'index.php#sobre-mi' ?>" data-section="sobre-mi" onclick="closeMobileMenu()">Sobre mí</a>
       <a class="nav-link-cami <?= $activePage === 'productos' ? 'active' : '' ?>" href="productos.php" onclick="closeMobileMenu()">Productos</a>
       <a class="nav-link-cami <?= $activePage === 'galeria' ? 'active' : '' ?>" href="galeria.php" onclick="closeMobileMenu()">Galería</a>
       <a class="nav-link-cami <?= $activePage === 'blog' ? 'active' : '' ?>" href="blog.php" onclick="closeMobileMenu()">Blog</a>
-      <a class="nav-link-cami" href="index.php#contacto" onclick="closeMobileMenu()">Contacto</a>
-      <a class="nav-link-cami" href="index.php#faq" onclick="closeMobileMenu()">FAQ</a>
+      <a class="nav-link-cami" href="<?= $activePage === 'inicio' ? '#contacto' : 'index.php#contacto' ?>" data-section="contacto" onclick="closeMobileMenu()">Contacto</a>
+      <a class="nav-link-cami" href="<?= $activePage === 'inicio' ? '#faq' : 'index.php#faq' ?>" data-section="faq" onclick="closeMobileMenu()">FAQ</a>
       <?php if ($isLoggedIn): ?>
       <a class="nav-link-cami" href="perfil.php" onclick="closeMobileMenu()"><i class="bi bi-person me-1"></i> Mi Perfil</a>
       <a class="nav-link-cami" href="logout.php" onclick="closeMobileMenu()" style="color:var(--pd-coral);"><i class="bi bi-box-arrow-right me-1"></i> Cerrar Sesión</a>

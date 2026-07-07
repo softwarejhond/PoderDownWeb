@@ -132,7 +132,6 @@
     if (!contador) return;
     var total = carrito.reduce(function (a, i) { return a + i.cantidad; }, 0);
     contador.textContent = total;
-    contador.style.display = total > 0 ? '' : 'none';
   };
 
   window.agregarAlCarrito = function (id, nombre, precio, imagen, variantId, variantLabel) {

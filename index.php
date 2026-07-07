@@ -1357,7 +1357,7 @@ require 'components/header.php';
           <a href="#catalogo" class="btn-p1"><i class="bi bi-bag-heart"></i>Lleva mi arte contigo</a>
           <a href="#sobre-mi" class="btn-p2"><i class="bi bi-person-heart"></i>Conoce mi historia</a>
         </div>
-        <div class="hero-aliados-strip fade-up" style="animation-delay:.72s;">
+        <!-- <div class="hero-aliados-strip fade-up" style="animation-delay:.72s;">
           <p class="hero-aliados-label"><i class="bi bi-building-check me-1"></i>Organizaciones que confían en este mensaje</p>
           <div class="hero-aliados-track-wrap">
             <div class="hero-aliados-track">
@@ -1383,7 +1383,7 @@ require 'components/header.php';
               <?php endforeach; ?>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-lg-6 d-flex justify-content-center fade-up d3">
         <div class="hero-visual">
@@ -1902,8 +1902,13 @@ require 'components/header.php';
   /* ─── SPLASH ─── */
   (function() {
     const splash = document.getElementById('splashScreen');
-    const progress = document.getElementById('splashProgress');
     if (!splash) return;
+    if (sessionStorage.getItem('pd_splash')) {
+      splash.remove();
+      return;
+    }
+    sessionStorage.setItem('pd_splash', '1');
+    const progress = document.getElementById('splashProgress');
     let pct = 0;
     const tick = setInterval(() => {
       pct += Math.random() * 18 + 4;
@@ -1931,6 +1936,36 @@ require 'components/header.php';
     busquedaActual = document.getElementById('searchNavbar')?.value?.trim() || '';
     window.location.href = 'productos.php' + (busquedaActual ? '?busqueda=' + encodeURIComponent(busquedaActual) : '');
   }
+
+  /* ─── SCROLL SPY (destaca sección activa en el navbar) ─── */
+  (function() {
+    const spyLinks = Array.from(document.querySelectorAll('.nav-link-cami[data-section]'));
+    if (!spyLinks.length) return;
+    const sections = spyLinks
+      .map(l => l.dataset.section)
+      .filter((v, i, a) => a.indexOf(v) === i)
+      .map(id => ({ id: id, el: document.getElementById(id) }))
+      .filter(s => s.el);
+
+    function setActive(id) {
+      spyLinks.forEach(l => l.classList.toggle('active', l.dataset.section === id));
+    }
+
+    function onScroll() {
+      const offset = 100;
+      let currentId = sections[0] ? sections[0].id : null;
+      for (const s of sections) {
+        if (s.el.getBoundingClientRect().top <= offset) currentId = s.id;
+      }
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 4) {
+        currentId = sections[sections.length - 1].id;
+      }
+      setActive(currentId);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
 </script>
 </body>
 
