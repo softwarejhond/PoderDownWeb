@@ -7,8 +7,6 @@ if (!isLoggedIn()) {
 }
 
 $user = getCurrentUser();
-$updateSuccess = false;
-$updateError = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = [
@@ -21,6 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'document_number' => trim($_POST['document_number'] ?? ''),
         'newsletter_subscribed' => isset($_POST['newsletter_subscribed']) ? 1 : 0,
     ];
+
+    $updateError = null;
 
     if (!empty($_POST['new_password'])) {
         if (strlen($_POST['new_password']) < 6) {
@@ -35,11 +35,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$updateError) {
         $result = updateProfile($user['id'], $data);
         if ($result['success']) {
-            $updateSuccess = true;
-            $user = getCurrentUser();
+            header('Location: perfil.php?updated=success');
+            exit;
         } else {
             $updateError = $result['message'];
         }
+    }
+
+    if ($updateError) {
+        $msg = urlencode($updateError);
+        header("Location: perfil.php?updated=error&msg={$msg}");
+        exit;
     }
 }
 
@@ -396,16 +402,6 @@ require 'components/header.php';
                 <div class="card-cami">
                     <h3><i class="bi bi-pencil-square"></i> Editar Información</h3>
 
-                    <?php if ($updateSuccess): ?>
-                    <div style="background:#d0f5ea;color:#00704a;padding:.65rem 1rem;border-radius:12px;font-size:.84rem;margin-bottom:1rem;">
-                        <i class="bi bi-check-circle me-1"></i> Perfil actualizado correctamente.
-                    </div>
-                    <?php elseif ($updateError): ?>
-                    <div style="background:#fde8e8;color:#c53030;padding:.65rem 1rem;border-radius:12px;font-size:.84rem;margin-bottom:1rem;">
-                        <i class="bi bi-exclamation-triangle me-1"></i> <?= htmlspecialchars($updateError) ?>
-                    </div>
-                    <?php endif; ?>
-
                     <form method="POST" novalidate>
                         <div class="row-cami">
                             <div class="input-group-cami">
@@ -492,35 +488,96 @@ require 'components/header.php';
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-const params = new URLSearchParams(window.location.search);
-if (params.get('welcome') === '1') {
-    Swal.fire({
-        icon: 'success',
-        title: '¡Bienvenido!',
-        text: 'Tu cuenta fue creada exitosamente.',
-        confirmButtonColor: '#3CAEE0',
+(function() {
+    const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 4500,
-        timerProgressBar: true
+        timer: 4000,
+        timerProgressBar: true,
+        customClass: {
+            popup: 'swal-toast-cami',
+            title: 'swal-toast-title',
+        },
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+        }
     });
-} else if (params.get('login') === 'success') {
-    Swal.fire({
-        icon: 'success',
-        title: '¡Hola de nuevo!',
-        text: 'Has iniciado sesión correctamente.',
-        confirmButtonColor: '#3CAEE0',
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3500,
-        timerProgressBar: true
-    });
-}
-if (params.get('welcome') || params.get('login')) {
-    window.history.replaceState({}, document.title, 'perfil.php');
-}
+
+    const params = new URLSearchParams(window.location.search);
+    const updated = params.get('updated');
+    const welcome = params.get('welcome');
+    const login = params.get('login');
+
+    if (welcome === '1') {
+        Toast.fire({
+            icon: 'success',
+            title: '¡Bienvenido! Tu cuenta fue creada exitosamente.',
+        });
+    } else if (login === 'success') {
+        Toast.fire({
+            icon: 'success',
+            title: '¡Hola de nuevo! Has iniciado sesión correctamente.',
+        });
+    } else if (updated === 'success') {
+        Toast.fire({
+            icon: 'success',
+            title: 'Perfil actualizado correctamente.',
+        });
+    } else if (updated === 'error') {
+        const msg = params.get('msg') || 'Error al actualizar. Intenta de nuevo.';
+        Toast.fire({
+            icon: 'error',
+            title: decodeURIComponent(msg),
+            timer: 5000,
+        });
+    }
+
+    if (params.has('updated') || params.get('welcome') || params.get('login')) {
+        window.history.replaceState({}, document.title, 'perfil.php');
+    }
+})();
 </script>
+
+<style>
+.swal-toast-cami {
+    border-radius: 16px !important;
+    background: #fff !important;
+    box-shadow: 0 6px 28px rgba(26,58,92,.15) !important;
+    font-family: 'Archivo', sans-serif !important;
+    padding: .85rem 1.2rem !important;
+}
+.swal-toast-cami .swal2-icon {
+    margin: 0 .7rem 0 0 !important;
+}
+.swal-toast-cami .swal2-icon.swal2-success {
+    border-color: #3CAEE0 !important;
+    color: #3CAEE0 !important;
+}
+.swal-toast-cami .swal2-icon.swal2-success [class^='swal2-success-line'] {
+    background-color: #3CAEE0 !important;
+}
+.swal-toast-cami .swal2-icon.swal2-success .swal2-success-ring {
+    border-color: rgba(60,174,224,.3) !important;
+}
+.swal-toast-cami .swal2-icon.swal2-error {
+    border-color: #E87A7A !important;
+    color: #E87A7A !important;
+}
+.swal-toast-cami .swal2-icon.swal2-error [class^='swal2-x-mark-line'] {
+    background-color: #E87A7A !important;
+}
+.swal-toast-cami .swal2-title {
+    font-family: 'Archivo', sans-serif !important;
+    font-size: .88rem !important;
+    color: #1A3A5C !important;
+    font-weight: 500 !important;
+}
+.swal-toast-cami .swal2-timer-progress-bar {
+    background: linear-gradient(90deg, #3CAEE0, #1A3A5C) !important;
+    height: 3px !important;
+}
+</style>
 
 <?php require_once __DIR__ . '/components/footer_mini.php'; ?>

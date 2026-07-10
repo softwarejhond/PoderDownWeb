@@ -387,9 +387,9 @@ function tarjetaProducto(p) {
       <div class="product-footer">
         <span class="product-price">$${Number(p.precio).toLocaleString('es-CO',{minimumFractionDigits:0})}</span>
         <button class="btn-add-cami"
-          data-pid="${p.id}" data-nombre="${encodeURIComponent(p.nombre)}" data-precio="${p.precio}" data-imagen="${p.imagen || ''}" onclick="agregarAlCarritoBtn(event,this)"
-          ${agotado ? 'disabled' : ''} title="${agotado ? 'Agotado' : 'Agregar al carrito'}">
-          <i class="bi bi-${agotado ? 'x' : 'plus-lg'}"></i>
+          data-pid="${p.id}" data-nombre="${encodeURIComponent(p.nombre)}" data-precio="${p.precio}" data-imagen="${p.imagen || ''}" onclick="${p.tiene_variantes ? `verVarianteProducto(event,this,${p.id})` : 'agregarAlCarritoBtn(event,this)'}"
+          ${agotado ? 'disabled' : ''} title="${agotado ? 'Agotado' : (p.tiene_variantes ? 'Elegir opciones' : 'Agregar al carrito')}">
+          <i class="bi bi-${agotado ? 'x' : (p.tiene_variantes ? 'eye' : 'plus-lg')}"></i>
         </button>
       </div>
     </div>
@@ -486,6 +486,18 @@ async function verProducto(id) {
 }
 
 /* ─── REDES FLOTANTES ─── */
+function verVarianteProducto(event, el, productId) {
+  event.stopPropagation();
+  if (typeof Swal !== 'undefined') {
+    Swal.fire({
+      toast: true, position: 'bottom-end', icon: 'info',
+      title: 'Este producto tiene opciones. Elige la que más te guste.',
+      showConfirmButton: false, timer: 3000, timerProgressBar: true,
+      background: '#1A3A5C', color: '#fff'
+    });
+  }
+  setTimeout(() => { window.location.href = 'producto.php?id=' + productId; }, 400);
+}
 function toggleFabSocial() {
   const links=document.getElementById('fabSocialLinks'),icon=document.getElementById('fabIconMain');
   links.classList.toggle('open');icon.className=links.classList.contains('open')?'bi bi-x-lg':'bi bi-share-fill';

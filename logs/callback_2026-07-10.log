@@ -1,0 +1,27 @@
+[2026-07-10 00:36:24] === CALLBACK RECIBIDO ===
+[2026-07-10 00:36:24] GET | {
+    "order": "17",
+    "payment": "16"
+}
+[2026-07-10 00:36:26] MEGAPAGOS getTransactionInfo | {
+    "message": "No se encontró la URL especificada"
+}
+[2026-07-10 00:36:26] STATUS DETECTADO: NULL
+[2026-07-10 01:02:04] === CALLBACK RECIBIDO ===
+[2026-07-10 01:02:04] GET | {
+    "order": "18",
+    "payment": "17"
+}
+[2026-07-10 01:02:06] MEGAPAGOS getTransactionInfo | {
+    "message": "Server Error"
+}
+[2026-07-10 01:02:06] STATUS DETECTADO: NULL
+[2026-07-10 01:16:39] === CALLBACK RECIBIDO ===
+[2026-07-10 01:16:39] GET | {
+    "order": "19",
+    "payment": "18"
+}
+[2026-07-10 01:16:40] MEGAPAGOS getTransactionInfo | {
+    "message": "No se encontró la URL especificada"
+}
+[2026-07-10 01:16:40] STATUS DETECTADO: NULL

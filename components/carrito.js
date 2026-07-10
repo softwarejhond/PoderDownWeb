@@ -195,33 +195,8 @@
 
   window.abrirCheckout = function () {
     var tp = carrito.reduce(function (a, i) { return a + i.precio * i.cantidad; }, 0);
-    if (typeof Swal === 'undefined') return;
-    Swal.fire({
-      title: '<span style="font-family:var(--font-kranky)">Datos de envío</span>',
-      html: '<div style="text-align:left;font-family:var(--font-archivo);display:flex;flex-direction:column;gap:.8rem;">' +
-        '<p style="font-size:.82rem;opacity:.6;margin:0;">Total: <strong>' + formatearPrecio(tp) + '</strong></p>' +
-        '<div><label style="font-size:.8rem;font-weight:700;color:var(--cami-azul);">Nombre completo *</label><input id="chkNombre" type="text" placeholder="Tu nombre" style="width:100%;padding:.6rem .9rem;border:2px solid var(--cami-border);border-radius:12px;font-size:.88rem;margin-top:.3rem;outline:none;box-sizing:border-box;"></div>' +
-        '<div><label style="font-size:.8rem;font-weight:700;color:var(--cami-azul);">Email *</label><input id="chkEmail" type="email" placeholder="tu@correo.com" style="width:100%;padding:.6rem .9rem;border:2px solid var(--cami-border);border-radius:12px;font-size:.88rem;margin-top:.3rem;outline:none;box-sizing:border-box;"></div>' +
-        '<div><label style="font-size:.8rem;font-weight:700;color:var(--cami-azul);">WhatsApp *</label><input id="chkTelefono" type="tel" placeholder="313 746 8039" style="width:100%;padding:.6rem .9rem;border:2px solid var(--cami-border);border-radius:12px;font-size:.88rem;margin-top:.3rem;outline:none;box-sizing:border-box;"></div>' +
-        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;"><div><label style="font-size:.8rem;font-weight:700;color:var(--cami-azul);">Ciudad *</label><input id="chkCiudad" type="text" placeholder="Medellín" style="width:100%;padding:.6rem .9rem;border:2px solid var(--cami-border);border-radius:12px;font-size:.88rem;margin-top:.3rem;outline:none;box-sizing:border-box;"></div><div><label style="font-size:.8rem;font-weight:700;color:var(--cami-azul);">Dirección *</label><input id="chkDireccion" type="text" placeholder="Cra 10 #20-30" style="width:100%;padding:.6rem .9rem;border:2px solid var(--cami-border);border-radius:12px;font-size:.88rem;margin-top:.3rem;outline:none;box-sizing:border-box;"></div></div>' +
-        '<p style="font-size:.73rem;color:#aaa;margin:0;">\uD83D\uDCE6 Sin registro. Envíos a toda Colombia.</p></div>',
-      confirmButtonText: '\u2705 Confirmar pedido',
-      showCancelButton: true, cancelButtonText: '\u2190 Volver',
-      confirmButtonColor: '#3CAEE0', width: 520,
-      preConfirm: function () {
-        var n = (document.getElementById('chkNombre')?.value?.trim() || '').substring(0, 120);
-        var e = (document.getElementById('chkEmail')?.value?.trim() || '').substring(0, 120);
-        var t = (document.getElementById('chkTelefono')?.value?.trim() || '').substring(0, 30);
-        var c = (document.getElementById('chkCiudad')?.value?.trim() || '').substring(0, 100);
-        var d = (document.getElementById('chkDireccion')?.value?.trim() || '').substring(0, 200);
-        if (!n || !e || !t || !c || !d) { Swal.showValidationMessage('Completa todos los campos (*)'); return false; }
-        if (!e.includes('@')) { Swal.showValidationMessage('Email inválido'); return false; }
-        return { nombre: n, email: e, telefono: t, ciudad: c, direccion: d };
-      }
-    }).then(function (r) {
-      if (!r.isConfirmed || !r.value) { verCarrito(); return; }
-      window._procesarCompra(r.value);
-    });
+    if (tp <= 0) return;
+    window.location.href = 'checkout.php?source=cart';
   };
 
   window._procesarCompra = async function (datosCliente) {
@@ -234,7 +209,7 @@
         items: carrito.map(function (i) { return { producto_id: i.id, variant_id: i.variant_id || null, nombre: i.nombre, precio: i.precio, cantidad: i.cantidad }; }),
         total: carrito.reduce(function (a, i) { return a + i.precio * i.cantidad; }, 0)
       };
-      var res = await fetch('pedidos.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+      var res = await fetch('pedidos', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
       var json = await res.json();
       if (json.exito || res.ok) {
         carrito = []; guardar(); actualizarContadorCarrito(); cerrarCarrito();

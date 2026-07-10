@@ -1,0 +1,976 @@
+[2026-07-09 20:27:11] === NUEVA PETICION ===
+[2026-07-09 20:27:11] REQUEST_METHOD: POST
+[2026-07-09 20:27:11] INPUT RAW | "{\"producto_id\":1,\"variant_id\":4,\"producto_nombre\":\"Camiseta Tigre Flacuchón\",\"producto_precio\":32000,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA QA\",\"cantidad\":1,\"total\":47000,\"costo_envio\":15000,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 20:27:11] INPUT PARSED | {
+    "producto_id": 1,
+    "variant_id": 4,
+    "producto_nombre": "Camiseta Tigre Flacuchón",
+    "producto_precio": 32000,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA QA",
+    "cantidad": 1,
+    "total": 47000,
+    "costo_envio": 15000,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 20:27:11] DB: Conectando...
+[2026-07-09 20:27:11] DB: Conectado OK
+[2026-07-09 20:27:11] DB: Transaccion iniciada
+[2026-07-09 20:27:11] ORDER: PD-41F108C1
+[2026-07-09 21:02:26] === NUEVA PETICION ===
+[2026-07-09 21:02:26] REQUEST_METHOD: POST
+[2026-07-09 21:02:26] INPUT RAW | "{\"producto_id\":6,\"variant_id\":94,\"producto_nombre\":\"Lapicero Poder Down\",\"producto_precio\":5000,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA QA\",\"cantidad\":1,\"total\":20000,\"costo_envio\":15000,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 21:02:26] INPUT PARSED | {
+    "producto_id": 6,
+    "variant_id": 94,
+    "producto_nombre": "Lapicero Poder Down",
+    "producto_precio": 5000,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA QA",
+    "cantidad": 1,
+    "total": 20000,
+    "costo_envio": 15000,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 21:02:26] DB: Conectando...
+[2026-07-09 21:02:26] DB: Conectado OK
+[2026-07-09 21:02:26] DB: Transaccion iniciada
+[2026-07-09 21:02:26] ORDER: PD-C6237EDF
+[2026-07-09 21:02:28] === NUEVA PETICION ===
+[2026-07-09 21:02:28] REQUEST_METHOD: POST
+[2026-07-09 21:02:28] INPUT RAW | "{\"producto_id\":6,\"variant_id\":94,\"producto_nombre\":\"Lapicero Poder Down\",\"producto_precio\":5000,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA QA\",\"cantidad\":1,\"total\":20000,\"costo_envio\":15000,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 21:02:28] INPUT PARSED | {
+    "producto_id": 6,
+    "variant_id": 94,
+    "producto_nombre": "Lapicero Poder Down",
+    "producto_precio": 5000,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA QA",
+    "cantidad": 1,
+    "total": 20000,
+    "costo_envio": 15000,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 21:02:28] DB: Conectando...
+[2026-07-09 21:02:28] DB: Conectado OK
+[2026-07-09 21:02:28] DB: Transaccion iniciada
+[2026-07-09 21:02:28] ORDER: PD-C64EB581
+[2026-07-09 21:05:07] === NUEVA PETICION ===
+[2026-07-09 21:05:07] REQUEST_METHOD: POST
+[2026-07-09 21:05:07] INPUT RAW | "{\"producto_id\":6,\"variant_id\":94,\"producto_nombre\":\"Lapicero Poder Down\",\"producto_precio\":5000,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA QA\",\"cantidad\":1,\"total\":20000,\"costo_envio\":15000,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 21:05:07] INPUT PARSED | {
+    "producto_id": 6,
+    "variant_id": 94,
+    "producto_nombre": "Lapicero Poder Down",
+    "producto_precio": 5000,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA QA",
+    "cantidad": 1,
+    "total": 20000,
+    "costo_envio": 15000,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 21:05:07] DB: Conectando...
+[2026-07-09 21:05:07] DB: Conectado OK
+[2026-07-09 21:05:07] DB: Transaccion iniciada
+[2026-07-09 21:05:07] ORDER: PD-D037D977
+[2026-07-09 21:12:02] === NUEVA PETICION ===
+[2026-07-09 21:12:02] REQUEST_METHOD: POST
+[2026-07-09 21:12:02] INPUT RAW | "{\"producto_id\":6,\"variant_id\":94,\"producto_nombre\":\"Lapicero Poder Down\",\"producto_precio\":5000,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA QA\",\"cantidad\":1,\"total\":20000,\"costo_envio\":15000,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 21:12:02] INPUT PARSED | {
+    "producto_id": 6,
+    "variant_id": 94,
+    "producto_nombre": "Lapicero Poder Down",
+    "producto_precio": 5000,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA QA",
+    "cantidad": 1,
+    "total": 20000,
+    "costo_envio": 15000,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 21:12:02] DB: Conectando...
+[2026-07-09 21:12:02] DB: Conectado OK
+[2026-07-09 21:12:02] DB: Transaccion iniciada
+[2026-07-09 21:12:02] ORDER: PD-EA28724D
+[2026-07-09 21:12:02] ERROR CATCH: Field 'id' doesn't have a default value
+[2026-07-09 21:12:02] ERROR TRACE: #0 /var/www/html/ECOMERCE-PODERDOWN/pedidos.php(106): mysqli_stmt_execute(Object(mysqli_stmt))
+#1 {main}
+[2026-07-09 21:12:02] PHP OUTPUT CAPTURADO | "{\"exito\":false,\"mensaje\":\"Field 'id' doesn't have a default value\"}"
+[2026-07-09 21:20:00] === NUEVA PETICION ===
+[2026-07-09 21:20:00] REQUEST_METHOD: POST
+[2026-07-09 21:20:00] INPUT RAW | "{\"producto_id\":6,\"variant_id\":94,\"producto_nombre\":\"Lapicero Poder Down\",\"producto_precio\":5000,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA QA\",\"cantidad\":1,\"total\":20000,\"costo_envio\":15000,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 21:20:00] INPUT PARSED | {
+    "producto_id": 6,
+    "variant_id": 94,
+    "producto_nombre": "Lapicero Poder Down",
+    "producto_precio": 5000,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA QA",
+    "cantidad": 1,
+    "total": 20000,
+    "costo_envio": 15000,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 21:20:00] DB: Conectando...
+[2026-07-09 21:20:00] DB: Conectado OK
+[2026-07-09 21:20:00] DB: Transaccion iniciada
+[2026-07-09 21:20:00] ORDER: PD-0801B3EB
+[2026-07-09 21:20:00] ERROR CATCH: Data too long for column 'customer_document_type' at row 1
+[2026-07-09 21:20:00] ERROR TRACE: #0 /var/www/html/ECOMERCE-PODERDOWN/pedidos.php(106): mysqli_stmt_execute(Object(mysqli_stmt))
+#1 {main}
+[2026-07-09 21:20:00] PHP OUTPUT CAPTURADO | "{\"exito\":false,\"mensaje\":\"Data too long for column 'customer_document_type' at row 1\"}"
+[2026-07-09 21:25:15] === NUEVA PETICION ===
+[2026-07-09 21:25:15] REQUEST_METHOD: POST
+[2026-07-09 21:25:15] INPUT RAW | "{\"producto_id\":6,\"variant_id\":94,\"producto_nombre\":\"Lapicero Poder Down\",\"producto_precio\":5000,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA QA\",\"cantidad\":1,\"total\":20000,\"costo_envio\":15000,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 21:25:15] INPUT PARSED | {
+    "producto_id": 6,
+    "variant_id": 94,
+    "producto_nombre": "Lapicero Poder Down",
+    "producto_precio": 5000,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA QA",
+    "cantidad": 1,
+    "total": 20000,
+    "costo_envio": 15000,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 21:25:15] DB: Conectando...
+[2026-07-09 21:25:15] DB: Conectado OK
+[2026-07-09 21:25:15] DB: Transaccion iniciada
+[2026-07-09 21:25:15] ORDER: PD-1BB14684
+[2026-07-09 21:25:15] ORDER: Insertado ID=1
+[2026-07-09 21:25:15] ERROR CATCH: Unknown column 'total_price' in 'INSERT INTO'
+[2026-07-09 21:25:15] ERROR TRACE: #0 /var/www/html/ECOMERCE-PODERDOWN/pedidos.php(144): mysqli_prepare(Object(mysqli), 'INSERT INTO ord...')
+#1 {main}
+[2026-07-09 21:25:15] PHP OUTPUT CAPTURADO | "{\"exito\":false,\"mensaje\":\"Unknown column 'total_price' in 'INSERT INTO'\"}"
+[2026-07-09 21:44:40] === NUEVA PETICION ===
+[2026-07-09 21:44:40] REQUEST_METHOD: POST
+[2026-07-09 21:44:40] INPUT RAW | "{\"producto_id\":6,\"variant_id\":94,\"producto_nombre\":\"Lapicero Poder Down\",\"producto_precio\":5000,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA QA\",\"cantidad\":1,\"total\":20000,\"costo_envio\":15000,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 21:44:40] INPUT PARSED | {
+    "producto_id": 6,
+    "variant_id": 94,
+    "producto_nombre": "Lapicero Poder Down",
+    "producto_precio": 5000,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA QA",
+    "cantidad": 1,
+    "total": 20000,
+    "costo_envio": 15000,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 21:44:40] DB: Conectando...
+[2026-07-09 21:44:40] DB: Conectado OK
+[2026-07-09 21:44:40] DB: Transaccion iniciada
+[2026-07-09 21:44:40] ORDER: PD-64865224
+[2026-07-09 21:44:40] ORDER: Insertado ID=2
+[2026-07-09 21:44:40] ITEM: Insertado 1 item
+[2026-07-09 21:44:40] PAYMENT: Insertado ID=1
+[2026-07-09 21:44:40] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-09 21:44:41] MEGAPAGOS: Login OK
+[2026-07-09 21:44:41] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=2&payment=1",
+    "product_name": "Lapicero Poder Down",
+    "product_description": "Lapicero Poder Down",
+    "unit_price": 5000,
+    "tax_id": 21,
+    "shipping_cost": 15000,
+    "quantity": 1,
+    "total_amount": 20000,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1007",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-09 21:44:41] ERROR CATCH: No se superó el proceso de desencirptado de la información
+[2026-07-09 21:44:41] ERROR TRACE: #0 /var/www/html/ECOMERCE-PODERDOWN/pedidos.php(201): MegapagosClient->createPseTransaction(Array)
+#1 {main}
+[2026-07-09 21:44:41] PHP OUTPUT CAPTURADO | "{\"exito\":false,\"mensaje\":\"No se super\\u00f3 el proceso de desencirptado de la informaci\\u00f3n\"}"
+[2026-07-09 21:54:03] === NUEVA PETICION ===
+[2026-07-09 21:54:03] REQUEST_METHOD: POST
+[2026-07-09 21:54:03] INPUT RAW | "{\"producto_id\":6,\"variant_id\":94,\"producto_nombre\":\"Lapicero Poder Down\",\"producto_precio\":5000,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA QA\",\"cantidad\":1,\"total\":20000,\"costo_envio\":15000,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 21:54:03] INPUT PARSED | {
+    "producto_id": 6,
+    "variant_id": 94,
+    "producto_nombre": "Lapicero Poder Down",
+    "producto_precio": 5000,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA QA",
+    "cantidad": 1,
+    "total": 20000,
+    "costo_envio": 15000,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 21:54:03] DB: Conectando...
+[2026-07-09 21:54:03] DB: Conectado OK
+[2026-07-09 21:54:03] DB: Transaccion iniciada
+[2026-07-09 21:54:03] ORDER: PD-87B34193
+[2026-07-09 21:54:03] ORDER: Insertado ID=3
+[2026-07-09 21:54:03] ITEM: Insertado 1 item
+[2026-07-09 21:54:03] PAYMENT: Insertado ID=2
+[2026-07-09 21:54:03] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-09 21:54:04] MEGAPAGOS: Login OK
+[2026-07-09 21:54:04] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=3&payment=2",
+    "product_name": "Lapicero Poder Down",
+    "product_description": "Lapicero Poder Down",
+    "unit_price": 5000,
+    "tax_id": 21,
+    "shipping_cost": 15000,
+    "quantity": 1,
+    "total_amount": 20000,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1007",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-09 21:54:04] ERROR CATCH: Error de validación en la transacción
+[2026-07-09 21:54:04] ERROR TRACE: #0 /var/www/html/ECOMERCE-PODERDOWN/pedidos.php(201): MegapagosClient->createPseTransaction(Array)
+#1 {main}
+[2026-07-09 21:54:04] PHP OUTPUT CAPTURADO | "{\"exito\":false,\"mensaje\":\"Error de validaci\\u00f3n en la transacci\\u00f3n\"}"
+[2026-07-09 22:11:56] === NUEVA PETICION ===
+[2026-07-09 22:11:56] REQUEST_METHOD: POST
+[2026-07-09 22:11:56] INPUT RAW | "{\"producto_id\":6,\"variant_id\":94,\"producto_nombre\":\"Lapicero Poder Down\",\"producto_precio\":5000,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA QA\",\"cantidad\":1,\"total\":20000,\"costo_envio\":15000,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 22:11:56] INPUT PARSED | {
+    "producto_id": 6,
+    "variant_id": 94,
+    "producto_nombre": "Lapicero Poder Down",
+    "producto_precio": 5000,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA QA",
+    "cantidad": 1,
+    "total": 20000,
+    "costo_envio": 15000,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 22:11:56] DB: Conectando...
+[2026-07-09 22:11:56] DB: Conectado OK
+[2026-07-09 22:11:56] DB: Transaccion iniciada
+[2026-07-09 22:11:56] ORDER: PD-CAC6B0CE
+[2026-07-09 22:11:56] ORDER: Insertado ID=4
+[2026-07-09 22:11:56] ITEM: Insertado 1 item
+[2026-07-09 22:11:56] PAYMENT: Insertado ID=3
+[2026-07-09 22:11:56] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-09 22:11:57] MEGAPAGOS: Login OK
+[2026-07-09 22:11:57] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=4&payment=3",
+    "product_name": "Lapicero Poder Down",
+    "product_description": "Lapicero Poder Down",
+    "unit_price": 5000,
+    "tax_id": 21,
+    "shipping_cost": 15000,
+    "quantity": 1,
+    "total_amount": 20000,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1007",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-09 22:11:59] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5680794",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=hY8Z8CaeT0HtNhQFJyyXknQtuLdu8qmZh1LORkBAASQ%3d",
+    "transactionId": "MTU4NzU="
+}
+[2026-07-09 22:11:59] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=hY8Z8CaeT0HtNhQFJyyXknQtuLdu8qmZh1LORkBAASQ%3d
+[2026-07-09 22:11:59] DB: Commit OK. TODO EXITOSO
+[2026-07-09 22:11:59] PHP OUTPUT CAPTURADO | "{\"exito\":true,\"codigo\":\"PD-CAC6B0CE\",\"order_id\":4,\"payment_id\":3,\"pse_url\":\"https:\\\/\\\/registro.desarrollo.pse.com.co\\\/PSENF\\\/index.html?enc=hY8Z8CaeT0HtNhQFJyyXknQtuLdu8qmZh1LORkBAASQ%3d\",\"transaction_id\":\"MTU4NzU=\",\"mensaje\":\"Pedido creado. Redirigiendo a PSE...\"}"
+[2026-07-09 22:19:04] === NUEVA PETICION ===
+[2026-07-09 22:19:04] REQUEST_METHOD: POST
+[2026-07-09 22:19:04] INPUT RAW | "{\"producto_id\":6,\"variant_id\":94,\"producto_nombre\":\"Lapicero Poder Down\",\"producto_precio\":5000,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA QA\",\"cantidad\":1,\"total\":20000,\"costo_envio\":15000,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 22:19:04] INPUT PARSED | {
+    "producto_id": 6,
+    "variant_id": 94,
+    "producto_nombre": "Lapicero Poder Down",
+    "producto_precio": 5000,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA QA",
+    "cantidad": 1,
+    "total": 20000,
+    "costo_envio": 15000,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 22:19:04] DB: Conectando...
+[2026-07-09 22:19:04] DB: Conectado OK
+[2026-07-09 22:19:04] DB: Transaccion iniciada
+[2026-07-09 22:19:04] ORDER: PD-E58C407F
+[2026-07-09 22:19:04] ORDER: Insertado ID=5
+[2026-07-09 22:19:04] ITEM: Insertado 1 item
+[2026-07-09 22:19:04] PAYMENT: Insertado ID=4
+[2026-07-09 22:19:04] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-09 22:19:05] MEGAPAGOS: Login OK
+[2026-07-09 22:19:05] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=5&payment=4",
+    "product_name": "Lapicero Poder Down",
+    "product_description": "Lapicero Poder Down",
+    "unit_price": 5000,
+    "tax_id": 21,
+    "shipping_cost": 15000,
+    "quantity": 1,
+    "total_amount": 20000,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1007",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-09 22:19:07] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5680809",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=hBe8I2XYZluJe5GWq00cySWkLjEV5uC%2bVkeOpc5dczs%3d",
+    "transactionId": "MTU4NzY="
+}
+[2026-07-09 22:19:07] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=hBe8I2XYZluJe5GWq00cySWkLjEV5uC%2bVkeOpc5dczs%3d
+[2026-07-09 22:19:07] DB: Commit OK. TODO EXITOSO
+[2026-07-09 22:46:38] === NUEVA PETICION ===
+[2026-07-09 22:46:38] REQUEST_METHOD: POST
+[2026-07-09 22:46:38] INPUT RAW | "{\"producto_id\":6,\"variant_id\":94,\"producto_nombre\":\"Lapicero Poder Down\",\"producto_precio\":5000,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"121212\",\"banco_nombre\":\"Prueba Steve\",\"cantidad\":1,\"total\":20000,\"costo_envio\":15000,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 22:46:38] INPUT PARSED | {
+    "producto_id": 6,
+    "variant_id": 94,
+    "producto_nombre": "Lapicero Poder Down",
+    "producto_precio": 5000,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "121212",
+    "banco_nombre": "Prueba Steve",
+    "cantidad": 1,
+    "total": 20000,
+    "costo_envio": 15000,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 22:46:38] DB: Conectando...
+[2026-07-09 22:46:38] DB: Conectado OK
+[2026-07-09 22:46:38] DB: Transaccion iniciada
+[2026-07-09 22:46:38] ORDER: PD-4CE39928
+[2026-07-09 22:46:38] ORDER: Insertado ID=6
+[2026-07-09 22:46:38] ITEM: Insertado 1 item
+[2026-07-09 22:46:38] PAYMENT: Insertado ID=5
+[2026-07-09 22:46:38] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-09 22:46:38] MEGAPAGOS: Login OK
+[2026-07-09 22:46:38] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=6&payment=5",
+    "product_name": "Lapicero Poder Down",
+    "product_description": "Lapicero Poder Down",
+    "unit_price": 5000,
+    "tax_id": 21,
+    "shipping_cost": 15000,
+    "quantity": 1,
+    "total_amount": 20000,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "121212",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-09 22:46:40] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5680867",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=hBe8I2XYZluJe5GWq00cyW4nzFDAapEoDfOtjuvRs0U%3d",
+    "transactionId": "MTU4Nzk="
+}
+[2026-07-09 22:46:40] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=hBe8I2XYZluJe5GWq00cyW4nzFDAapEoDfOtjuvRs0U%3d
+[2026-07-09 22:46:40] DB: Commit OK. TODO EXITOSO
+[2026-07-09 22:47:07] === NUEVA PETICION ===
+[2026-07-09 22:47:07] REQUEST_METHOD: POST
+[2026-07-09 22:47:07] INPUT RAW | "{\"producto_id\":6,\"variant_id\":94,\"producto_nombre\":\"Lapicero Poder Down\",\"producto_precio\":5000,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA QA\",\"cantidad\":1,\"total\":20000,\"costo_envio\":15000,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 22:47:07] INPUT PARSED | {
+    "producto_id": 6,
+    "variant_id": 94,
+    "producto_nombre": "Lapicero Poder Down",
+    "producto_precio": 5000,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA QA",
+    "cantidad": 1,
+    "total": 20000,
+    "costo_envio": 15000,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 22:47:07] DB: Conectando...
+[2026-07-09 22:47:07] DB: Conectado OK
+[2026-07-09 22:47:07] DB: Transaccion iniciada
+[2026-07-09 22:47:07] ORDER: PD-4EB91910
+[2026-07-09 22:47:07] ORDER: Insertado ID=7
+[2026-07-09 22:47:07] ITEM: Insertado 1 item
+[2026-07-09 22:47:07] PAYMENT: Insertado ID=6
+[2026-07-09 22:47:07] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-09 22:47:08] MEGAPAGOS: Login OK
+[2026-07-09 22:47:08] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=7&payment=6",
+    "product_name": "Lapicero Poder Down",
+    "product_description": "Lapicero Poder Down",
+    "unit_price": 5000,
+    "tax_id": 21,
+    "shipping_cost": 15000,
+    "quantity": 1,
+    "total_amount": 20000,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1007",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-09 22:47:10] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5680869",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=hBe8I2XYZluJe5GWq00cyVBCd7ga2kmsxKHvqq2Cyh0%3d",
+    "transactionId": "MTU4ODA="
+}
+[2026-07-09 22:47:10] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=hBe8I2XYZluJe5GWq00cyVBCd7ga2kmsxKHvqq2Cyh0%3d
+[2026-07-09 22:47:10] DB: Commit OK. TODO EXITOSO
+[2026-07-09 22:48:16] === NUEVA PETICION ===
+[2026-07-09 22:48:16] REQUEST_METHOD: POST
+[2026-07-09 22:48:16] INPUT RAW | "{\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA QA\",\"items\":[{\"producto_id\":1,\"variant_id\":null,\"nombre\":\"Camiseta Tigre Flacuchón\",\"precio\":32000,\"cantidad\":1},{\"producto_id\":3,\"variant_id\":66,\"nombre\":\"Camiseta Trisomía 21\",\"precio\":32000,\"cantidad\":1}],\"total\":79000,\"subtotal\":64000,\"costo_envio\":15000,\"cantidad\":2,\"producto_nombre\":\"Pedido múltiple\",\"producto_precio\":64000,\"metodo_pago\":\"megapagos_pse\",\"is_cart\":true}"
+[2026-07-09 22:48:16] INPUT PARSED | {
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA QA",
+    "items": [
+        {
+            "producto_id": 1,
+            "variant_id": null,
+            "nombre": "Camiseta Tigre Flacuchón",
+            "precio": 32000,
+            "cantidad": 1
+        },
+        {
+            "producto_id": 3,
+            "variant_id": 66,
+            "nombre": "Camiseta Trisomía 21",
+            "precio": 32000,
+            "cantidad": 1
+        }
+    ],
+    "total": 79000,
+    "subtotal": 64000,
+    "costo_envio": 15000,
+    "cantidad": 2,
+    "producto_nombre": "Pedido múltiple",
+    "producto_precio": 64000,
+    "metodo_pago": "megapagos_pse",
+    "is_cart": true
+}
+[2026-07-09 22:48:16] DB: Conectando...
+[2026-07-09 22:48:16] DB: Conectado OK
+[2026-07-09 22:48:16] DB: Transaccion iniciada
+[2026-07-09 22:48:16] ORDER: PD-5302C63D
+[2026-07-09 22:48:16] ORDER: Insertado ID=8
+[2026-07-09 22:48:16] ITEMS: Insertados 2 items
+[2026-07-09 22:48:16] PAYMENT: Insertado ID=7
+[2026-07-09 22:48:16] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-09 22:48:16] MEGAPAGOS: Login OK
+[2026-07-09 22:48:16] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=8&payment=7",
+    "product_name": "Pedido múltiple",
+    "product_description": "Pedido múltiple: Camiseta Tigre Flacuchón x1, Camiseta Trisomía 21 x1",
+    "unit_price": 64000,
+    "tax_id": 21,
+    "shipping_cost": 15000,
+    "quantity": 2,
+    "total_amount": 79000,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1007",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-09 22:48:18] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5680872",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=hBe8I2XYZluJe5GWq00cyWsoaPtaly22ylX1JbkZ61o%3d",
+    "transactionId": "MTU4ODE="
+}
+[2026-07-09 22:48:18] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=hBe8I2XYZluJe5GWq00cyWsoaPtaly22ylX1JbkZ61o%3d
+[2026-07-09 22:48:18] DB: Commit OK. TODO EXITOSO
+[2026-07-09 23:01:56] === NUEVA PETICION ===
+[2026-07-09 23:01:56] REQUEST_METHOD: POST
+[2026-07-09 23:01:56] INPUT RAW | "{\"producto_id\":6,\"variant_id\":94,\"producto_nombre\":\"Lapicero Poder Down\",\"producto_precio\":5000,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1013\",\"banco_nombre\":\"BBVA COLOMBIA S.A.\",\"cantidad\":1,\"total\":20000,\"costo_envio\":15000,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 23:01:56] INPUT PARSED | {
+    "producto_id": 6,
+    "variant_id": 94,
+    "producto_nombre": "Lapicero Poder Down",
+    "producto_precio": 5000,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1013",
+    "banco_nombre": "BBVA COLOMBIA S.A.",
+    "cantidad": 1,
+    "total": 20000,
+    "costo_envio": 15000,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 23:01:56] DB: Conectando...
+[2026-07-09 23:01:56] DB: Conectado OK
+[2026-07-09 23:01:56] DB: Transaccion iniciada
+[2026-07-09 23:01:56] ORDER: PD-864564FC
+[2026-07-09 23:01:56] ORDER: Insertado ID=9
+[2026-07-09 23:01:56] ITEM: Insertado 1 item
+[2026-07-09 23:01:56] PAYMENT: Insertado ID=8
+[2026-07-09 23:01:56] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-09 23:01:57] MEGAPAGOS: Login OK
+[2026-07-09 23:01:57] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=9&payment=8",
+    "product_name": "Lapicero Poder Down",
+    "product_description": "Lapicero Poder Down",
+    "unit_price": 5000,
+    "tax_id": 21,
+    "shipping_cost": 15000,
+    "quantity": 1,
+    "total_amount": 20000,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1013",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-09 23:01:59] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5680883",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=hBe8I2XYZluJe5GWq00cye0ps%2fUOQwmAznJ644wKieM%3d",
+    "transactionId": "MTU4ODI="
+}
+[2026-07-09 23:01:59] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=hBe8I2XYZluJe5GWq00cye0ps%2fUOQwmAznJ644wKieM%3d
+[2026-07-09 23:01:59] DB: Commit OK. TODO EXITOSO
+[2026-07-09 23:05:01] === NUEVA PETICION ===
+[2026-07-09 23:05:01] REQUEST_METHOD: POST
+[2026-07-09 23:05:01] INPUT RAW | "{\"producto_id\":6,\"variant_id\":94,\"producto_nombre\":\"Lapicero Poder Down\",\"producto_precio\":5000,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA QA\",\"cantidad\":1,\"total\":20000,\"costo_envio\":15000,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 23:05:01] INPUT PARSED | {
+    "producto_id": 6,
+    "variant_id": 94,
+    "producto_nombre": "Lapicero Poder Down",
+    "producto_precio": 5000,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA QA",
+    "cantidad": 1,
+    "total": 20000,
+    "costo_envio": 15000,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 23:05:01] DB: Conectando...
+[2026-07-09 23:05:01] DB: Conectado OK
+[2026-07-09 23:05:01] DB: Transaccion iniciada
+[2026-07-09 23:05:01] ORDER: PD-91DE2447
+[2026-07-09 23:05:01] ORDER: Insertado ID=10
+[2026-07-09 23:05:01] ITEM: Insertado 1 item
+[2026-07-09 23:05:01] PAYMENT: Insertado ID=9
+[2026-07-09 23:05:01] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-09 23:05:04] MEGAPAGOS: Login OK
+[2026-07-09 23:05:04] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=10&payment=9",
+    "product_name": "Lapicero Poder Down",
+    "product_description": "Lapicero Poder Down",
+    "unit_price": 5000,
+    "tax_id": 21,
+    "shipping_cost": 15000,
+    "quantity": 1,
+    "total_amount": 20000,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1007",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-09 23:05:06] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5680886",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=hBe8I2XYZluJe5GWq00cyfQqfDdDkFfMZanpGSAubME%3d",
+    "transactionId": "MTU4ODM="
+}
+[2026-07-09 23:05:06] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=hBe8I2XYZluJe5GWq00cyfQqfDdDkFfMZanpGSAubME%3d
+[2026-07-09 23:05:06] DB: Commit OK. TODO EXITOSO
+[2026-07-09 23:27:02] === NUEVA PETICION ===
+[2026-07-09 23:27:02] REQUEST_METHOD: POST
+[2026-07-09 23:27:02] INPUT RAW | "{\"producto_id\":6,\"variant_id\":94,\"producto_nombre\":\"Lapicero Poder Down\",\"producto_precio\":5000,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1507\",\"banco_nombre\":\"NEQUI CERTIFICACION\",\"cantidad\":1,\"total\":20000,\"costo_envio\":15000,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 23:27:02] INPUT PARSED | {
+    "producto_id": 6,
+    "variant_id": 94,
+    "producto_nombre": "Lapicero Poder Down",
+    "producto_precio": 5000,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1507",
+    "banco_nombre": "NEQUI CERTIFICACION",
+    "cantidad": 1,
+    "total": 20000,
+    "costo_envio": 15000,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 23:27:02] DB: Conectando...
+[2026-07-09 23:27:02] DB: Conectado OK
+[2026-07-09 23:27:02] DB: Transaccion iniciada
+[2026-07-09 23:27:02] ORDER: PD-E46B0264
+[2026-07-09 23:27:02] ORDER: Insertado ID=11
+[2026-07-09 23:27:02] ITEM: Insertado 1 item
+[2026-07-09 23:27:02] PAYMENT: Insertado ID=10
+[2026-07-09 23:27:02] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-09 23:27:03] MEGAPAGOS: Login OK
+[2026-07-09 23:27:03] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=11&payment=10",
+    "product_name": "Lapicero Poder Down",
+    "product_description": "Lapicero Poder Down",
+    "unit_price": 5000,
+    "tax_id": 21,
+    "shipping_cost": 15000,
+    "quantity": 1,
+    "total_amount": 20000,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1507",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-09 23:27:05] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5680902",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=d0XxiXzg1w5IXomZCM%2fUXtIInO3g1hO0o4ZWljlHkXA%3d",
+    "transactionId": "MTU4ODQ="
+}
+[2026-07-09 23:27:05] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=d0XxiXzg1w5IXomZCM%2fUXtIInO3g1hO0o4ZWljlHkXA%3d
+[2026-07-09 23:27:05] DB: Commit OK. TODO EXITOSO
+[2026-07-09 23:40:38] === NUEVA PETICION ===
+[2026-07-09 23:40:38] REQUEST_METHOD: POST
+[2026-07-09 23:40:38] INPUT RAW | "{\"producto_id\":6,\"variant_id\":94,\"producto_nombre\":\"Lapicero Poder Down\",\"producto_precio\":5000,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA QA\",\"cantidad\":1,\"total\":20000,\"costo_envio\":15000,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 23:40:38] INPUT PARSED | {
+    "producto_id": 6,
+    "variant_id": 94,
+    "producto_nombre": "Lapicero Poder Down",
+    "producto_precio": 5000,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA QA",
+    "cantidad": 1,
+    "total": 20000,
+    "costo_envio": 15000,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 23:40:38] DB: Conectando...
+[2026-07-09 23:40:38] DB: Conectado OK
+[2026-07-09 23:40:38] DB: Transaccion iniciada
+[2026-07-09 23:40:38] ORDER: PD-176EDD5F
+[2026-07-09 23:40:38] ORDER: Insertado ID=12
+[2026-07-09 23:40:38] ITEM: Insertado 1 item
+[2026-07-09 23:40:38] PAYMENT: Insertado ID=11
+[2026-07-09 23:40:38] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-09 23:40:39] MEGAPAGOS: Login OK
+[2026-07-09 23:40:39] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=12&payment=11",
+    "product_name": "Lapicero Poder Down",
+    "product_description": "Lapicero Poder Down",
+    "unit_price": 5000,
+    "tax_id": 21,
+    "shipping_cost": 15000,
+    "quantity": 1,
+    "total_amount": 20000,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1007",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-09 23:40:41] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5680911",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=d0XxiXzg1w5IXomZCM%2fUXhuaIDHRwABLeP1m6JFe8GY%3d",
+    "transactionId": "MTU4ODU="
+}
+[2026-07-09 23:40:41] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=d0XxiXzg1w5IXomZCM%2fUXhuaIDHRwABLeP1m6JFe8GY%3d
+[2026-07-09 23:40:41] DB: Commit OK. TODO EXITOSO
+[2026-07-09 23:52:25] === NUEVA PETICION ===
+[2026-07-09 23:52:25] REQUEST_METHOD: POST
+[2026-07-09 23:52:25] INPUT RAW | "{\"producto_id\":5,\"variant_id\":null,\"producto_nombre\":\"Tarjetas de Regalo De \/ Para\",\"producto_precio\":500,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1507\",\"banco_nombre\":\"NEQUI\",\"cantidad\":1,\"total\":600,\"costo_envio\":100,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 23:52:25] INPUT PARSED | {
+    "producto_id": 5,
+    "variant_id": null,
+    "producto_nombre": "Tarjetas de Regalo De \/ Para",
+    "producto_precio": 500,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1507",
+    "banco_nombre": "NEQUI",
+    "cantidad": 1,
+    "total": 600,
+    "costo_envio": 100,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 23:52:25] DB: Conectando...
+[2026-07-09 23:52:25] DB: Conectado OK
+[2026-07-09 23:52:25] DB: Transaccion iniciada
+[2026-07-09 23:52:25] ORDER: PD-439E4BC5
+[2026-07-09 23:52:25] ORDER: Insertado ID=13
+[2026-07-09 23:52:25] ITEM: Insertado 1 item
+[2026-07-09 23:52:25] PAYMENT: Insertado ID=12
+[2026-07-09 23:52:25] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-09 23:52:26] MEGAPAGOS: Login OK
+[2026-07-09 23:52:26] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=13&payment=12",
+    "product_name": "Tarjetas de Regalo De \/ Para",
+    "product_description": "Tarjetas de Regalo De \/ Para",
+    "unit_price": 500,
+    "tax_id": 21,
+    "shipping_cost": 100,
+    "quantity": 1,
+    "total_amount": 600,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1507",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-09 23:52:29] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "467808254",
+    "pseURL": "https:\/\/registro.pse.com.co\/PSENF\/index.html?enc=NncLfcJFq0ecVePYvQurmLmp3npBmJXOF5FT%2bdSNwyc%3d",
+    "transactionId": "MjIyMzI2"
+}
+[2026-07-09 23:52:29] PSE_URL: https://registro.pse.com.co/PSENF/index.html?enc=NncLfcJFq0ecVePYvQurmLmp3npBmJXOF5FT%2bdSNwyc%3d
+[2026-07-09 23:52:29] DB: Commit OK. TODO EXITOSO
+[2026-07-09 23:53:30] === NUEVA PETICION ===
+[2026-07-09 23:53:30] REQUEST_METHOD: POST
+[2026-07-09 23:53:30] INPUT RAW | "{\"producto_id\":5,\"variant_id\":null,\"producto_nombre\":\"Tarjetas de Regalo De \/ Para\",\"producto_precio\":500,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA\",\"cantidad\":1,\"total\":600,\"costo_envio\":100,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-09 23:53:30] INPUT PARSED | {
+    "producto_id": 5,
+    "variant_id": null,
+    "producto_nombre": "Tarjetas de Regalo De \/ Para",
+    "producto_precio": 500,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA",
+    "cantidad": 1,
+    "total": 600,
+    "costo_envio": 100,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-09 23:53:30] DB: Conectando...
+[2026-07-09 23:53:30] DB: Conectado OK
+[2026-07-09 23:53:30] DB: Transaccion iniciada
+[2026-07-09 23:53:30] ORDER: PD-47A61559
+[2026-07-09 23:53:30] ORDER: Insertado ID=14
+[2026-07-09 23:53:30] ITEM: Insertado 1 item
+[2026-07-09 23:53:30] PAYMENT: Insertado ID=13
+[2026-07-09 23:53:30] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-09 23:53:31] MEGAPAGOS: Login OK
+[2026-07-09 23:53:31] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=14&payment=13",
+    "product_name": "Tarjetas de Regalo De \/ Para",
+    "product_description": "Tarjetas de Regalo De \/ Para",
+    "unit_price": 500,
+    "tax_id": 21,
+    "shipping_cost": 100,
+    "quantity": 1,
+    "total_amount": 600,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1007",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-09 23:53:35] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "467811306",
+    "pseURL": "https:\/\/registro.pse.com.co\/PSENF\/index.html?enc=Fz5lmaGesQR%2bGGLGljXW%2f8U4x6C2k9rfbbYLaYLDICM%3d",
+    "transactionId": "MjIyMzI3"
+}
+[2026-07-09 23:53:35] PSE_URL: https://registro.pse.com.co/PSENF/index.html?enc=Fz5lmaGesQR%2bGGLGljXW%2f8U4x6C2k9rfbbYLaYLDICM%3d
+[2026-07-09 23:53:35] DB: Commit OK. TODO EXITOSO

@@ -1,0 +1,299 @@
+[2026-07-10 00:00:05] === NUEVA PETICION ===
+[2026-07-10 00:00:05] REQUEST_METHOD: POST
+[2026-07-10 00:00:05] INPUT RAW | "{\"producto_id\":5,\"variant_id\":null,\"producto_nombre\":\"Tarjetas de Regalo De \/ Para\",\"producto_precio\":200,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA\",\"cantidad\":1,\"total\":300,\"costo_envio\":100,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-10 00:00:05] INPUT PARSED | {
+    "producto_id": 5,
+    "variant_id": null,
+    "producto_nombre": "Tarjetas de Regalo De \/ Para",
+    "producto_precio": 200,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA",
+    "cantidad": 1,
+    "total": 300,
+    "costo_envio": 100,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-10 00:00:05] DB: Conectando...
+[2026-07-10 00:00:05] DB: Conectado OK
+[2026-07-10 00:00:05] DB: Transaccion iniciada
+[2026-07-10 00:00:05] ORDER: PD-6050EEA1
+[2026-07-10 00:00:05] ORDER: Insertado ID=15
+[2026-07-10 00:00:05] ITEM: Insertado 1 item
+[2026-07-10 00:00:05] PAYMENT: Insertado ID=14
+[2026-07-10 00:00:05] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-10 00:00:06] MEGAPAGOS: Login OK
+[2026-07-10 00:00:06] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/PODER-DOWN\/callback?order=15&payment=14",
+    "product_name": "Tarjetas de Regalo De \/ Para",
+    "product_description": "Tarjetas de Regalo De \/ Para",
+    "unit_price": 200,
+    "tax_id": 21,
+    "shipping_cost": 100,
+    "quantity": 1,
+    "total_amount": 300,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1007",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-10 00:00:09] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "467830659",
+    "pseURL": "https:\/\/registro.pse.com.co\/PSENF\/index.html?enc=n69wix5sr9%2bteonQRUZ9upQ3wiekeLmOyf3r4zkAPmA%3d",
+    "transactionId": "MjIyMzI4"
+}
+[2026-07-10 00:00:09] PSE_URL: https://registro.pse.com.co/PSENF/index.html?enc=n69wix5sr9%2bteonQRUZ9upQ3wiekeLmOyf3r4zkAPmA%3d
+[2026-07-10 00:00:09] DB: Commit OK. TODO EXITOSO
+[2026-07-10 00:25:17] === NUEVA PETICION ===
+[2026-07-10 00:25:17] REQUEST_METHOD: POST
+[2026-07-10 00:25:17] INPUT RAW | "{\"producto_id\":5,\"variant_id\":null,\"producto_nombre\":\"Tarjetas de Regalo De \/ Para\",\"producto_precio\":200,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA\",\"cantidad\":1,\"total\":300,\"costo_envio\":100,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-10 00:25:17] INPUT PARSED | {
+    "producto_id": 5,
+    "variant_id": null,
+    "producto_nombre": "Tarjetas de Regalo De \/ Para",
+    "producto_precio": 200,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA",
+    "cantidad": 1,
+    "total": 300,
+    "costo_envio": 100,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-10 00:25:17] DB: Conectando...
+[2026-07-10 00:25:17] DB: Conectado OK
+[2026-07-10 00:25:17] DB: Transaccion iniciada
+[2026-07-10 00:25:17] ORDER: PD-BED6DA8E
+[2026-07-10 00:25:17] ORDER: Insertado ID=16
+[2026-07-10 00:25:17] ITEM: Insertado 1 item
+[2026-07-10 00:25:17] PAYMENT: Insertado ID=15
+[2026-07-10 00:25:17] BASE_URL: http://localhost/ECOMERCE-PODERDOWN
+[2026-07-10 00:25:17] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-10 00:25:18] MEGAPAGOS: Login OK
+[2026-07-10 00:25:18] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=16&payment=15",
+    "product_name": "Tarjetas de Regalo De \/ Para",
+    "product_description": "Tarjetas de Regalo De \/ Para",
+    "unit_price": 200,
+    "tax_id": 21,
+    "shipping_cost": 100,
+    "quantity": 1,
+    "total_amount": 300,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1007",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-10 00:25:24] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "467903442",
+    "pseURL": "https:\/\/registro.pse.com.co\/PSENF\/index.html?enc=nmykw0LcCmaWVyUI9k%2f4SzUEpIZuPZRrzMqEe2mXjmQ%3d",
+    "transactionId": "MjIyMzI5"
+}
+[2026-07-10 00:25:24] PSE_URL: https://registro.pse.com.co/PSENF/index.html?enc=nmykw0LcCmaWVyUI9k%2f4SzUEpIZuPZRrzMqEe2mXjmQ%3d
+[2026-07-10 00:25:24] DB: Commit OK. TODO EXITOSO
+[2026-07-10 00:35:23] === NUEVA PETICION ===
+[2026-07-10 00:35:23] REQUEST_METHOD: POST
+[2026-07-10 00:35:23] INPUT RAW | "{\"producto_id\":5,\"variant_id\":null,\"producto_nombre\":\"Tarjetas de Regalo De \/ Para\",\"producto_precio\":200,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA\",\"cantidad\":1,\"total\":300,\"costo_envio\":100,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-10 00:35:23] INPUT PARSED | {
+    "producto_id": 5,
+    "variant_id": null,
+    "producto_nombre": "Tarjetas de Regalo De \/ Para",
+    "producto_precio": 200,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA",
+    "cantidad": 1,
+    "total": 300,
+    "costo_envio": 100,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-10 00:35:23] DB: Conectando...
+[2026-07-10 00:35:23] DB: Conectado OK
+[2026-07-10 00:35:23] DB: Transaccion iniciada
+[2026-07-10 00:35:23] ORDER: PD-E4B18AE5
+[2026-07-10 00:35:23] ORDER: Insertado ID=17
+[2026-07-10 00:35:23] ITEM: Insertado 1 item
+[2026-07-10 00:35:23] PAYMENT: Insertado ID=16
+[2026-07-10 00:35:23] BASE_URL: http://localhost/ECOMERCE-PODERDOWN
+[2026-07-10 00:35:23] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-10 00:35:24] MEGAPAGOS: Login OK
+[2026-07-10 00:35:24] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=17&payment=16",
+    "product_name": "Tarjetas de Regalo De \/ Para",
+    "product_description": "Tarjetas de Regalo De \/ Para",
+    "unit_price": 200,
+    "tax_id": 21,
+    "shipping_cost": 100,
+    "quantity": 1,
+    "total_amount": 300,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1007",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-10 00:35:27] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "467932774",
+    "pseURL": "https:\/\/registro.pse.com.co\/PSENF\/index.html?enc=ybO31L6BzmdwAz2SbfohfJcE83ViHf4O7aFVULra248%3d",
+    "transactionId": "MjIyMzMw"
+}
+[2026-07-10 00:35:27] PSE_URL: https://registro.pse.com.co/PSENF/index.html?enc=ybO31L6BzmdwAz2SbfohfJcE83ViHf4O7aFVULra248%3d
+[2026-07-10 00:35:27] DB: Commit OK. TODO EXITOSO
+[2026-07-10 01:00:35] === NUEVA PETICION ===
+[2026-07-10 01:00:35] REQUEST_METHOD: POST
+[2026-07-10 01:00:35] INPUT RAW | "{\"producto_id\":5,\"variant_id\":null,\"producto_nombre\":\"Tarjetas de Regalo De \/ Para\",\"producto_precio\":200,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA\",\"cantidad\":1,\"total\":300,\"costo_envio\":100,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-10 01:00:35] INPUT PARSED | {
+    "producto_id": 5,
+    "variant_id": null,
+    "producto_nombre": "Tarjetas de Regalo De \/ Para",
+    "producto_precio": 200,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA",
+    "cantidad": 1,
+    "total": 300,
+    "costo_envio": 100,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-10 01:00:35] DB: Conectando...
+[2026-07-10 01:00:35] DB: Conectado OK
+[2026-07-10 01:00:35] DB: Transaccion iniciada
+[2026-07-10 01:00:35] ORDER: PD-433F00D1
+[2026-07-10 01:00:35] ORDER: Insertado ID=18
+[2026-07-10 01:00:35] ITEM: Insertado 1 item
+[2026-07-10 01:00:35] PAYMENT: Insertado ID=17
+[2026-07-10 01:00:35] BASE_URL: http://localhost/ECOMERCE-PODERDOWN
+[2026-07-10 01:00:35] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-10 01:00:36] MEGAPAGOS: Login OK
+[2026-07-10 01:00:36] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=18&payment=17",
+    "product_name": "Tarjetas de Regalo De \/ Para",
+    "product_description": "Tarjetas de Regalo De \/ Para",
+    "unit_price": 200,
+    "tax_id": 21,
+    "shipping_cost": 100,
+    "quantity": 1,
+    "total_amount": 300,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1007",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-10 01:00:39] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "468005490",
+    "pseURL": "https:\/\/registro.pse.com.co\/PSENF\/index.html?enc=enqKiJufAaJk1ZWiQrHFcD5L9xCCFiInw0MfkjV1U10%3d",
+    "transactionId": "MjIyMzMx"
+}
+[2026-07-10 01:00:39] PSE_URL: https://registro.pse.com.co/PSENF/index.html?enc=enqKiJufAaJk1ZWiQrHFcD5L9xCCFiInw0MfkjV1U10%3d
+[2026-07-10 01:00:39] DB: Commit OK. TODO EXITOSO
+[2026-07-10 01:15:32] === NUEVA PETICION ===
+[2026-07-10 01:15:32] REQUEST_METHOD: POST
+[2026-07-10 01:15:32] INPUT RAW | "{\"producto_id\":5,\"variant_id\":null,\"producto_nombre\":\"Tarjetas de Regalo De \/ Para\",\"producto_precio\":200,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"ciudad\":\"Bello\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1007\",\"banco_nombre\":\"BANCOLOMBIA\",\"cantidad\":1,\"total\":300,\"costo_envio\":100,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-10 01:15:32] INPUT PARSED | {
+    "producto_id": 5,
+    "variant_id": null,
+    "producto_nombre": "Tarjetas de Regalo De \/ Para",
+    "producto_precio": 200,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "ciudad": "Bello",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1007",
+    "banco_nombre": "BANCOLOMBIA",
+    "cantidad": 1,
+    "total": 300,
+    "costo_envio": 100,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-10 01:15:32] DB: Conectando...
+[2026-07-10 01:15:32] DB: Conectado OK
+[2026-07-10 01:15:32] DB: Transaccion iniciada
+[2026-07-10 01:15:32] ORDER: PD-7B41BB80
+[2026-07-10 01:15:32] ORDER: Insertado ID=19
+[2026-07-10 01:15:32] ITEM: Insertado 1 item
+[2026-07-10 01:15:32] PAYMENT: Insertado ID=18
+[2026-07-10 01:15:32] BASE_URL: http://localhost/ECOMERCE-PODERDOWN
+[2026-07-10 01:15:32] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-10 01:15:32] MEGAPAGOS: Login OK
+[2026-07-10 01:15:32] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=19&payment=18",
+    "product_name": "Tarjetas de Regalo De \/ Para",
+    "product_description": "Tarjetas de Regalo De \/ Para",
+    "unit_price": 200,
+    "tax_id": 21,
+    "shipping_cost": 100,
+    "quantity": 1,
+    "total_amount": 300,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1007",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-10 01:15:35] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "468049591",
+    "pseURL": "https:\/\/registro.pse.com.co\/PSENF\/index.html?enc=E16iGfejlXB4koQqGCLZioSVrsTB%2fAer0jk3z32bbp0%3d",
+    "transactionId": "MjIyMzMz"
+}
+[2026-07-10 01:15:35] PSE_URL: https://registro.pse.com.co/PSENF/index.html?enc=E16iGfejlXB4koQqGCLZioSVrsTB%2fAer0jk3z32bbp0%3d
+[2026-07-10 01:15:35] DB: Commit OK. TODO EXITOSO

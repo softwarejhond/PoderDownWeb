@@ -1,0 +1,647 @@
+[2026-07-09 22:11:40] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-09 22:11:57] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-09 22:11:57] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=4&payment=3"
+        },
+        "step1": {
+            "name": "Lapicero Poder Down",
+            "description": "Lapicero Poder Down",
+            "value": 5000,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 15000,
+            "requested_units": 1,
+            "total_amount": 20000,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1007",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-09 22:11:57] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 5000,
+    "quantity": 1,
+    "shipping_cost": 15000,
+    "total_amount": 20000,
+    "expected_total": 20000,
+    "bank_code": "1007",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-09 22:11:57] MEGAPAGOS: encryptData OK
+[2026-07-09 22:11:59] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5680794",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=hY8Z8CaeT0HtNhQFJyyXknQtuLdu8qmZh1LORkBAASQ%3d",
+        "transactionId": "MTU4NzU="
+    }
+}
+[2026-07-09 22:16:57] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-09 22:18:53] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-09 22:19:05] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-09 22:19:05] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=5&payment=4"
+        },
+        "step1": {
+            "name": "Lapicero Poder Down",
+            "description": "Lapicero Poder Down",
+            "value": 5000,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 15000,
+            "requested_units": 1,
+            "total_amount": 20000,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1007",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-09 22:19:05] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 5000,
+    "quantity": 1,
+    "shipping_cost": 15000,
+    "total_amount": 20000,
+    "expected_total": 20000,
+    "bank_code": "1007",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-09 22:19:06] MEGAPAGOS: encryptData OK
+[2026-07-09 22:19:07] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5680809",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=hBe8I2XYZluJe5GWq00cySWkLjEV5uC%2bVkeOpc5dczs%3d",
+        "transactionId": "MTU4NzY="
+    }
+}
+[2026-07-09 22:46:38] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-09 22:46:39] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=6&payment=5"
+        },
+        "step1": {
+            "name": "Lapicero Poder Down",
+            "description": "Lapicero Poder Down",
+            "value": 5000,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 15000,
+            "requested_units": 1,
+            "total_amount": 20000,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "121212",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-09 22:46:39] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 5000,
+    "quantity": 1,
+    "shipping_cost": 15000,
+    "total_amount": 20000,
+    "expected_total": 20000,
+    "bank_code": "121212",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-09 22:46:39] MEGAPAGOS: encryptData OK
+[2026-07-09 22:46:40] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5680867",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=hBe8I2XYZluJe5GWq00cyW4nzFDAapEoDfOtjuvRs0U%3d",
+        "transactionId": "MTU4Nzk="
+    }
+}
+[2026-07-09 22:47:08] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-09 22:47:08] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=7&payment=6"
+        },
+        "step1": {
+            "name": "Lapicero Poder Down",
+            "description": "Lapicero Poder Down",
+            "value": 5000,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 15000,
+            "requested_units": 1,
+            "total_amount": 20000,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1007",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-09 22:47:08] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 5000,
+    "quantity": 1,
+    "shipping_cost": 15000,
+    "total_amount": 20000,
+    "expected_total": 20000,
+    "bank_code": "1007",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-09 22:47:09] MEGAPAGOS: encryptData OK
+[2026-07-09 22:47:10] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5680869",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=hBe8I2XYZluJe5GWq00cyVBCd7ga2kmsxKHvqq2Cyh0%3d",
+        "transactionId": "MTU4ODA="
+    }
+}
+[2026-07-09 22:48:06] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-09 22:48:16] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-09 22:48:17] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=8&payment=7"
+        },
+        "step1": {
+            "name": "Pedido múltiple",
+            "description": "Pedido múltiple: Camiseta Tigre Flacuchón x1, Camiseta Trisomía 21 x1",
+            "value": 64000,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 15000,
+            "requested_units": 2,
+            "total_amount": 79000,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1007",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-09 22:48:17] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 64000,
+    "quantity": 2,
+    "shipping_cost": 15000,
+    "total_amount": 79000,
+    "expected_total": 143000,
+    "bank_code": "1007",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-09 22:48:17] MEGAPAGOS: encryptData OK
+[2026-07-09 22:48:18] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5680872",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=hBe8I2XYZluJe5GWq00cyWsoaPtaly22ylX1JbkZ61o%3d",
+        "transactionId": "MTU4ODE="
+    }
+}
+[2026-07-09 22:54:09] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-09 23:01:57] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-09 23:01:57] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=9&payment=8"
+        },
+        "step1": {
+            "name": "Lapicero Poder Down",
+            "description": "Lapicero Poder Down",
+            "value": 5000,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 15000,
+            "requested_units": 1,
+            "total_amount": 20000,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1013",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-09 23:01:57] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 5000,
+    "quantity": 1,
+    "shipping_cost": 15000,
+    "total_amount": 20000,
+    "expected_total": 20000,
+    "bank_code": "1013",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-09 23:01:57] MEGAPAGOS: encryptData OK
+[2026-07-09 23:01:59] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5680883",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=hBe8I2XYZluJe5GWq00cye0ps%2fUOQwmAznJ644wKieM%3d",
+        "transactionId": "MTU4ODI="
+    }
+}
+[2026-07-09 23:02:31] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-09 23:05:04] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-09 23:05:04] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=10&payment=9"
+        },
+        "step1": {
+            "name": "Lapicero Poder Down",
+            "description": "Lapicero Poder Down",
+            "value": 5000,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 15000,
+            "requested_units": 1,
+            "total_amount": 20000,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1007",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-09 23:05:04] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 5000,
+    "quantity": 1,
+    "shipping_cost": 15000,
+    "total_amount": 20000,
+    "expected_total": 20000,
+    "bank_code": "1007",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-09 23:05:04] MEGAPAGOS: encryptData OK
+[2026-07-09 23:05:06] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5680886",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=hBe8I2XYZluJe5GWq00cyfQqfDdDkFfMZanpGSAubME%3d",
+        "transactionId": "MTU4ODM="
+    }
+}
+[2026-07-09 23:27:03] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-09 23:27:03] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=11&payment=10"
+        },
+        "step1": {
+            "name": "Lapicero Poder Down",
+            "description": "Lapicero Poder Down",
+            "value": 5000,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 15000,
+            "requested_units": 1,
+            "total_amount": 20000,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1507",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-09 23:27:03] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 5000,
+    "quantity": 1,
+    "shipping_cost": 15000,
+    "total_amount": 20000,
+    "expected_total": 20000,
+    "bank_code": "1507",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-09 23:27:04] MEGAPAGOS: encryptData OK
+[2026-07-09 23:27:05] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5680902",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=d0XxiXzg1w5IXomZCM%2fUXtIInO3g1hO0o4ZWljlHkXA%3d",
+        "transactionId": "MTU4ODQ="
+    }
+}
+[2026-07-09 23:40:39] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-09 23:40:40] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=12&payment=11"
+        },
+        "step1": {
+            "name": "Lapicero Poder Down",
+            "description": "Lapicero Poder Down",
+            "value": 5000,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 15000,
+            "requested_units": 1,
+            "total_amount": 20000,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1007",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-09 23:40:40] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 5000,
+    "quantity": 1,
+    "shipping_cost": 15000,
+    "total_amount": 20000,
+    "expected_total": 20000,
+    "bank_code": "1007",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-09 23:40:40] MEGAPAGOS: encryptData OK
+[2026-07-09 23:40:41] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5680911",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=d0XxiXzg1w5IXomZCM%2fUXhuaIDHRwABLeP1m6JFe8GY%3d",
+        "transactionId": "MTU4ODU="
+    }
+}
+[2026-07-09 23:52:06] MEGAPAGOS: login OK, idusuario: 2363
+[2026-07-09 23:52:26] MEGAPAGOS: login OK, idusuario: 2363
+[2026-07-09 23:52:27] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "2363",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=13&payment=12"
+        },
+        "step1": {
+            "name": "Tarjetas de Regalo De \/ Para",
+            "description": "Tarjetas de Regalo De \/ Para",
+            "value": 500,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 100,
+            "requested_units": 1,
+            "total_amount": 600,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1507",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-09 23:52:27] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 500,
+    "quantity": 1,
+    "shipping_cost": 100,
+    "total_amount": 600,
+    "expected_total": 600,
+    "bank_code": "1507",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-09 23:52:27] MEGAPAGOS: encryptData OK
+[2026-07-09 23:52:29] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "467808254",
+        "pseURL": "https:\/\/registro.pse.com.co\/PSENF\/index.html?enc=NncLfcJFq0ecVePYvQurmLmp3npBmJXOF5FT%2bdSNwyc%3d",
+        "transactionId": "MjIyMzI2"
+    }
+}
+[2026-07-09 23:53:18] MEGAPAGOS: login OK, idusuario: 2363
+[2026-07-09 23:53:31] MEGAPAGOS: login OK, idusuario: 2363
+[2026-07-09 23:53:31] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "2363",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/PODER-DOWN\/callback.php?order=14&payment=13"
+        },
+        "step1": {
+            "name": "Tarjetas de Regalo De \/ Para",
+            "description": "Tarjetas de Regalo De \/ Para",
+            "value": 500,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 100,
+            "requested_units": 1,
+            "total_amount": 600,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1007",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-09 23:53:31] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 500,
+    "quantity": 1,
+    "shipping_cost": 100,
+    "total_amount": 600,
+    "expected_total": 600,
+    "bank_code": "1007",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-09 23:53:32] MEGAPAGOS: encryptData OK
+[2026-07-09 23:53:35] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "467811306",
+        "pseURL": "https:\/\/registro.pse.com.co\/PSENF\/index.html?enc=Fz5lmaGesQR%2bGGLGljXW%2f8U4x6C2k9rfbbYLaYLDICM%3d",
+        "transactionId": "MjIyMzI3"
+    }
+}
+[2026-07-09 23:59:49] MEGAPAGOS: login OK, idusuario: 2363
