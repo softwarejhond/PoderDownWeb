@@ -5,6 +5,13 @@ $activePage = $activePage ?? 'inicio';
 $showNavSearch = $showNavSearch ?? false;
 $ogTitle = $ogTitle ?? 'Poder Down';
 
+$siteBaseUrl = 'https://poderdown.com';
+$currentSlug = basename($_SERVER['SCRIPT_NAME'] ?? '', '.php');
+$canonicalUrl = $canonicalUrl ?? ($siteBaseUrl . (($currentSlug === 'index' || $currentSlug === '') ? '/' : '/' . $currentSlug));
+$ogType = $ogType ?? 'website';
+$ogImage = $ogImage ?? $siteBaseUrl . '/img/logos/logo_pd_horizontal.png';
+$metaRobots = $metaRobots ?? null;
+
 require_once __DIR__ . '/../controller/auth.php';
 $isLoggedIn = isLoggedIn();
 $currentUser = $isLoggedIn ? getCurrentUser() : null;
@@ -16,13 +23,24 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <title><?= htmlspecialchars($pageTitle) ?></title>
   <meta name="description" content="<?= htmlspecialchars($pageDescription) ?>">
+<?php if ($metaRobots): ?>
+  <meta name="robots" content="<?= htmlspecialchars($metaRobots) ?>">
+<?php endif; ?>
+  <link rel="canonical" href="<?= htmlspecialchars($canonicalUrl) ?>">
   <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>">
   <meta property="og:description" content="<?= htmlspecialchars($pageDescription) ?>">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="<?= htmlspecialchars($ogType) ?>">
+  <meta property="og:url" content="<?= htmlspecialchars($canonicalUrl) ?>">
+  <meta property="og:image" content="<?= htmlspecialchars($ogImage) ?>">
+  <meta property="og:site_name" content="Poder Down">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="img/logos/pd_icono.png">
   <link rel="apple-touch-icon" href="img/logos/pd_icono.png">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Oregano:ital@0;1&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/marca.css">
   <style>
@@ -587,6 +605,7 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
   </noscript>
 
   <!-- NAVBAR -->
+  <header>
   <nav class="navbar-cami">
     <div class="container d-flex align-items-center justify-content-between flex-wrap gap-2">
       <a class="navbar-brand-cami" href="<?= $activePage === 'inicio' ? '#inicio' : 'index.php' ?>">
@@ -656,6 +675,7 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
       <?php endif; ?>
     </div>
   </nav>
+  </header>
   <script>
   function toggleUserMenu(e) {
     e.stopPropagation();
@@ -670,3 +690,4 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
   });
   </script>
   <script src="components/carrito.js"></script>
+  <main>

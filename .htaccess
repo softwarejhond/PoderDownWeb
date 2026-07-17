@@ -2,6 +2,19 @@
 Options -Indexes +FollowSymLinks
 RewriteEngine On
 
+# ===== SEO: redirecciones 301 (solo producción) =====
+# HTTP -> HTTPS
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1)(:|$) [NC]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# www -> no-www (dominio canónico: poderdown.com)
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+# ===== Página 404 personalizada =====
+ErrorDocument 404 /404.php
+
 # Redirige las peticiones externas con .php a la versión sin extensión (301)
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]

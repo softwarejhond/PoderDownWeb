@@ -25,3 +25,104 @@
     "message": "No se encontró la URL especificada"
 }
 [2026-07-10 01:16:40] STATUS DETECTADO: NULL
+[2026-07-10 03:22:40] === CALLBACK RECIBIDO ===
+[2026-07-10 03:22:40] GET | {
+    "order": "20",
+    "payment": "19"
+}
+[2026-07-10 03:22:41] MEGAPAGOS getTransactionInfo | {
+    "message": "No se encontró la URL especificada"
+}
+[2026-07-10 03:22:41] STATUS DETECTADO: NULL
+[2026-07-10 03:45:37] === CALLBACK RECIBIDO ===
+[2026-07-10 03:45:37] GET | {
+    "order": "22",
+    "payment": "21"
+}
+[2026-07-10 03:45:39] MEGAPAGOS getTransactionInfo | {
+    "message": "Server Error"
+}
+[2026-07-10 03:45:39] STATUS DETECTADO: NULL
+[2026-07-10 03:45:58] === CALLBACK RECIBIDO ===
+[2026-07-10 03:45:58] GET | {
+    "order": "22",
+    "payment": "21"
+}
+[2026-07-10 03:46:00] MEGAPAGOS getTransactionInfo | {
+    "message": "Server Error"
+}
+[2026-07-10 03:46:00] STATUS DETECTADO: NULL
+[2026-07-10 03:51:58] === CALLBACK RECIBIDO ===
+[2026-07-10 03:51:58] GET | {
+    "order": "23",
+    "payment": "22"
+}
+[2026-07-10 03:52:00] MEGAPAGOS getTransactionInfo | {
+    "message": "No se encontró la URL especificada"
+}
+[2026-07-10 03:52:00] STATUS DETECTADO: NULL
+[2026-07-10 03:58:10] === CALLBACK RECIBIDO ===
+[2026-07-10 03:58:10] GET | {
+    "order": "23",
+    "payment": "22"
+}
+[2026-07-10 03:58:11] MEGAPAGOS getTransactionInfo | {
+    "message": "No se encontró la URL especificada"
+}
+[2026-07-10 03:58:11] STATUS DETECTADO: NULL
+[2026-07-10 03:59:29] === CALLBACK RECIBIDO ===
+[2026-07-10 03:59:29] GET | {
+    "order": "24",
+    "payment": "23"
+}
+[2026-07-10 03:59:30] MEGAPAGOS getTransactionInfo | {
+    "message": "No se encontró la URL especificada"
+}
+[2026-07-10 03:59:30] STATUS DETECTADO: NULL
+[2026-07-10 21:02:37] === CALLBACK RECIBIDO ===
+[2026-07-10 21:02:37] GET | {
+    "order": "25",
+    "payment": "24"
+}
+[2026-07-10 21:02:41] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6515125717",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5682391",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17837172813592,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-10 16:01:21",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-10 21:02:41] STATUS DETECTADO: 1

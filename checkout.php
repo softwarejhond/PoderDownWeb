@@ -59,6 +59,20 @@ require 'components/header_simple.php';
   .chk-product-resume .info .name { font-weight:700;font-size:.88rem;margin:0; }
   .chk-product-resume .info .price { font-family:var(--font-kranky);font-size:1rem;color:var(--cami-azul);margin:.2rem 0 0; }
   .chk-loading { text-align:center;padding:3rem; }
+  .chk-bank-search { width:100%;padding:.55rem .9rem;border:2px solid var(--cami-border);border-radius:10px;font-size:.82rem;margin-bottom:.6rem;outline:none; }
+  .chk-bank-search:focus { border-color:var(--cami-turq); }
+  .chk-bank-list { max-height:200px;overflow-y:auto;border:2px solid var(--cami-border);border-radius:10px;display:none; }
+  .chk-bank-list.open { display:block; }
+  .chk-bank-option { padding:.5rem .9rem;cursor:pointer;font-size:.82rem;border-bottom:1px solid var(--cami-border);transition:background .15s; }
+  .chk-bank-option:hover { background:rgba(60,174,224,.08); }
+  .chk-bank-option.selected { background:var(--cami-turq);color:var(--cami-azul);font-weight:700; }
+  .chk-pse-logo { height:32px;margin-right:.5rem; }
+  .chk-resumen-list { list-style:none;padding:0;margin:0; }
+  .chk-resumen-list li { display:flex;justify-content:space-between;padding:.4rem 0;font-size:.82rem;border-bottom:1px dashed var(--cami-border); }
+  .chk-resumen-list li:last-child { border-bottom:none;font-weight:700;font-size:.95rem;color:var(--cami-azul); }
+  .btn-pse { background:linear-gradient(135deg, #1A3A5C 0%, #0D2136 100%);color:#fff;border:none;border-radius:16px;padding:.95rem;font-size:1.05rem;font-weight:700;display:flex;align-items:center;justify-content:center;gap:.7rem;transition:all .3s;box-shadow:0 4px 20px rgba(26,58,92,.3);width:100%;cursor:pointer; }
+  .btn-pse:hover { transform:translateY(-2px);box-shadow:0 6px 28px rgba(26,58,92,.45); }
+  .btn-pse:disabled { opacity:.5;transform:none;cursor:not-allowed; }
   @media (max-width:575px) {
     .chk-card { padding:1.2rem 1rem; }
     .chk-row { grid-template-columns:1fr; }
@@ -106,6 +120,7 @@ require 'components/header_simple.php';
 <script>
 const API_URL = 'components/productos/cargar_productos.php';
 const BANKS_URL = 'components/megapagos/get_banks.php';
+const UBICACION_URL = 'components/ubicacion/cargar.php';
 const PRODUCTO_ID = <?= $productoId ?>;
 const PRECIO_DIRECTO = <?= $precioDirecto ?>;
 const VARIANT_ID = <?= $variantId ?>;
@@ -128,12 +143,14 @@ async function initCheckout() {
   }
 
   try {
-    const [resProd, resBanks] = await Promise.all([
+    const [resProd, resBanks, resDeptos] = await Promise.all([
       fetch(`${API_URL}?action=product&id=${PRODUCTO_ID}`),
-      fetch(BANKS_URL)
+      fetch(BANKS_URL),
+      fetch(`${UBICACION_URL}?action=departamentos`)
     ]);
     const jsonProd = await resProd.json();
     const jsonBanks = await resBanks.json();
+    const jsonDeptos = await resDeptos.json();
 
     if (jsonProd.exito && jsonProd.datos[0]) {
       productoActual = jsonProd.datos[0];
@@ -145,7 +162,12 @@ async function initCheckout() {
       bancosDisponibles = jsonBanks.bancos;
     }
 
-    renderizarCheckout(productoActual, bancosDisponibles);
+    let departamentos = [];
+    if (jsonDeptos.exito && jsonDeptos.datos) {
+      departamentos = jsonDeptos.datos;
+    }
+
+    renderizarCheckout(productoActual, bancosDisponibles, departamentos);
   } catch (e) {
     document.getElementById('chkContent').innerHTML = `<div class="chk-card text-center"><p style="opacity:.6;">Producto no disponible o error al cargar bancos.</p><a href="productos.php" class="btn-p2 mt-3">← Ir a tienda</a></div>`;
   }
@@ -158,19 +180,27 @@ async function initCheckoutCart() {
     return;
   }
 
+  let departamentos = [];
   try {
-    const resBanks = await fetch(BANKS_URL);
+    const [resBanks, resDeptos] = await Promise.all([
+      fetch(BANKS_URL),
+      fetch(`${UBICACION_URL}?action=departamentos`)
+    ]);
     const jsonBanks = await resBanks.json();
+    const jsonDeptos = await resDeptos.json();
     if (jsonBanks.exito && jsonBanks.bancos) {
       bancosDisponibles = jsonBanks.bancos;
+    }
+    if (jsonDeptos.exito && jsonDeptos.datos) {
+      departamentos = jsonDeptos.datos;
     }
   } catch (e) {}
 
   productoActual = { nombre: 'Pedido múltiple', precio: 0, imagen: '' };
-  renderizarCheckoutCart(carrito, bancosDisponibles);
+  renderizarCheckoutCart(carrito, bancosDisponibles, departamentos);
 }
 
-function renderizarCheckout(p, bancos) {
+function renderizarCheckout(p, bancos, departamentos) {
   const agotado = p.stock_agotado || parseInt(p.stock) === 0;
   if (agotado) {
     document.getElementById('chkContent').innerHTML = `<div class="chk-card text-center"><p style="opacity:.6;">Este producto está agotado.</p><a href="productos.php" class="btn-p2 mt-3">← Ir a tienda</a></div>`;
@@ -242,19 +272,34 @@ function renderizarCheckout(p, bancos) {
               <input type="text" class="chk-input" id="chkDocumento" placeholder="Número de documento" required maxlength="20">
             </div>
           </div>
+          <div>
+            <label class="chk-label">Dirección *</label>
+            <input type="text" class="chk-input" id="chkDireccion" placeholder="Cra 10 #20-30" required maxlength="200">
+          </div>
           <div class="chk-row">
             <div>
-              <label class="chk-label">Ciudad *</label>
-              <input type="text" class="chk-input" id="chkCiudad" placeholder="Medellín" required maxlength="100">
+              <label class="chk-label">Departamento *</label>
+              <select class="chk-select" id="chkDepartamento" required onchange="cargarMunicipios()">
+                <option value="">Seleccionar...</option>
+                ${departamentos.map(d => `<option value="${d.id}">${d.nombre}</option>`).join('')}
+              </select>
             </div>
             <div>
-              <label class="chk-label">Dirección *</label>
-              <input type="text" class="chk-input" id="chkDireccion" placeholder="Cra 10 #20-30" required maxlength="200">
+              <label class="chk-label">Municipio *</label>
+              <select class="chk-select" id="chkMunicipio" required>
+                <option value="">Primero elige departamento</option>
+              </select>
             </div>
           </div>
-          <div>
-            <label class="chk-label">Notas adicionales (opcional)</label>
-            <textarea class="chk-input" id="chkNotas" placeholder="Apartamento, instrucciones de entrega..." rows="2" style="resize:none;" maxlength="500"></textarea>
+          <div class="chk-row">
+            <div>
+              <label class="chk-label">Código postal</label>
+              <input type="text" class="chk-input" id="chkCodigoPostal" placeholder="050001" maxlength="10">
+            </div>
+            <div>
+              <label class="chk-label">Notas adicionales (opcional)</label>
+              <input type="text" class="chk-input" id="chkNotas" placeholder="Apartamento, instrucciones..." maxlength="500">
+            </div>
           </div>
         </div>
     </div>
@@ -262,19 +307,30 @@ function renderizarCheckout(p, bancos) {
     <div class="chk-card">
       <p class="chk-card-title"><i class="bi bi-credit-card-2-front-fill" style="color:var(--cami-turq);"></i> Método de pago</p>
       <div class="chk-payment">
-        <i class="bi bi-bank"></i>
+        <img src="img/logos/logo_pse.png" alt="PSE" class="chk-pse-logo" onerror="this.style.display='none'">
         <div><p><strong>PSE</strong> &mdash; Paga directamente desde tu banco de forma segura.</p></div>
       </div>
       <div style="margin-top:1rem;">
         <label class="chk-label">Selecciona tu banco *</label>
-        <select class="chk-select" id="chkBanco" required onchange="actualizarBancoSeleccionado()">
-          ${bancosOptions}
-        </select>
+        <input type="text" class="chk-bank-search" id="chkBankSearch" placeholder="Buscar banco..." oninput="filtrarBancos()" onfocus="toggleBankList(true)" autocomplete="off">
+        <div class="chk-bank-list" id="chkBankList">
+          ${bancos.map(b => `<div class="chk-bank-option" data-code="${b.code}" data-name="${b.name}" onclick="seleccionarBanco(this)">${b.name}</div>`).join('')}
+        </div>
+        <input type="hidden" id="chkBanco" value="">
       </div>
       <p style="font-size:.78rem;opacity:.5;margin-top:.8rem;"><i class="bi bi-shield-lock-fill"></i> Tus datos están seguros. No almacenamos información de pago.</p>
     </div>
 
-    <button type="submit" class="btn-p1 chk-submit"><i class="bi bi-check2-circle"></i> Confirmar pedido</button>
+    <div class="chk-card" style="background:var(--cami-bg);border:2px dashed var(--cami-border);">
+      <p class="chk-card-title" style="font-size:1rem;"><i class="bi bi-receipt" style="color:var(--cami-turq);"></i> Resumen de compra</p>
+      <ul class="chk-resumen-list">
+        <li><span>${p.nombre}</span><span>$${Number(precio).toLocaleString('es-CO',{minimumFractionDigits:0})}</span></li>
+        <li><span>Envío</span><span>$${Number(COSTO_ENVIO).toLocaleString('es-CO',{minimumFractionDigits:0})}</span></li>
+        <li><span>TOTAL</span><span>$${Number(precio + COSTO_ENVIO).toLocaleString('es-CO',{minimumFractionDigits:0})}</span></li>
+      </ul>
+    </div>
+
+    <button type="submit" class="btn-pse"><i class="bi bi-shield-check"></i> Pagar con PSE</button>
     </form>
 
     <div class="text-center mt-3">
@@ -286,7 +342,7 @@ function renderizarCheckout(p, bancos) {
   prefillForm();
 }
 
-function renderizarCheckoutCart(carrito, bancos) {
+function renderizarCheckoutCart(carrito, bancos, departamentos) {
   let itemsHtml = '';
   let subtotal = 0;
   carrito.forEach(item => {
@@ -355,19 +411,34 @@ function renderizarCheckoutCart(carrito, bancos) {
               <input type="text" class="chk-input" id="chkDocumento" placeholder="Número de documento" required maxlength="20">
             </div>
           </div>
+          <div>
+            <label class="chk-label">Dirección *</label>
+            <input type="text" class="chk-input" id="chkDireccion" placeholder="Cra 10 #20-30" required maxlength="200">
+          </div>
           <div class="chk-row">
             <div>
-              <label class="chk-label">Ciudad *</label>
-              <input type="text" class="chk-input" id="chkCiudad" placeholder="Medellín" required maxlength="100">
+              <label class="chk-label">Departamento *</label>
+              <select class="chk-select" id="chkDepartamento" required onchange="cargarMunicipios()">
+                <option value="">Seleccionar...</option>
+                ${departamentos.map(d => `<option value="${d.id}">${d.nombre}</option>`).join('')}
+              </select>
             </div>
             <div>
-              <label class="chk-label">Dirección *</label>
-              <input type="text" class="chk-input" id="chkDireccion" placeholder="Cra 10 #20-30" required maxlength="200">
+              <label class="chk-label">Municipio *</label>
+              <select class="chk-select" id="chkMunicipio" required>
+                <option value="">Primero elige departamento</option>
+              </select>
             </div>
           </div>
-          <div>
-            <label class="chk-label">Notas adicionales (opcional)</label>
-            <textarea class="chk-input" id="chkNotas" placeholder="Apartamento, instrucciones de entrega..." rows="2" style="resize:none;" maxlength="500"></textarea>
+          <div class="chk-row">
+            <div>
+              <label class="chk-label">Código postal</label>
+              <input type="text" class="chk-input" id="chkCodigoPostal" placeholder="050001" maxlength="10">
+            </div>
+            <div>
+              <label class="chk-label">Notas adicionales (opcional)</label>
+              <input type="text" class="chk-input" id="chkNotas" placeholder="Apartamento, instrucciones..." maxlength="500">
+            </div>
           </div>
         </div>
     </div>
@@ -375,19 +446,26 @@ function renderizarCheckoutCart(carrito, bancos) {
     <div class="chk-card">
       <p class="chk-card-title"><i class="bi bi-credit-card-2-front-fill" style="color:var(--cami-turq);"></i> Método de pago</p>
       <div class="chk-payment">
-        <i class="bi bi-bank"></i>
+        <img src="img/logos/logo_pse.png" alt="PSE" class="chk-pse-logo" onerror="this.style.display='none'">
         <div><p><strong>PSE</strong> &mdash; Paga directamente desde tu banco de forma segura.</p></div>
       </div>
       <div style="margin-top:1rem;">
         <label class="chk-label">Selecciona tu banco *</label>
-        <select class="chk-select" id="chkBanco" required onchange="actualizarBancoSeleccionado()">
-          ${bancosOptions}
-        </select>
+        <input type="text" class="chk-bank-search" id="chkBankSearch" placeholder="Buscar banco..." oninput="filtrarBancos()" onfocus="toggleBankList(true)" autocomplete="off">
+        <div class="chk-bank-list" id="chkBankList">
+          ${bancos.map(b => `<div class="chk-bank-option" data-code="${b.code}" data-name="${b.name}" onclick="seleccionarBanco(this)">${b.name}</div>`).join('')}
+        </div>
+        <input type="hidden" id="chkBanco" value="">
       </div>
       <p style="font-size:.78rem;opacity:.5;margin-top:.8rem;"><i class="bi bi-shield-lock-fill"></i> Tus datos están seguros. No almacenamos información de pago.</p>
     </div>
 
-    <button type="submit" class="btn-p1 chk-submit"><i class="bi bi-check2-circle"></i> Confirmar pedido</button>
+    <div class="chk-card" style="background:var(--cami-bg);border:2px dashed var(--cami-border);">
+      <p class="chk-card-title" style="font-size:1rem;"><i class="bi bi-receipt" style="color:var(--cami-turq);"></i> Resumen de compra</p>
+      <ul class="chk-resumen-list" id="chkResumenCart"></ul>
+    </div>
+
+    <button type="submit" class="btn-pse"><i class="bi bi-shield-check"></i> Pagar con PSE</button>
     </form>
 
     <div class="text-center mt-3">
@@ -396,7 +474,21 @@ function renderizarCheckoutCart(carrito, bancos) {
   `;
 
   document.getElementById('chkContent').innerHTML = html;
+  renderResumenCart(carrito);
   prefillForm();
+}
+
+function renderResumenCart(carrito) {
+  const el = document.getElementById('chkResumenCart');
+  if (!el) return;
+  let html = '';
+  carrito.forEach(item => {
+    html += `<li><span>${item.nombre.replace(/</g,'&lt;')} x${item.cantidad}</span><span>$${Number(item.precio * item.cantidad).toLocaleString('es-CO',{minimumFractionDigits:0})}</span></li>`;
+  });
+  html += `<li><span>Envío</span><span>$${Number(COSTO_ENVIO).toLocaleString('es-CO',{minimumFractionDigits:0})}</span></li>`;
+  const total = carrito.reduce((a,i) => a + i.precio * i.cantidad, 0) + COSTO_ENVIO;
+  html += `<li><span>TOTAL</span><span>$${Number(total).toLocaleString('es-CO',{minimumFractionDigits:0})}</span></li>`;
+  el.innerHTML = html;
 }
 
 function prefillForm() {
@@ -427,9 +519,59 @@ function prefillForm() {
   }
 }
 
-function actualizarBancoSeleccionado() {
-  const sel = document.getElementById('chkBanco');
+let bancoSeleccionadoCode = '';
+let bancoSeleccionadoName = '';
+
+async function cargarMunicipios() {
+  const deptoId = document.getElementById('chkDepartamento').value;
+  const munSelect = document.getElementById('chkMunicipio');
+  if (!deptoId) {
+    munSelect.innerHTML = '<option value="">Primero elige departamento</option>';
+    return;
+  }
+  munSelect.innerHTML = '<option value="">Cargando...</option>';
+  try {
+    const res = await fetch(`${UBICACION_URL}?action=municipios&departamento_id=${deptoId}`);
+    const json = await res.json();
+    if (json.exito && json.datos) {
+      munSelect.innerHTML = '<option value="">Seleccionar...</option>' + json.datos.map(m => `<option value="${m.id}">${m.nombre}</option>`).join('');
+    }
+  } catch(e) {
+    munSelect.innerHTML = '<option value="">Error al cargar</option>';
+  }
 }
+
+function seleccionarBanco(el) {
+  bancoSeleccionadoCode = el.dataset.code;
+  bancoSeleccionadoName = el.dataset.name;
+  document.getElementById('chkBanco').value = bancoSeleccionadoCode;
+  document.getElementById('chkBankSearch').value = bancoSeleccionadoName;
+  document.querySelectorAll('.chk-bank-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  toggleBankList(false);
+}
+
+function filtrarBancos() {
+  const q = document.getElementById('chkBankSearch').value.toLowerCase();
+  document.querySelectorAll('.chk-bank-option').forEach(o => {
+    o.style.display = o.dataset.name.toLowerCase().includes(q) ? '' : 'none';
+  });
+  toggleBankList(true);
+}
+
+function toggleBankList(show) {
+  document.getElementById('chkBankList').classList.toggle('open', show);
+}
+
+document.addEventListener('click', function(e) {
+  const list = document.getElementById('chkBankList');
+  const search = document.getElementById('chkBankSearch');
+  if (list && search && !list.contains(e.target) && e.target !== search) {
+    toggleBankList(false);
+  }
+});
+
+function actualizarBancoSeleccionado() {}
 
 async function procesarPedido(e) {
   e.preventDefault();
@@ -439,14 +581,19 @@ async function procesarPedido(e) {
   const nombre = document.getElementById('chkNombre').value.trim().substring(0,120);
   const email = document.getElementById('chkEmail').value.trim().substring(0,120);
   const telefono = document.getElementById('chkTelefono').value.trim().substring(0,30);
-  const ciudad = document.getElementById('chkCiudad').value.trim().substring(0,100);
   const direccion = document.getElementById('chkDireccion').value.trim().substring(0,200);
   const notas = document.getElementById('chkNotas').value.trim().substring(0,500);
   const tipoDocumento = document.getElementById('chkTipoDocumento').value;
   const documento = document.getElementById('chkDocumento').value.trim();
-  const bancoSelect = document.getElementById('chkBanco');
-  const bancoCodigo = bancoSelect.value;
-  const bancoNombre = bancoSelect.options[bancoSelect.selectedIndex]?.getAttribute('data-name') || bancoSelect.options[bancoSelect.selectedIndex]?.text || '';
+  const departamentoSelect = document.getElementById('chkDepartamento');
+  const departamentoId = departamentoSelect.value;
+  const departamentoNombre = departamentoSelect.options[departamentoSelect.selectedIndex]?.text || '';
+  const municipioSelect = document.getElementById('chkMunicipio');
+  const municipioId = municipioSelect.value;
+  const municipioNombre = municipioSelect.options[municipioSelect.selectedIndex]?.text || '';
+  const codigoPostal = document.getElementById('chkCodigoPostal').value.trim().substring(0,10);
+  const bancoCodigo = bancoSeleccionadoCode;
+  const bancoNombre = bancoSeleccionadoName;
 
   let hasError = false;
   document.querySelectorAll('.chk-input,.chk-select').forEach(el => el.classList.remove('error'));
@@ -454,11 +601,12 @@ async function procesarPedido(e) {
   if (!email || !email.includes('@')) { document.getElementById('chkEmail').classList.add('error'); hasError = true; }
   if (!telefono) { document.getElementById('chkTelefono').classList.add('error'); hasError = true; }
   if (!documento) { document.getElementById('chkDocumento').classList.add('error'); hasError = true; }
-  if (!ciudad) { document.getElementById('chkCiudad').classList.add('error'); hasError = true; }
   if (!direccion) { document.getElementById('chkDireccion').classList.add('error'); hasError = true; }
-  if (!bancoCodigo) { document.getElementById('chkBanco').classList.add('error'); hasError = true; }
+  if (!departamentoId) { document.getElementById('chkDepartamento').classList.add('error'); hasError = true; }
+  if (!municipioId) { document.getElementById('chkMunicipio').classList.add('error'); hasError = true; }
+  if (!bancoCodigo) { document.getElementById('chkBankSearch').classList.add('error'); hasError = true; }
   if (hasError) {
-    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="bi bi-check2-circle"></i> Confirmar pedido'; }
+    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="bi bi-shield-check"></i> Pagar con PSE'; }
     Swal.fire({ icon:'warning', title:'Campos incompletos', text:'Completa todos los campos obligatorios.', confirmButtonColor:'#3CAEE0' });
     return false;
   }
@@ -471,7 +619,12 @@ async function procesarPedido(e) {
     variant_id: VARIANT_ID > 0 ? VARIANT_ID : null,
     producto_nombre: productoActual.nombre,
     producto_precio: precio,
-    nombre, email, telefono, ciudad, direccion, notas,
+    nombre, email, telefono, direccion, notas,
+    departamento_id: departamentoId,
+    departamento_nombre: departamentoNombre,
+    municipio_id: municipioId,
+    municipio_nombre: municipioNombre,
+    codigo_postal: codigoPostal,
     tipo_documento: tipoDocumento,
     documento: documento,
     banco_codigo: bancoCodigo,
@@ -496,7 +649,7 @@ async function procesarPedido(e) {
       throw new Error(json.mensaje || 'Error al procesar el pedido');
     }
   } catch (e) {
-    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="bi bi-check2-circle"></i> Confirmar pedido'; }
+    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="bi bi-shield-check"></i> Pagar con PSE'; }
     Swal.fire({ icon:'error', title:'Error', text:e.message || 'Hubo un problema. Contáctanos por WhatsApp.', confirmButtonColor:'#3CAEE0' });
   }
   return false;
@@ -510,14 +663,19 @@ async function procesarPedidoCart(e) {
   const nombre = document.getElementById('chkNombre').value.trim().substring(0,120);
   const email = document.getElementById('chkEmail').value.trim().substring(0,120);
   const telefono = document.getElementById('chkTelefono').value.trim().substring(0,30);
-  const ciudad = document.getElementById('chkCiudad').value.trim().substring(0,100);
   const direccion = document.getElementById('chkDireccion').value.trim().substring(0,200);
   const notas = document.getElementById('chkNotas').value.trim().substring(0,500);
   const tipoDocumento = document.getElementById('chkTipoDocumento').value;
   const documento = document.getElementById('chkDocumento').value.trim();
-  const bancoSelect = document.getElementById('chkBanco');
-  const bancoCodigo = bancoSelect.value;
-  const bancoNombre = bancoSelect.options[bancoSelect.selectedIndex]?.getAttribute('data-name') || bancoSelect.options[bancoSelect.selectedIndex]?.text || '';
+  const departamentoSelect = document.getElementById('chkDepartamento');
+  const departamentoId = departamentoSelect.value;
+  const departamentoNombre = departamentoSelect.options[departamentoSelect.selectedIndex]?.text || '';
+  const municipioSelect = document.getElementById('chkMunicipio');
+  const municipioId = municipioSelect.value;
+  const municipioNombre = municipioSelect.options[municipioSelect.selectedIndex]?.text || '';
+  const codigoPostal = document.getElementById('chkCodigoPostal').value.trim().substring(0,10);
+  const bancoCodigo = bancoSeleccionadoCode;
+  const bancoNombre = bancoSeleccionadoName;
 
   let hasError = false;
   document.querySelectorAll('.chk-input,.chk-select').forEach(el => el.classList.remove('error'));
@@ -525,18 +683,19 @@ async function procesarPedidoCart(e) {
   if (!email || !email.includes('@')) { document.getElementById('chkEmail').classList.add('error'); hasError = true; }
   if (!telefono) { document.getElementById('chkTelefono').classList.add('error'); hasError = true; }
   if (!documento) { document.getElementById('chkDocumento').classList.add('error'); hasError = true; }
-  if (!ciudad) { document.getElementById('chkCiudad').classList.add('error'); hasError = true; }
   if (!direccion) { document.getElementById('chkDireccion').classList.add('error'); hasError = true; }
-  if (!bancoCodigo) { document.getElementById('chkBanco').classList.add('error'); hasError = true; }
+  if (!departamentoId) { document.getElementById('chkDepartamento').classList.add('error'); hasError = true; }
+  if (!municipioId) { document.getElementById('chkMunicipio').classList.add('error'); hasError = true; }
+  if (!bancoCodigo) { document.getElementById('chkBankSearch').classList.add('error'); hasError = true; }
   if (hasError) {
-    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="bi bi-check2-circle"></i> Confirmar pedido'; }
+    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="bi bi-shield-check"></i> Pagar con PSE'; }
     Swal.fire({ icon:'warning', title:'Campos incompletos', text:'Completa todos los campos obligatorios.', confirmButtonColor:'#3CAEE0' });
     return false;
   }
 
   const carrito = JSON.parse(localStorage.getItem('pd_carrito') || '[]');
   if (carrito.length === 0) {
-    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="bi bi-check2-circle"></i> Confirmar pedido'; }
+    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="bi bi-shield-check"></i> Pagar con PSE'; }
     Swal.fire({ icon:'warning', title:'Carrito vacío', text:'Tu carrito está vacío. Agrega productos primero.', confirmButtonColor:'#3CAEE0' });
     return false;
   }
@@ -545,7 +704,12 @@ async function procesarPedidoCart(e) {
   const total = subtotal + COSTO_ENVIO;
 
   const body = {
-    nombre, email, telefono, ciudad, direccion, notas,
+    nombre, email, telefono, direccion, notas,
+    departamento_id: departamentoId,
+    departamento_nombre: departamentoNombre,
+    municipio_id: municipioId,
+    municipio_nombre: municipioNombre,
+    codigo_postal: codigoPostal,
     tipo_documento: tipoDocumento,
     documento: documento,
     banco_codigo: bancoCodigo,
@@ -570,6 +734,9 @@ async function procesarPedidoCart(e) {
     const json = await res.json();
 
     if (json.exito && json.pse_url) {
+      json._subtotal = subtotal;
+      json._envio = COSTO_ENVIO;
+      json._items = carrito;
       localStorage.removeItem('pd_carrito');
       if (typeof actualizarContadorCarrito === 'function') actualizarContadorCarrito();
       mostrarConfirmacion(json);
@@ -577,22 +744,45 @@ async function procesarPedidoCart(e) {
       throw new Error(json.mensaje || 'Error al procesar el pedido');
     }
   } catch (e) {
-    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="bi bi-check2-circle"></i> Confirmar pedido'; }
+    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="bi bi-shield-check"></i> Pagar con PSE'; }
     Swal.fire({ icon:'error', title:'Error', text:e.message || 'Hubo un problema. Contáctanos por WhatsApp.', confirmButtonColor:'#3CAEE0' });
   }
   return false;
 }
 
 function mostrarConfirmacion(json) {
+  let precio, total, nombre, itemsHtml = '';
+  if (CHECKOUT_SOURCE === 'cart' && json._items) {
+    const carrito = json._items;
+    const subtotal = json._subtotal || carrito.reduce((a,i) => a + i.precio * i.cantidad, 0);
+    total = subtotal + COSTO_ENVIO;
+    precio = subtotal;
+    nombre = carrito.length + ' producto' + (carrito.length > 1 ? 's' : '');
+    itemsHtml = carrito.map(item =>
+      `<li><span>${item.nombre.replace(/</g,'&lt;')} x${item.cantidad}</span><span>$${Number(item.precio * item.cantidad).toLocaleString('es-CO',{minimumFractionDigits:0})}</span></li>`
+    ).join('');
+  } else {
+    precio = PRECIO_DIRECTO > 0 ? PRECIO_DIRECTO : parseFloat(productoActual?.precio || 0);
+    total = precio + COSTO_ENVIO;
+    nombre = productoActual?.nombre || 'Pedido';
+    itemsHtml = `<li><span>${nombre}</span><span>$${Number(precio).toLocaleString('es-CO',{minimumFractionDigits:0})}</span></li>`;
+  }
   document.getElementById('chkContent').innerHTML = `
     <div class="chk-card chk-msg show">
       <div class="chk-msg-icon"><i class="bi bi-check-circle-fill"></i></div>
       <h2>¡Pedido confirmado!</h2>
       <p style="opacity:.75;line-height:1.8;max-width:400px;margin:1rem auto;">
-        Tu pedido ha sido registrado. Ahora serás redirigido a <strong>PSE</strong> para completar el pago de forma segura.<br>
+        Tu pedido ha sido registrado. Completa el pago con <strong>PSE</strong> de forma segura.<br>
         Código de pedido: <strong style="color:var(--cami-turq);">${json.codigo || '—'}</strong>
       </p>
-      <a href="${json.pse_url}" class="btn-p1 mt-3" style="display:inline-flex;"><i class="bi bi-bank"></i> Ir a pagar con PSE</a>
+      <div style="background:var(--cami-bg);border-radius:14px;padding:1rem 1.2rem;margin-top:1rem;text-align:left;">
+        <ul class="chk-resumen-list">
+          ${itemsHtml}
+          <li><span>Envío</span><span>$${Number(COSTO_ENVIO).toLocaleString('es-CO',{minimumFractionDigits:0})}</span></li>
+          <li><span>TOTAL</span><span>$${Number(total).toLocaleString('es-CO',{minimumFractionDigits:0})}</span></li>
+        </ul>
+      </div>
+      <a href="${json.pse_url}" class="btn-pse mt-3" style="display:inline-flex;text-decoration:none;"><img src="img/logos/logo_pse.png" alt="PSE" style="height:24px;" onerror="this.style.display='none'"> Ir a pagar con PSE</a>
       <p style="font-size:.78rem;opacity:.45;margin-top:1rem;">Serás redirigido a la plataforma de tu banco para completar el pago.</p>
     </div>`;
 }

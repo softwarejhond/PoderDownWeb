@@ -8,6 +8,8 @@ if ($id <= 0) {
 $pageTitle = 'Producto — Poder Down';
 $pageDescription = 'Detalle del producto';
 $activePage = 'productos';
+$ogType = 'product';
+$canonicalUrl = 'https://poderdown.com/producto?id=' . $id;
 require 'components/header.php';
 ?>
 <style>

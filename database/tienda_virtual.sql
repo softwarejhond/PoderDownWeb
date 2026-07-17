@@ -1847,6 +1847,7 @@ CREATE TABLE `payments` (
   `refunded_at` datetime DEFAULT NULL,
   `paid_at` datetime DEFAULT NULL,
   `metadata` text DEFAULT NULL COMMENT 'Datos adicionales JSON',
+  `raw_response` text DEFAULT NULL COMMENT 'Respuesta completa de MEGAPAGOS get-info',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

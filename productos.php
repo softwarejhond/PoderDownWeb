@@ -1,8 +1,8 @@
 <?php
-$pageTitle = 'Tienda — Poder Down by María Camila González Torres';
-$pageDescription = 'Tienda oficial de Poder Down — Arte único de María Camila González Torres. Envíos a toda Colombia.';
+$pageTitle = 'Tienda Creativa de Cami | Poder Down';
+$pageDescription = 'Descubre la Tienda Creativa de Cami: Encuentras arte original que enamora a primera vista, piezas únicas que no verás en ningún otro lado. ¡Entra ya!';
 $activePage = 'productos';
-$ogTitle = 'Tienda Poder Down';
+$ogTitle = 'Tienda Creativa de Cami | Poder Down';
 require 'components/header.php';
 ?>
 <style>
@@ -374,7 +374,7 @@ function tarjetaProducto(p) {
     ? `<img src="${p.imagen}" alt="${p.nombre.replace(/"/g,'&quot;')}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><i class="bi bi-image" style="color:var(--cami-border);"></i></div>`
     : `<div class="img-placeholder"><i class="bi bi-image" style="color:var(--cami-border);"></i></div>`;
   return `
-  <div class="product-card-cami" onclick="window.location='producto.php?id=${p.id}'">
+  <a class="product-card-cami" href="producto.php?id=${p.id}" style="display:block;text-decoration:none;color:inherit;">
     <div class="img-wrap" style="position:relative">
       ${imgHtml}
       <span class="badge-cat">${p.categoria}</span>
@@ -393,7 +393,7 @@ function tarjetaProducto(p) {
         </button>
       </div>
     </div>
-  </div>`;
+  </a>`;
 }
 
 /* ─── PAGINACIÓN ─── */
@@ -488,6 +488,7 @@ async function verProducto(id) {
 /* ─── REDES FLOTANTES ─── */
 function verVarianteProducto(event, el, productId) {
   event.stopPropagation();
+  event.preventDefault();
   if (typeof Swal !== 'undefined') {
     Swal.fire({
       toast: true, position: 'bottom-end', icon: 'info',

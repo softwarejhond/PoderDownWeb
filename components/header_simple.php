@@ -1,6 +1,7 @@
 <?php
 $pageTitle = $pageTitle ?? 'Poder Down — Checkout';
 $pageDescription = $pageDescription ?? 'Finaliza tu compra en Poder Down';
+$metaRobots = $metaRobots ?? 'noindex, follow';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -9,10 +10,14 @@ $pageDescription = $pageDescription ?? 'Finaliza tu compra en Poder Down';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= htmlspecialchars($pageTitle) ?></title>
   <meta name="description" content="<?= htmlspecialchars($pageDescription) ?>">
+  <meta name="robots" content="<?= htmlspecialchars($metaRobots) ?>">
   <link rel="icon" type="image/png" href="img/logos/pd_icono.png">
   <link rel="apple-touch-icon" href="img/logos/pd_icono.png">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Oregano:ital@0;1&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/public/css/marca.css">
   <style>

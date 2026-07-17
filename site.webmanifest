@@ -1,0 +1,16 @@
+{
+  "name": "Poder Down",
+  "short_name": "Poder Down",
+  "description": "Arte, charlas y productos para una inclusión real. El poder de creer e incluir.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ebeae4",
+  "theme_color": "#3CAEE0",
+  "icons": [
+    {
+      "src": "/img/logos/pd_icono.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}

@@ -60,6 +60,9 @@ $data = [
     'telefono'        => trim($input['telefono']),
     'ciudad'          => trim($input['ciudad'] ?? ''),
     'direccion'       => trim($input['direccion'] ?? ''),
+    'departamento_nombre' => trim($input['departamento_nombre'] ?? ''),
+    'municipio_nombre'    => trim($input['municipio_nombre'] ?? ''),
+    'codigo_postal'   => trim($input['codigo_postal'] ?? ''),
     'notas'           => trim($input['notas'] ?? ''),
     'cantidad'        => (int) ($input['cantidad'] ?? 1),
     'total'           => (float) ($input['total'] ?? 0),
@@ -99,18 +102,20 @@ log_pago('DB: Transaccion iniciada');
 try {
     $orderNumber = 'PD-' . strtoupper(substr(uniqid(), -8));
     log_pago('ORDER: ' . $orderNumber);
-    $stmt = mysqli_prepare($conn, "INSERT INTO orders (order_number, customer_id, customer_email, customer_name, customer_phone, customer_document_type, customer_document_number, shipping_city, shipping_address, shipping_address_detail, subtotal, total, currency, status, payment_status, shipping_status) VALUES (?, NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'COP', 'pending', 'pending', 'pending')");
+    $stmt = mysqli_prepare($conn, "INSERT INTO orders (order_number, customer_email, customer_name, customer_phone, customer_document_type, customer_document_number, shipping_department, shipping_city, shipping_address, shipping_address_detail, shipping_postal_code, subtotal, total) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-    mysqli_stmt_bind_param($stmt, 'sssssssssdd',
+    mysqli_stmt_bind_param($stmt, 'sssssssssssdd',
         $orderNumber,
         $data['email'],
         $data['nombre'],
         $data['telefono'],
         $data['tipo_documento'],
         $data['documento'],
-        $data['ciudad'],
+        $data['departamento_nombre'],
+        $data['municipio_nombre'],
         $data['direccion'],
         $data['notas'],
+        $data['codigo_postal'],
         $data['subtotal'],
         $data['total']
     );

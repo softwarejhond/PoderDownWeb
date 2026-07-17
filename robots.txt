@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /controller/
+Disallow: /components/
+Disallow: /logs/
+Disallow: /node_modules/
+Disallow: /login
+Disallow: /registro
+Disallow: /checkout
+Disallow: /perfil
+Disallow: /callback
+Disallow: /pedidos
+Disallow: /logout
+
+Sitemap: https://poderdown.com/sitemap.xml

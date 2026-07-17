@@ -10,6 +10,7 @@ if ($slug) {
         $pageTitle = 'Artículo no encontrado — Poder Down';
         $pageDescription = 'El artículo que buscas no existe o ha sido retirado.';
         $activePage = 'blog';
+        $metaRobots = 'noindex, follow';
         require 'components/header.php';
         echo '<section style="background:white;padding:5rem 0;min-height:60vh;"><div class="container text-center"><i class="bi bi-journal-x" style="font-size:4rem;opacity:.2;display:block;margin-bottom:1rem;"></i><h2 style="font-family:var(--font-kranky);">Artículo no encontrado</h2><p style="opacity:.6;">El artículo que buscas no existe o ha sido retirado.</p><a href="blog.php" class="btn-p1 mt-3"><i class="bi bi-arrow-left"></i> Volver al blog</a></div></section>';
         require_once __DIR__ . '/Footer.php';
@@ -19,6 +20,13 @@ if ($slug) {
     $pageDescription = htmlspecialchars($post['excerpt'] ?? '');
     $activePage = 'blog';
     $ogTitle = htmlspecialchars($post['title']);
+    $ogType = 'article';
+    $canonicalUrl = 'https://poderdown.com/blog?slug=' . rawurlencode($slug);
+    if (!empty($post['featured_image'])) {
+        $ogImage = preg_match('#^https?://#i', $post['featured_image'])
+            ? $post['featured_image']
+            : 'https://poderdown.com/' . ltrim($post['featured_image'], '/');
+    }
     require 'components/header.php';
     $contentHtml = renderMarkdown($post['content']);
     $imgSrc = !empty($post['featured_image']) ? htmlspecialchars($post['featured_image']) : '';
@@ -172,10 +180,10 @@ $blogs = getBlogs($page, $perPage, $search);
 $total = getTotalBlogs($search);
 $totalPages = max(1, ceil($total / $perPage));
 
-$pageTitle = 'Blog — Día a día con Cami | Poder Down';
-$pageDescription = 'Testimonios, experiencias y artículos de inclusión real desde una historia de vida.';
+$pageTitle = 'El diario de Cami: historias, tips y novedades | Poder Down';
+$pageDescription = 'Cami abre su diario: cuenta su día a día entre pinceles, charlas, turismo y cocina, con tips. Descúbrelo.';
 $activePage = 'blog';
-$ogTitle = 'Blog Poder Down';
+$ogTitle = 'El diario de Cami: historias, tips y novedades';
 require 'components/header.php';
 ?>
 

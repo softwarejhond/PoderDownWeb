@@ -1,0 +1,829 @@
+[2026-07-14 18:29:17] === CALLBACK RECIBIDO ===
+[2026-07-14 18:29:17] GET | {
+    "order": "26",
+    "payment": "25"
+}
+[2026-07-14 18:29:20] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6567594330",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5684668",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840536857374,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 13:28:05",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 18:29:20] STATUS DETECTADO: 1
+[2026-07-14 18:29:20] EXCEPTION: Data truncated for column 'payment_status' at row 1
+[2026-07-14 18:29:20] TRACE: #0 /var/www/html/ECOMERCE-PODERDOWN/callback.php(91): mysqli_stmt_execute(Object(mysqli_stmt))
+#1 {main}
+[2026-07-14 18:34:25] === CALLBACK RECIBIDO ===
+[2026-07-14 18:34:25] GET | {
+    "order": "27",
+    "payment": "26"
+}
+[2026-07-14 18:34:28] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568085398",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Usuario abandonó la transacción en el banco",
+    "externalDetails": {
+        "payment_code": "5684672",
+        "entity_franquise": "1022",
+        "authorizationID": "00001",
+        "ticketId": 17840539926573,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 13:33:12",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 18:34:28] STATUS DETECTADO: 1
+[2026-07-14 18:34:55] === CALLBACK RECIBIDO ===
+[2026-07-14 18:34:55] GET | {
+    "order": "27",
+    "payment": "26"
+}
+[2026-07-14 18:34:56] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568085398",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Usuario abandonó la transacción en el banco",
+    "externalDetails": {
+        "payment_code": "5684672",
+        "entity_franquise": "1022",
+        "authorizationID": "00001",
+        "ticketId": 17840539926573,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 13:33:12",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 18:34:56] STATUS DETECTADO: 1
+[2026-07-14 18:36:02] === CALLBACK RECIBIDO ===
+[2026-07-14 18:36:02] GET | {
+    "order": "27",
+    "payment": "26"
+}
+[2026-07-14 18:36:03] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568085398",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Usuario abandonó la transacción en el banco",
+    "externalDetails": {
+        "payment_code": "5684672",
+        "entity_franquise": "1022",
+        "authorizationID": "00001",
+        "ticketId": 17840539926573,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 13:33:12",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 18:36:03] STATUS DETECTADO: 1
+[2026-07-14 18:36:03] DB UPDATED: estado=approved
+[2026-07-14 18:39:06] === CALLBACK RECIBIDO ===
+[2026-07-14 18:39:06] GET | {
+    "order": "28",
+    "payment": "27"
+}
+[2026-07-14 18:39:08] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568106791",
+    "tiposolicitud_id": "5",
+    "status": 9,
+    "message": "Usuario abandonó la transacción en el banco",
+    "externalDetails": {
+        "payment_code": "5684673",
+        "entity_franquise": "1022",
+        "authorizationID": "00001",
+        "ticketId": 17840542693805,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 13:37:49",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 18:39:08] STATUS DETECTADO: 9
+[2026-07-14 18:39:08] DB UPDATED: estado=approved
+[2026-07-14 18:43:25] === CALLBACK RECIBIDO ===
+[2026-07-14 18:43:25] GET | {
+    "order": "29",
+    "payment": "28"
+}
+[2026-07-14 18:43:27] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568219941",
+    "tiposolicitud_id": "5",
+    "status": 9,
+    "message": "Usuario abandonó la transacción en el banco",
+    "externalDetails": {
+        "payment_code": "5684677",
+        "entity_franquise": "1022",
+        "authorizationID": "00001",
+        "ticketId": 17840544978775,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 13:41:37",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 18:43:27] STATUS DETECTADO: 9
+[2026-07-14 18:43:27] STATUS NUMERICO: 9
+[2026-07-14 18:43:27] DB UPDATED: estado=approved
+[2026-07-14 18:54:53] === CALLBACK RECIBIDO ===
+[2026-07-14 18:54:53] GET | {
+    "order": "30",
+    "payment": "29"
+}
+[2026-07-14 18:54:55] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568529917",
+    "tiposolicitud_id": "5",
+    "status": 9,
+    "message": "Usuario abandonó la transacción en el banco",
+    "externalDetails": {
+        "payment_code": "5684686",
+        "entity_franquise": "1022",
+        "authorizationID": "00001",
+        "ticketId": 17840552663737,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 13:54:26",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 18:54:55] STATUS DETECTADO: 9
+[2026-07-14 18:54:55] STATUS NUMERICO: 9
+[2026-07-14 18:54:55] DB UPDATED: estado=approved
+[2026-07-14 18:59:12] === CALLBACK RECIBIDO ===
+[2026-07-14 18:59:12] GET | {
+    "order": "31",
+    "payment": "30"
+}
+[2026-07-14 18:59:15] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568646271",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5684687",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840554834775,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 13:58:03",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 18:59:15] STATUS DETECTADO: 1
+[2026-07-14 18:59:15] STATUS NUMERICO: 1
+[2026-07-14 18:59:15] DB UPDATED: estado=pending
+[2026-07-14 19:03:00] === CALLBACK RECIBIDO ===
+[2026-07-14 19:03:00] GET | {
+    "order": "32",
+    "payment": "31"
+}
+[2026-07-14 19:03:02] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568756821",
+    "tiposolicitud_id": "5",
+    "status": 9,
+    "message": "Usuario abandonó la transacción en el banco",
+    "externalDetails": {
+        "payment_code": "5684693",
+        "entity_franquise": "1022",
+        "authorizationID": "00001",
+        "ticketId": 17840557558388,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 14:02:35",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 19:03:02] STATUS DETECTADO: 9
+[2026-07-14 19:03:02] STATUS NUMERICO: 9
+[2026-07-14 19:03:02] DB UPDATED: estado=approved
+[2026-07-14 19:06:54] === CALLBACK RECIBIDO ===
+[2026-07-14 19:06:54] GET | {
+    "order": "33",
+    "payment": "32"
+}
+[2026-07-14 19:06:58] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568893006",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5684699",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840559555080,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 14:05:55",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 19:06:58] STATUS DETECTADO: 1
+[2026-07-14 19:06:58] STATUS NUMERICO: 1
+[2026-07-14 19:06:58] DB UPDATED: estado=pending
+[2026-07-14 19:07:00] === CALLBACK RECIBIDO ===
+[2026-07-14 19:07:00] GET | {
+    "order": "33",
+    "payment": "32"
+}
+[2026-07-14 19:07:02] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568893006",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5684699",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840559555080,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 14:05:55",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 19:07:02] STATUS DETECTADO: 1
+[2026-07-14 19:07:02] STATUS NUMERICO: 1
+[2026-07-14 19:07:02] DB UPDATED: estado=pending
+[2026-07-14 19:07:02] === CALLBACK RECIBIDO ===
+[2026-07-14 19:07:02] GET | {
+    "order": "33",
+    "payment": "32"
+}
+[2026-07-14 19:07:04] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568893006",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5684699",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840559555080,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 14:05:55",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 19:07:04] STATUS DETECTADO: 1
+[2026-07-14 19:07:04] STATUS NUMERICO: 1
+[2026-07-14 19:07:04] DB UPDATED: estado=pending
+[2026-07-14 19:19:17] === CALLBACK RECIBIDO ===
+[2026-07-14 19:19:17] GET | {
+    "order": "35",
+    "payment": "34"
+}
+[2026-07-14 19:19:19] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568561689",
+    "tiposolicitud_id": "5",
+    "status": 109,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5684727",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840566628003,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 14:17:42",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 19:19:19] STATUS DETECTADO: 109
+[2026-07-14 19:19:19] STATUS NUMERICO: 109
+[2026-07-14 19:19:19] DB UPDATED: estado=pending
+[2026-07-14 19:22:02] === CALLBACK RECIBIDO ===
+[2026-07-14 19:22:02] GET | {
+    "order": "36",
+    "payment": "35"
+}
+[2026-07-14 19:22:04] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568142511",
+    "tiposolicitud_id": "5",
+    "status": 11,
+    "message": "",
+    "externalDetails": {
+        "payment_code": "5684740",
+        "entity_franquise": "1022",
+        "authorizationID": "",
+        "ticketId": 17840568529014,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 14:20:52",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 19:22:04] STATUS DETECTADO: 11
+[2026-07-14 19:22:04] STATUS NUMERICO: 11
+[2026-07-14 19:22:04] DB UPDATED: estado=pending
+[2026-07-14 19:25:56] === CALLBACK RECIBIDO ===
+[2026-07-14 19:25:56] GET | {
+    "order": "37",
+    "payment": "36"
+}
+[2026-07-14 19:25:59] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568282482",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5684748",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840571288316,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 14:25:28",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 19:25:59] STATUS DETECTADO: 1
+[2026-07-14 19:25:59] STATUS NUMERICO: 1
+[2026-07-14 19:25:59] DB UPDATED: estado=approved
+[2026-07-14 20:06:07] === CALLBACK RECIBIDO ===
+[2026-07-14 20:06:07] GET | {
+    "order": "39",
+    "payment": "38"
+}
+[2026-07-14 20:06:10] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6569689795",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5684844",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840595291947,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 15:05:29",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 20:06:10] STATUS DETECTADO: 1
+[2026-07-14 20:06:10] STATUS NUMERICO: 1
+[2026-07-14 20:06:10] DB UPDATED: estado=approved
+[2026-07-14 21:03:02] === CALLBACK RECIBIDO ===
+[2026-07-14 21:03:02] GET | {
+    "order": "40",
+    "payment": "39"
+}
+[2026-07-14 21:03:05] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6563651784",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5685058",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840629438832,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 16:02:23",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 21:03:05] STATUS DETECTADO: 1
+[2026-07-14 21:03:05] STATUS NUMERICO: 1
+[2026-07-14 21:03:05] EMAIL: fallo
+[2026-07-14 21:03:05] DB UPDATED: estado=approved

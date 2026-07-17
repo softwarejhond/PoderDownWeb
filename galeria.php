@@ -9,6 +9,7 @@ if ($slug) {
         $pageTitle = 'Galería no encontrada — Poder Down';
         $pageDescription = 'La galería que buscas no existe o ha sido retirada.';
         $activePage = 'galeria';
+        $metaRobots = 'noindex, follow';
         require 'components/header.php';
         echo '<section style="background:white;padding:5rem 0;min-height:60vh;"><div class="container text-center"><i class="bi bi-images" style="font-size:4rem;opacity:.2;display:block;margin-bottom:1rem;"></i><h2 style="font-family:var(--font-kranky);">Galería no encontrada</h2><p style="opacity:.6;">La galería que buscas no existe o ha sido retirada.</p><a href="galeria.php" class="btn-p1 mt-3"><i class="bi bi-arrow-left"></i> Volver a las galerías</a></div></section>';
         require_once __DIR__ . '/Footer.php';
@@ -18,6 +19,7 @@ if ($slug) {
     $pageDescription = htmlspecialchars($galeria['excerpt'] ?? '');
     $activePage = 'galeria';
     $ogTitle = htmlspecialchars($galeria['title']);
+    $canonicalUrl = 'https://poderdown.com/galeria?slug=' . rawurlencode($slug);
     require 'components/header.php';
     $obras = $galeria['obras'] ?? [];
     ?>
@@ -458,10 +460,10 @@ $galerias = getGalerias($page, $perPage, $search);
 $total = getTotalGalerias($search);
 $totalPages = max(1, ceil($total / $perPage));
 
-$pageTitle = 'Galerías — Arte y momentos | Poder Down';
-$pageDescription = 'Colecciones de fotografías y obras que celebran la diversidad desde la mirada de Poder Down.';
+$pageTitle = 'Galería de Cami: un recorrido por su arte | Poder Down';
+$pageDescription = 'Recorre la galería de Cami: sus obras más queridas y lo nuevo que trae su pincel. Entra y déjate sorprender.';
 $activePage = 'galeria';
-$ogTitle = 'Galerías Poder Down';
+$ogTitle = 'Galería de Cami: un recorrido por su arte';
 require 'components/header.php';
 ?>
 

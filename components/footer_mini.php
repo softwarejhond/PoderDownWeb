@@ -1,7 +1,8 @@
+</main>
 <!-- ===== FOOTER MINI — Barra fija inferior ===== -->
-<div class="fl-bar-fija">
+<footer class="fl-bar-fija">
   &copy; <?php echo date('Y'); ?> Poder Down by <a href="https://www.agenciaeaglesoftware.com/" target="_blank" rel="noopener noreferrer" class="fl-eagle-link">Eagle Software</a> &mdash; Todos los derechos reservados
-</div>
+</footer>
 
 <style>
 @font-face {

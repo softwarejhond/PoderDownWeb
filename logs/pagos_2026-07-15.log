@@ -1,0 +1,624 @@
+[2026-07-15 22:03:55] === NUEVA PETICION ===
+[2026-07-15 22:03:55] REQUEST_METHOD: POST
+[2026-07-15 22:03:55] INPUT RAW | "{\"producto_id\":5,\"variant_id\":null,\"producto_nombre\":\"Tarjetas de Regalo De \/ Para\",\"producto_precio\":200,\"nombre\":\"Cliente Prueba\",\"email\":\"prueba6@gmail.com\",\"telefono\":\"310000000\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"departamento_id\":\"5\",\"departamento_nombre\":\"ANTIOQUIA\",\"municipio_id\":\"91\",\"municipio_nombre\":\"Bello\",\"codigo_postal\":\"051050\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1022\",\"banco_nombre\":\"BANCO UNION COLOMBIANO\",\"cantidad\":1,\"total\":300,\"costo_envio\":100,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-15 22:03:55] INPUT PARSED | {
+    "producto_id": 5,
+    "variant_id": null,
+    "producto_nombre": "Tarjetas de Regalo De \/ Para",
+    "producto_precio": 200,
+    "nombre": "Cliente Prueba",
+    "email": "prueba6@gmail.com",
+    "telefono": "310000000",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "departamento_id": "5",
+    "departamento_nombre": "ANTIOQUIA",
+    "municipio_id": "91",
+    "municipio_nombre": "Bello",
+    "codigo_postal": "051050",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1022",
+    "banco_nombre": "BANCO UNION COLOMBIANO",
+    "cantidad": 1,
+    "total": 300,
+    "costo_envio": 100,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-15 22:03:55] DB: Conectando...
+[2026-07-15 22:03:55] DB: Conectado OK
+[2026-07-15 22:03:55] DB: Transaccion iniciada
+[2026-07-15 22:03:55] ORDER: PD-3CBC6136
+[2026-07-15 22:03:55] ORDER: Insertado ID=41
+[2026-07-15 22:03:55] ITEM: Insertado 1 item
+[2026-07-15 22:03:55] PAYMENT: Insertado ID=40
+[2026-07-15 22:03:55] BASE_URL: http://localhost/ECOMERCE-PODERDOWN
+[2026-07-15 22:03:55] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-15 22:03:56] MEGAPAGOS: Login OK
+[2026-07-15 22:03:56] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=41&payment=40",
+    "product_name": "Tarjetas de Regalo De \/ Para",
+    "product_description": "Tarjetas de Regalo De \/ Para",
+    "unit_price": 200,
+    "tax_id": 21,
+    "shipping_cost": 100,
+    "quantity": 1,
+    "total_amount": 300,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "prueba6@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1022",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-15 22:03:58] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5693963",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=4DeIwB%2byBZGo8gRDss1IynQE85EeHo%2bV3BJxj73xeDg%3d",
+    "transactionId": "MTU5NTM="
+}
+[2026-07-15 22:03:58] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=4DeIwB%2byBZGo8gRDss1IynQE85EeHo%2bV3BJxj73xeDg%3d
+[2026-07-15 22:03:58] DB: Commit OK. TODO EXITOSO
+[2026-07-15 22:20:21] === NUEVA PETICION ===
+[2026-07-15 22:20:21] REQUEST_METHOD: POST
+[2026-07-15 22:20:21] INPUT RAW | "{\"producto_id\":5,\"variant_id\":null,\"producto_nombre\":\"Tarjetas de Regalo De \/ Para\",\"producto_precio\":200,\"nombre\":\"Cliente Prueba\",\"email\":\"juandidoc11@gmail.com\",\"telefono\":\"310000000\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"departamento_id\":\"5\",\"departamento_nombre\":\"ANTIOQUIA\",\"municipio_id\":\"91\",\"municipio_nombre\":\"Bello\",\"codigo_postal\":\"051050\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1022\",\"banco_nombre\":\"BANCO UNION COLOMBIANO\",\"cantidad\":1,\"total\":300,\"costo_envio\":100,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-15 22:20:21] INPUT PARSED | {
+    "producto_id": 5,
+    "variant_id": null,
+    "producto_nombre": "Tarjetas de Regalo De \/ Para",
+    "producto_precio": 200,
+    "nombre": "Cliente Prueba",
+    "email": "juandidoc11@gmail.com",
+    "telefono": "310000000",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "departamento_id": "5",
+    "departamento_nombre": "ANTIOQUIA",
+    "municipio_id": "91",
+    "municipio_nombre": "Bello",
+    "codigo_postal": "051050",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1022",
+    "banco_nombre": "BANCO UNION COLOMBIANO",
+    "cantidad": 1,
+    "total": 300,
+    "costo_envio": 100,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-15 22:20:21] DB: Conectando...
+[2026-07-15 22:20:21] DB: Conectado OK
+[2026-07-15 22:20:21] DB: Transaccion iniciada
+[2026-07-15 22:20:21] ORDER: PD-7A50A1C4
+[2026-07-15 22:20:21] ORDER: Insertado ID=42
+[2026-07-15 22:20:21] ITEM: Insertado 1 item
+[2026-07-15 22:20:21] PAYMENT: Insertado ID=41
+[2026-07-15 22:20:21] BASE_URL: http://localhost/ECOMERCE-PODERDOWN
+[2026-07-15 22:20:21] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-15 22:20:21] MEGAPAGOS: Login OK
+[2026-07-15 22:20:21] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=42&payment=41",
+    "product_name": "Tarjetas de Regalo De \/ Para",
+    "product_description": "Tarjetas de Regalo De \/ Para",
+    "unit_price": 200,
+    "tax_id": 21,
+    "shipping_cost": 100,
+    "quantity": 1,
+    "total_amount": 300,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "juandidoc11@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1022",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-15 22:20:23] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5694008",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=fYPMx55EtvPWIcIyNLa%2bsTaQC7UwRudrtdM6RYKnRec%3d",
+    "transactionId": "MTU5NTU="
+}
+[2026-07-15 22:20:23] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=fYPMx55EtvPWIcIyNLa%2bsTaQC7UwRudrtdM6RYKnRec%3d
+[2026-07-15 22:20:23] DB: Commit OK. TODO EXITOSO
+[2026-07-15 22:24:26] === NUEVA PETICION ===
+[2026-07-15 22:24:26] REQUEST_METHOD: POST
+[2026-07-15 22:24:26] INPUT RAW | "{\"producto_id\":5,\"variant_id\":null,\"producto_nombre\":\"Tarjetas de Regalo De \/ Para\",\"producto_precio\":200,\"nombre\":\"Cliente Prueba\",\"email\":\"juandidoc11@gmail.com\",\"telefono\":\"310000000\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"departamento_id\":\"5\",\"departamento_nombre\":\"ANTIOQUIA\",\"municipio_id\":\"91\",\"municipio_nombre\":\"Bello\",\"codigo_postal\":\"051050\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1022\",\"banco_nombre\":\"BANCO UNION COLOMBIANO\",\"cantidad\":1,\"total\":300,\"costo_envio\":100,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-15 22:24:26] INPUT PARSED | {
+    "producto_id": 5,
+    "variant_id": null,
+    "producto_nombre": "Tarjetas de Regalo De \/ Para",
+    "producto_precio": 200,
+    "nombre": "Cliente Prueba",
+    "email": "juandidoc11@gmail.com",
+    "telefono": "310000000",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "departamento_id": "5",
+    "departamento_nombre": "ANTIOQUIA",
+    "municipio_id": "91",
+    "municipio_nombre": "Bello",
+    "codigo_postal": "051050",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1022",
+    "banco_nombre": "BANCO UNION COLOMBIANO",
+    "cantidad": 1,
+    "total": 300,
+    "costo_envio": 100,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-15 22:24:26] DB: Conectando...
+[2026-07-15 22:24:26] DB: Conectado OK
+[2026-07-15 22:24:26] DB: Transaccion iniciada
+[2026-07-15 22:24:26] ORDER: PD-89A29DBD
+[2026-07-15 22:24:26] ORDER: Insertado ID=43
+[2026-07-15 22:24:26] ITEM: Insertado 1 item
+[2026-07-15 22:24:26] PAYMENT: Insertado ID=42
+[2026-07-15 22:24:26] BASE_URL: http://localhost/ECOMERCE-PODERDOWN
+[2026-07-15 22:24:26] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-15 22:24:26] MEGAPAGOS: Login OK
+[2026-07-15 22:24:26] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=43&payment=42",
+    "product_name": "Tarjetas de Regalo De \/ Para",
+    "product_description": "Tarjetas de Regalo De \/ Para",
+    "unit_price": 200,
+    "tax_id": 21,
+    "shipping_cost": 100,
+    "quantity": 1,
+    "total_amount": 300,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "juandidoc11@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1022",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-15 22:24:28] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5694015",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=fYPMx55EtvPWIcIyNLa%2bsVbGwJXTN6DFSf%2bXRImg83M%3d",
+    "transactionId": "MTU5NTc="
+}
+[2026-07-15 22:24:28] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=fYPMx55EtvPWIcIyNLa%2bsVbGwJXTN6DFSf%2bXRImg83M%3d
+[2026-07-15 22:24:28] DB: Commit OK. TODO EXITOSO
+[2026-07-15 22:33:07] === NUEVA PETICION ===
+[2026-07-15 22:33:07] REQUEST_METHOD: POST
+[2026-07-15 22:33:07] INPUT RAW | "{\"producto_id\":5,\"variant_id\":null,\"producto_nombre\":\"Tarjetas de Regalo De \/ Para\",\"producto_precio\":200,\"nombre\":\"Cliente Prueba\",\"email\":\"juandidoc11@gmail.com\",\"telefono\":\"3508284544\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"departamento_id\":\"5\",\"departamento_nombre\":\"ANTIOQUIA\",\"municipio_id\":\"91\",\"municipio_nombre\":\"Bello\",\"codigo_postal\":\"051050\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1022\",\"banco_nombre\":\"BANCO UNION COLOMBIANO\",\"cantidad\":1,\"total\":300,\"costo_envio\":100,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-15 22:33:07] INPUT PARSED | {
+    "producto_id": 5,
+    "variant_id": null,
+    "producto_nombre": "Tarjetas de Regalo De \/ Para",
+    "producto_precio": 200,
+    "nombre": "Cliente Prueba",
+    "email": "juandidoc11@gmail.com",
+    "telefono": "3508284544",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "departamento_id": "5",
+    "departamento_nombre": "ANTIOQUIA",
+    "municipio_id": "91",
+    "municipio_nombre": "Bello",
+    "codigo_postal": "051050",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1022",
+    "banco_nombre": "BANCO UNION COLOMBIANO",
+    "cantidad": 1,
+    "total": 300,
+    "costo_envio": 100,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-15 22:33:07] DB: Conectando...
+[2026-07-15 22:33:07] DB: Conectado OK
+[2026-07-15 22:33:07] DB: Transaccion iniciada
+[2026-07-15 22:33:07] ORDER: PD-AA35D4FF
+[2026-07-15 22:33:07] ORDER: Insertado ID=44
+[2026-07-15 22:33:07] ITEM: Insertado 1 item
+[2026-07-15 22:33:07] PAYMENT: Insertado ID=43
+[2026-07-15 22:33:07] BASE_URL: http://localhost/ECOMERCE-PODERDOWN
+[2026-07-15 22:33:07] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-15 22:33:08] MEGAPAGOS: Login OK
+[2026-07-15 22:33:08] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=44&payment=43",
+    "product_name": "Tarjetas de Regalo De \/ Para",
+    "product_description": "Tarjetas de Regalo De \/ Para",
+    "unit_price": 200,
+    "tax_id": 21,
+    "shipping_cost": 100,
+    "quantity": 1,
+    "total_amount": 300,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "juandidoc11@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "3508284544",
+    "bank_code": "1022",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-15 22:33:09] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5694032",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=fYPMx55EtvPWIcIyNLa%2bsSzp%2bQ88avWHGvmIbVgfK74%3d",
+    "transactionId": "MTU5NjA="
+}
+[2026-07-15 22:33:09] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=fYPMx55EtvPWIcIyNLa%2bsSzp%2bQ88avWHGvmIbVgfK74%3d
+[2026-07-15 22:33:09] DB: Commit OK. TODO EXITOSO
+[2026-07-15 22:42:34] === NUEVA PETICION ===
+[2026-07-15 22:42:34] REQUEST_METHOD: POST
+[2026-07-15 22:42:34] INPUT RAW | "{\"producto_id\":5,\"variant_id\":null,\"producto_nombre\":\"Tarjetas de Regalo De \/ Para\",\"producto_precio\":200,\"nombre\":\"Cliente Prueba\",\"email\":\"juandidoc11@gmail.com\",\"telefono\":\"310000000\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"departamento_id\":\"5\",\"departamento_nombre\":\"ANTIOQUIA\",\"municipio_id\":\"91\",\"municipio_nombre\":\"Bello\",\"codigo_postal\":\"051050\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1022\",\"banco_nombre\":\"BANCO UNION COLOMBIANO\",\"cantidad\":1,\"total\":300,\"costo_envio\":100,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-15 22:42:34] INPUT PARSED | {
+    "producto_id": 5,
+    "variant_id": null,
+    "producto_nombre": "Tarjetas de Regalo De \/ Para",
+    "producto_precio": 200,
+    "nombre": "Cliente Prueba",
+    "email": "juandidoc11@gmail.com",
+    "telefono": "310000000",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "departamento_id": "5",
+    "departamento_nombre": "ANTIOQUIA",
+    "municipio_id": "91",
+    "municipio_nombre": "Bello",
+    "codigo_postal": "051050",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1022",
+    "banco_nombre": "BANCO UNION COLOMBIANO",
+    "cantidad": 1,
+    "total": 300,
+    "costo_envio": 100,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-15 22:42:34] DB: Conectando...
+[2026-07-15 22:42:34] DB: Conectado OK
+[2026-07-15 22:42:34] DB: Transaccion iniciada
+[2026-07-15 22:42:34] ORDER: PD-CDA72590
+[2026-07-15 22:42:34] ORDER: Insertado ID=45
+[2026-07-15 22:42:34] ITEM: Insertado 1 item
+[2026-07-15 22:42:34] PAYMENT: Insertado ID=44
+[2026-07-15 22:42:34] BASE_URL: http://localhost/ECOMERCE-PODERDOWN
+[2026-07-15 22:42:34] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-15 22:42:35] MEGAPAGOS: Login OK
+[2026-07-15 22:42:35] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=45&payment=44",
+    "product_name": "Tarjetas de Regalo De \/ Para",
+    "product_description": "Tarjetas de Regalo De \/ Para",
+    "unit_price": 200,
+    "tax_id": 21,
+    "shipping_cost": 100,
+    "quantity": 1,
+    "total_amount": 300,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "juandidoc11@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1022",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-15 22:42:36] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5694090",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=fYPMx55EtvPWIcIyNLa%2bsZmcka4tnlc3qzDBp0RntvY%3d",
+    "transactionId": "MTU5NjE="
+}
+[2026-07-15 22:42:36] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=fYPMx55EtvPWIcIyNLa%2bsZmcka4tnlc3qzDBp0RntvY%3d
+[2026-07-15 22:42:36] DB: Commit OK. TODO EXITOSO
+[2026-07-15 22:48:15] === NUEVA PETICION ===
+[2026-07-15 22:48:15] REQUEST_METHOD: POST
+[2026-07-15 22:48:15] INPUT RAW | "{\"nombre\":\"Cliente Prueba\",\"email\":\"juandidoc11@gmail.com\",\"telefono\":\"310000000\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"departamento_id\":\"5\",\"departamento_nombre\":\"ANTIOQUIA\",\"municipio_id\":\"91\",\"municipio_nombre\":\"Bello\",\"codigo_postal\":\"051050\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1303\",\"banco_nombre\":\"BANCO UNION\",\"items\":[{\"producto_id\":5,\"variant_id\":null,\"nombre\":\"Tarjetas de Regalo De \/ Para\",\"precio\":200,\"cantidad\":1}],\"total\":300,\"subtotal\":200,\"costo_envio\":100,\"cantidad\":1,\"producto_nombre\":\"Tarjetas de Regalo De \/ Para\",\"producto_precio\":200,\"metodo_pago\":\"megapagos_pse\",\"is_cart\":true}"
+[2026-07-15 22:48:15] INPUT PARSED | {
+    "nombre": "Cliente Prueba",
+    "email": "juandidoc11@gmail.com",
+    "telefono": "310000000",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "departamento_id": "5",
+    "departamento_nombre": "ANTIOQUIA",
+    "municipio_id": "91",
+    "municipio_nombre": "Bello",
+    "codigo_postal": "051050",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1303",
+    "banco_nombre": "BANCO UNION",
+    "items": [
+        {
+            "producto_id": 5,
+            "variant_id": null,
+            "nombre": "Tarjetas de Regalo De \/ Para",
+            "precio": 200,
+            "cantidad": 1
+        }
+    ],
+    "total": 300,
+    "subtotal": 200,
+    "costo_envio": 100,
+    "cantidad": 1,
+    "producto_nombre": "Tarjetas de Regalo De \/ Para",
+    "producto_precio": 200,
+    "metodo_pago": "megapagos_pse",
+    "is_cart": true
+}
+[2026-07-15 22:48:15] DB: Conectando...
+[2026-07-15 22:48:15] DB: Conectado OK
+[2026-07-15 22:48:15] DB: Transaccion iniciada
+[2026-07-15 22:48:15] ORDER: PD-E2F7B39A
+[2026-07-15 22:48:15] ORDER: Insertado ID=46
+[2026-07-15 22:48:15] ITEMS: Insertados 1 items
+[2026-07-15 22:48:15] PAYMENT: Insertado ID=45
+[2026-07-15 22:48:15] BASE_URL: http://localhost/ECOMERCE-PODERDOWN
+[2026-07-15 22:48:15] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-15 22:48:16] MEGAPAGOS: Login OK
+[2026-07-15 22:48:16] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=46&payment=45",
+    "product_name": "Tarjetas de Regalo De \/ Para",
+    "product_description": "Pedido múltiple: Tarjetas de Regalo De \/ Para x1",
+    "unit_price": 200,
+    "tax_id": 21,
+    "shipping_cost": 100,
+    "quantity": 1,
+    "total_amount": 300,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "juandidoc11@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1303",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-15 22:48:18] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5694102",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=iOlF4K2zbuqy5WMoJjTB%2bEU7zgo4HiEZCTNSd%2byT7Q8%3d",
+    "transactionId": "MTU5NjM="
+}
+[2026-07-15 22:48:18] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=iOlF4K2zbuqy5WMoJjTB%2bEU7zgo4HiEZCTNSd%2byT7Q8%3d
+[2026-07-15 22:48:18] DB: Commit OK. TODO EXITOSO
+[2026-07-15 22:51:53] === NUEVA PETICION ===
+[2026-07-15 22:51:53] REQUEST_METHOD: POST
+[2026-07-15 22:51:53] INPUT RAW | "{\"nombre\":\"Cliente Prueba\",\"email\":\"juandidoc11@gmail.com\",\"telefono\":\"310000000\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"departamento_id\":\"5\",\"departamento_nombre\":\"ANTIOQUIA\",\"municipio_id\":\"91\",\"municipio_nombre\":\"Bello\",\"codigo_postal\":\"051050\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1022\",\"banco_nombre\":\"BANCO UNION COLOMBIANO\",\"items\":[{\"producto_id\":1,\"variant_id\":4,\"nombre\":\"Camiseta Tigre Flacuchón\",\"precio\":32000,\"cantidad\":1},{\"producto_id\":7,\"variant_id\":null,\"nombre\":\"Kit Escritura Poder Down\",\"precio\":27000,\"cantidad\":1},{\"producto_id\":4,\"variant_id\":null,\"nombre\":\"Cuaderno Trisomía 21\",\"precio\":23000,\"cantidad\":1}],\"total\":82100,\"subtotal\":82000,\"costo_envio\":100,\"cantidad\":3,\"producto_nombre\":\"Pedido múltiple\",\"producto_precio\":82000,\"metodo_pago\":\"megapagos_pse\",\"is_cart\":true}"
+[2026-07-15 22:51:53] INPUT PARSED | {
+    "nombre": "Cliente Prueba",
+    "email": "juandidoc11@gmail.com",
+    "telefono": "310000000",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "departamento_id": "5",
+    "departamento_nombre": "ANTIOQUIA",
+    "municipio_id": "91",
+    "municipio_nombre": "Bello",
+    "codigo_postal": "051050",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1022",
+    "banco_nombre": "BANCO UNION COLOMBIANO",
+    "items": [
+        {
+            "producto_id": 1,
+            "variant_id": 4,
+            "nombre": "Camiseta Tigre Flacuchón",
+            "precio": 32000,
+            "cantidad": 1
+        },
+        {
+            "producto_id": 7,
+            "variant_id": null,
+            "nombre": "Kit Escritura Poder Down",
+            "precio": 27000,
+            "cantidad": 1
+        },
+        {
+            "producto_id": 4,
+            "variant_id": null,
+            "nombre": "Cuaderno Trisomía 21",
+            "precio": 23000,
+            "cantidad": 1
+        }
+    ],
+    "total": 82100,
+    "subtotal": 82000,
+    "costo_envio": 100,
+    "cantidad": 3,
+    "producto_nombre": "Pedido múltiple",
+    "producto_precio": 82000,
+    "metodo_pago": "megapagos_pse",
+    "is_cart": true
+}
+[2026-07-15 22:51:53] DB: Conectando...
+[2026-07-15 22:51:53] DB: Conectado OK
+[2026-07-15 22:51:53] DB: Transaccion iniciada
+[2026-07-15 22:51:53] ORDER: PD-F097D869
+[2026-07-15 22:51:53] ORDER: Insertado ID=47
+[2026-07-15 22:51:53] ITEMS: Insertados 3 items
+[2026-07-15 22:51:53] PAYMENT: Insertado ID=46
+[2026-07-15 22:51:53] BASE_URL: http://localhost/ECOMERCE-PODERDOWN
+[2026-07-15 22:51:53] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-15 22:51:54] MEGAPAGOS: Login OK
+[2026-07-15 22:51:54] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=47&payment=46",
+    "product_name": "Pedido múltiple",
+    "product_description": "Pedido múltiple: Camiseta Tigre Flacuchón x1, Kit Escritura Poder Down x1, Cuaderno Trisomía 21 x1",
+    "unit_price": 82000,
+    "tax_id": 21,
+    "shipping_cost": 100,
+    "quantity": 3,
+    "total_amount": 82100,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "juandidoc11@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1022",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-15 22:51:56] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5694105",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=iOlF4K2zbuqy5WMoJjTB%2bNLjBcOlc2RCD6Zdq%2bYnSjE%3d",
+    "transactionId": "MTU5NjQ="
+}
+[2026-07-15 22:51:56] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=iOlF4K2zbuqy5WMoJjTB%2bNLjBcOlc2RCD6Zdq%2bYnSjE%3d
+[2026-07-15 22:51:56] DB: Commit OK. TODO EXITOSO
+[2026-07-15 23:03:25] === NUEVA PETICION ===
+[2026-07-15 23:03:25] REQUEST_METHOD: POST
+[2026-07-15 23:03:25] INPUT RAW | "{\"nombre\":\"Cliente Prueba\",\"email\":\"juandidoc11@gmail.com\",\"telefono\":\"310000000\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"departamento_id\":\"5\",\"departamento_nombre\":\"ANTIOQUIA\",\"municipio_id\":\"91\",\"municipio_nombre\":\"Bello\",\"codigo_postal\":\"051050\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1022\",\"banco_nombre\":\"BANCO UNION COLOMBIANO\",\"items\":[{\"producto_id\":2,\"variant_id\":44,\"nombre\":\"Camiseta Mandala\",\"precio\":32000,\"cantidad\":1},{\"producto_id\":4,\"variant_id\":null,\"nombre\":\"Cuaderno Trisomía 21\",\"precio\":23000,\"cantidad\":1}],\"total\":55100,\"subtotal\":55000,\"costo_envio\":100,\"cantidad\":2,\"producto_nombre\":\"Pedido múltiple\",\"producto_precio\":55000,\"metodo_pago\":\"megapagos_pse\",\"is_cart\":true}"
+[2026-07-15 23:03:25] INPUT PARSED | {
+    "nombre": "Cliente Prueba",
+    "email": "juandidoc11@gmail.com",
+    "telefono": "310000000",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "departamento_id": "5",
+    "departamento_nombre": "ANTIOQUIA",
+    "municipio_id": "91",
+    "municipio_nombre": "Bello",
+    "codigo_postal": "051050",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1022",
+    "banco_nombre": "BANCO UNION COLOMBIANO",
+    "items": [
+        {
+            "producto_id": 2,
+            "variant_id": 44,
+            "nombre": "Camiseta Mandala",
+            "precio": 32000,
+            "cantidad": 1
+        },
+        {
+            "producto_id": 4,
+            "variant_id": null,
+            "nombre": "Cuaderno Trisomía 21",
+            "precio": 23000,
+            "cantidad": 1
+        }
+    ],
+    "total": 55100,
+    "subtotal": 55000,
+    "costo_envio": 100,
+    "cantidad": 2,
+    "producto_nombre": "Pedido múltiple",
+    "producto_precio": 55000,
+    "metodo_pago": "megapagos_pse",
+    "is_cart": true
+}
+[2026-07-15 23:03:25] DB: Conectando...
+[2026-07-15 23:03:25] DB: Conectado OK
+[2026-07-15 23:03:25] DB: Transaccion iniciada
+[2026-07-15 23:03:25] ORDER: PD-1BDD8E7E
+[2026-07-15 23:03:25] ORDER: Insertado ID=48
+[2026-07-15 23:03:25] ITEMS: Insertados 2 items
+[2026-07-15 23:03:25] PAYMENT: Insertado ID=47
+[2026-07-15 23:03:25] BASE_URL: http://localhost/ECOMERCE-PODERDOWN
+[2026-07-15 23:03:25] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-15 23:03:26] MEGAPAGOS: Login OK
+[2026-07-15 23:03:26] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=48&payment=47",
+    "product_name": "Pedido múltiple",
+    "product_description": "Pedido múltiple: Camiseta Mandala x1, Cuaderno Trisomía 21 x1",
+    "unit_price": 55000,
+    "tax_id": 21,
+    "shipping_cost": 100,
+    "quantity": 2,
+    "total_amount": 55100,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "juandidoc11@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1022",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-15 23:03:28] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5694120",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=iOlF4K2zbuqy5WMoJjTB%2bGVg7vIQTZSHpsI0ALZraFM%3d",
+    "transactionId": "MTU5NjY="
+}
+[2026-07-15 23:03:28] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=iOlF4K2zbuqy5WMoJjTB%2bGVg7vIQTZSHpsI0ALZraFM%3d
+[2026-07-15 23:03:28] DB: Commit OK. TODO EXITOSO
+[2026-07-15 23:37:58] === NUEVA PETICION ===
+[2026-07-15 23:37:58] REQUEST_METHOD: POST
+[2026-07-15 23:37:58] INPUT RAW | "{\"producto_id\":5,\"variant_id\":null,\"producto_nombre\":\"Tarjetas de Regalo De \/ Para\",\"producto_precio\":200,\"nombre\":\"Cliente Prueba\",\"email\":\"juandidoc11@gmail.com\",\"telefono\":\"310000000\",\"direccion\":\"Diagonal 57 # 47 a 28\",\"notas\":\"\",\"departamento_id\":\"5\",\"departamento_nombre\":\"ANTIOQUIA\",\"municipio_id\":\"91\",\"municipio_nombre\":\"Bello\",\"codigo_postal\":\"051050\",\"tipo_documento\":\"CedulaDeCiudadania\",\"documento\":\"1001142067\",\"banco_codigo\":\"1022\",\"banco_nombre\":\"BANCO UNION COLOMBIANO\",\"cantidad\":1,\"total\":300,\"costo_envio\":100,\"metodo_pago\":\"megapagos_pse\"}"
+[2026-07-15 23:37:58] INPUT PARSED | {
+    "producto_id": 5,
+    "variant_id": null,
+    "producto_nombre": "Tarjetas de Regalo De \/ Para",
+    "producto_precio": 200,
+    "nombre": "Cliente Prueba",
+    "email": "juandidoc11@gmail.com",
+    "telefono": "310000000",
+    "direccion": "Diagonal 57 # 47 a 28",
+    "notas": "",
+    "departamento_id": "5",
+    "departamento_nombre": "ANTIOQUIA",
+    "municipio_id": "91",
+    "municipio_nombre": "Bello",
+    "codigo_postal": "051050",
+    "tipo_documento": "CedulaDeCiudadania",
+    "documento": "1001142067",
+    "banco_codigo": "1022",
+    "banco_nombre": "BANCO UNION COLOMBIANO",
+    "cantidad": 1,
+    "total": 300,
+    "costo_envio": 100,
+    "metodo_pago": "megapagos_pse"
+}
+[2026-07-15 23:37:58] DB: Conectando...
+[2026-07-15 23:37:58] DB: Conectado OK
+[2026-07-15 23:37:58] DB: Transaccion iniciada
+[2026-07-15 23:37:58] ORDER: PD-9D61716D
+[2026-07-15 23:37:58] ORDER: Insertado ID=49
+[2026-07-15 23:37:58] ITEM: Insertado 1 item
+[2026-07-15 23:37:58] PAYMENT: Insertado ID=48
+[2026-07-15 23:37:58] BASE_URL: http://localhost/ECOMERCE-PODERDOWN
+[2026-07-15 23:37:58] MEGAPAGOS: Cliente creado. Haciendo login...
+[2026-07-15 23:37:58] MEGAPAGOS: Login OK
+[2026-07-15 23:37:58] MEGAPAGOS: Creando transaccion PSE | {
+    "external_url": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=49&payment=48",
+    "product_name": "Tarjetas de Regalo De \/ Para",
+    "product_description": "Tarjetas de Regalo De \/ Para",
+    "unit_price": 200,
+    "tax_id": 21,
+    "shipping_cost": 100,
+    "quantity": 1,
+    "total_amount": 300,
+    "payer_name": "Cliente Prueba",
+    "payer_email": "juandidoc11@gmail.com",
+    "payer_address": "Diagonal 57 # 47 a 28",
+    "payer_phone": "310000000",
+    "bank_code": "1022",
+    "document_number": "1001142067",
+    "document_type": "CC",
+    "person_type": "person"
+}
+[2026-07-15 23:38:02] MEGAPAGOS: Respuesta createPseTransaction | {
+    "returnCode": "SUCCESS",
+    "errorDetails": null,
+    "trazabilityCode": "5694156",
+    "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=iOlF4K2zbuqy5WMoJjTB%2bFwTu6iPyKqqKrHd8c%2b0lbQ%3d",
+    "transactionId": "MTU5NzM="
+}
+[2026-07-15 23:38:02] PSE_URL: https://registro.desarrollo.pse.com.co/PSENF/index.html?enc=iOlF4K2zbuqy5WMoJjTB%2bFwTu6iPyKqqKrHd8c%2b0lbQ%3d
+[2026-07-15 23:38:02] DB: Commit OK. TODO EXITOSO

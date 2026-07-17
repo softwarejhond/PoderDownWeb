@@ -334,54 +334,27 @@ class MegapagosClient
             $this->login();
         }
 
-        $this->log('getTransactionInfo for: ' . $transactionId);
+        $this->log('getTransactionInfo raw: ' . $transactionId);
 
-        $publicKey = $this->getPublicKey();
-        $encryptedId = $this->rsaEncrypt($transactionId, $publicKey);
-        $this->log('getTransactionInfo encrypted (RSA): ' . substr($encryptedId, 0, 50) . '...');
+        $decodedId = base64_decode($transactionId);
+        $this->log('getTransactionInfo decoded: ' . $decodedId);
 
-        $payload = ['transactionId' => $encryptedId];
-        $this->log('getTransactionInfo payload', $payload);
+        $encryptedId = $this->encryptData($decodedId);
+        $this->log('getTransactionInfo encrypted: ' . substr($encryptedId, 0, 60) . '...');
 
-        $res = $this->post('/api/transaction/get-info', $payload, true);
+        $res = $this->post('/api/transaction/get-info', [
+            'transactionId' => $encryptedId,
+        ], true);
 
         if ($res['code'] === 401) {
             $this->login();
-            $res = $this->post('/api/transaction/get-info', $payload, true);
+            $encryptedId = $this->encryptData($decodedId);
+            $res = $this->post('/api/transaction/get-info', [
+                'transactionId' => $encryptedId,
+            ], true);
         }
 
         $this->log('getTransactionInfo response: HTTP ' . $res['code'], $res['body']);
         return $res['body'];
-    }
-
-    private function getPublicKey()
-    {
-        $res = $this->get('/api/key/public');
-        if ($res['code'] !== 200) {
-            throw new Exception('No se pudo obtener la llave pública');
-        }
-        $key = $res['body']['data']['public_key'] ?? null;
-        if (!$key) {
-            throw new Exception('Llave pública vacía');
-        }
-        return $key;
-    }
-
-    private function rsaEncrypt($data, $publicKeyBase64)
-    {
-        $publicKey = base64_decode($publicKeyBase64);
-        if (!$publicKey) {
-            throw new Exception('No se pudo decodificar la llave pública');
-        }
-        $keyResource = openssl_pkey_get_public($publicKey);
-        if (!$keyResource) {
-            throw new Exception('No se pudo cargar la llave pública RSA');
-        }
-        $encrypted = '';
-        if (!openssl_public_encrypt($data, $encrypted, $keyResource, OPENSSL_PKCS1_PADDING)) {
-            throw new Exception('Error al encriptar con RSA');
-        }
-        $inner = json_encode(['encryptedKey' => base64_encode($encrypted)], JSON_UNESCAPED_UNICODE);
-        return base64_encode($inner);
     }
 }

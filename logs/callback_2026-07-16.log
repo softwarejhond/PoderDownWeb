@@ -1,0 +1,100 @@
+[2026-07-16 19:04:26] === CALLBACK RECIBIDO ===
+[2026-07-16 19:04:26] GET | {
+    "order": "50",
+    "payment": "49"
+}
+[2026-07-16 19:04:29] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6592221451",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5703209",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17842286421530,
+        "payer_name": "Cliente Prueba",
+        "payer_email": "juandidoc11@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-16 14:04:02",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "PRUEBA DE REGISTRO",
+        "email": "juandidoc11@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-16 19:04:29] STATUS DETECTADO: 1
+[2026-07-16 19:04:29] STATUS NUMERICO: 1
+[2026-07-16 19:04:31] EMAIL: enviado
+[2026-07-16 19:04:31] DB UPDATED: estado=approved
+[2026-07-16 20:54:00] === CALLBACK RECIBIDO ===
+[2026-07-16 20:54:00] GET | {
+    "order": "50",
+    "payment": "49"
+}
+[2026-07-16 20:54:03] MEGAPAGOS getTransactionInfo | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6592221451",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5703209",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17842286421530,
+        "payer_name": "Cliente Prueba",
+        "payer_email": "juandidoc11@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-16 14:04:02",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "PRUEBA DE REGISTRO",
+        "email": "juandidoc11@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-16 20:54:03] STATUS DETECTADO: 1
+[2026-07-16 20:54:03] STATUS NUMERICO: 1
+[2026-07-16 20:54:07] EMAIL: enviado
+[2026-07-16 20:54:07] DB UPDATED: estado=approved

@@ -24,6 +24,7 @@ $pageTitle = 'Iniciar Sesión — Poder Down';
 $pageDescription = 'Accede a tu cuenta de Poder Down para gestionar tus pedidos y perfil.';
 $activePage = 'login';
 $showNavSearch = false;
+$metaRobots = 'noindex, follow';
 require 'components/header.php';
 ?>
 

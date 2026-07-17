@@ -153,7 +153,7 @@
   };
 
   window.agregarAlCarritoBtn = function (event, el) {
-    if (event) event.stopPropagation();
+    if (event) { event.stopPropagation(); event.preventDefault(); }
     var id = parseInt(el.dataset.pid);
     var nombre = decodeURIComponent(el.dataset.nombre);
     var precio = parseFloat(el.dataset.precio);

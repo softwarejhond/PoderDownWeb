@@ -53,6 +53,7 @@ $pageTitle = 'Mi Perfil — Poder Down';
 $pageDescription = 'Administra tu perfil y configuración de cuenta.';
 $activePage = 'perfil';
 $showNavSearch = false;
+$metaRobots = 'noindex, follow';
 require 'components/header.php';
 ?>
 

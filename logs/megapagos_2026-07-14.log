@@ -1,0 +1,1670 @@
+[2026-07-14 18:27:40] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:28:06] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:28:06] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=26&payment=25"
+        },
+        "step1": {
+            "name": "Tarjetas de Regalo De \/ Para",
+            "description": "Tarjetas de Regalo De \/ Para",
+            "value": 200,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 100,
+            "requested_units": 1,
+            "total_amount": 300,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1022",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-14 18:28:06] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 200,
+    "quantity": 1,
+    "shipping_cost": 100,
+    "total_amount": 300,
+    "expected_total": 300,
+    "bank_code": "1022",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-14 18:28:06] MEGAPAGOS: encryptData OK
+[2026-07-14 18:28:08] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5684668",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=oTohrIA7FKlObtSaDi3V%2fIAvN2jIXKf97LQoecseBD0%3d",
+        "transactionId": "MTU5MjY="
+    }
+}
+[2026-07-14 18:29:18] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:29:18] MEGAPAGOS: getTransactionInfo raw: MTU5MjY=
+[2026-07-14 18:29:18] MEGAPAGOS: getTransactionInfo decoded: 15926
+[2026-07-14 18:29:18] MEGAPAGOS: encryptData OK
+[2026-07-14 18:29:18] MEGAPAGOS: getTransactionInfo encrypted: eyJlbmNyeXB0ZWREYXRhIjoiZXlKMllXeDFaU0k2SW5RM1lrNUVkRXM0YlUw...
+[2026-07-14 18:29:20] MEGAPAGOS: getTransactionInfo response: HTTP 201 | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6567594330",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5684668",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840536857374,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 13:28:05",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 18:33:02] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:33:12] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:33:13] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=27&payment=26"
+        },
+        "step1": {
+            "name": "Tarjetas de Regalo De \/ Para",
+            "description": "Tarjetas de Regalo De \/ Para",
+            "value": 200,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 100,
+            "requested_units": 1,
+            "total_amount": 300,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1022",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-14 18:33:13] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 200,
+    "quantity": 1,
+    "shipping_cost": 100,
+    "total_amount": 300,
+    "expected_total": 300,
+    "bank_code": "1022",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-14 18:33:13] MEGAPAGOS: encryptData OK
+[2026-07-14 18:33:15] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5684672",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=oTohrIA7FKlObtSaDi3V%2fP22Jvrbxz7Lusz5NvtvKAg%3d",
+        "transactionId": "MTU5Mjc="
+    }
+}
+[2026-07-14 18:34:26] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:34:26] MEGAPAGOS: getTransactionInfo raw: MTU5Mjc=
+[2026-07-14 18:34:26] MEGAPAGOS: getTransactionInfo decoded: 15927
+[2026-07-14 18:34:27] MEGAPAGOS: encryptData OK
+[2026-07-14 18:34:27] MEGAPAGOS: getTransactionInfo encrypted: eyJlbmNyeXB0ZWREYXRhIjoiZXlKMllXeDFaU0k2SWpsbFduTkxWVUp6WjJa...
+[2026-07-14 18:34:28] MEGAPAGOS: getTransactionInfo response: HTTP 201 | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568085398",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Usuario abandonó la transacción en el banco",
+    "externalDetails": {
+        "payment_code": "5684672",
+        "entity_franquise": "1022",
+        "authorizationID": "00001",
+        "ticketId": 17840539926573,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 13:33:12",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 18:34:55] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:34:55] MEGAPAGOS: getTransactionInfo raw: MTU5Mjc=
+[2026-07-14 18:34:55] MEGAPAGOS: getTransactionInfo decoded: 15927
+[2026-07-14 18:34:56] MEGAPAGOS: encryptData OK
+[2026-07-14 18:34:56] MEGAPAGOS: getTransactionInfo encrypted: eyJlbmNyeXB0ZWREYXRhIjoiZXlKMllXeDFaU0k2SWxSNWJHRk5OV3hFU1c5...
+[2026-07-14 18:34:56] MEGAPAGOS: getTransactionInfo response: HTTP 201 | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568085398",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Usuario abandonó la transacción en el banco",
+    "externalDetails": {
+        "payment_code": "5684672",
+        "entity_franquise": "1022",
+        "authorizationID": "00001",
+        "ticketId": 17840539926573,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 13:33:12",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 18:36:02] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:36:02] MEGAPAGOS: getTransactionInfo raw: MTU5Mjc=
+[2026-07-14 18:36:02] MEGAPAGOS: getTransactionInfo decoded: 15927
+[2026-07-14 18:36:03] MEGAPAGOS: encryptData OK
+[2026-07-14 18:36:03] MEGAPAGOS: getTransactionInfo encrypted: eyJlbmNyeXB0ZWREYXRhIjoiZXlKMllXeDFaU0k2SWpsWmFIWlBSa2R2UkRk...
+[2026-07-14 18:36:03] MEGAPAGOS: getTransactionInfo response: HTTP 201 | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568085398",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Usuario abandonó la transacción en el banco",
+    "externalDetails": {
+        "payment_code": "5684672",
+        "entity_franquise": "1022",
+        "authorizationID": "00001",
+        "ticketId": 17840539926573,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 13:33:12",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 18:37:05] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:37:50] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:37:50] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=28&payment=27"
+        },
+        "step1": {
+            "name": "Tarjetas de Regalo De \/ Para",
+            "description": "Tarjetas de Regalo De \/ Para",
+            "value": 200,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 100,
+            "requested_units": 1,
+            "total_amount": 300,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1022",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-14 18:37:50] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 200,
+    "quantity": 1,
+    "shipping_cost": 100,
+    "total_amount": 300,
+    "expected_total": 300,
+    "bank_code": "1022",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-14 18:37:50] MEGAPAGOS: encryptData OK
+[2026-07-14 18:37:51] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5684673",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=oTohrIA7FKlObtSaDi3V%2fEOBOs7iQL7VlvZp3Y8A%2f%2bQ%3d",
+        "transactionId": "MTU5Mjg="
+    }
+}
+[2026-07-14 18:39:07] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:39:07] MEGAPAGOS: getTransactionInfo raw: MTU5Mjg=
+[2026-07-14 18:39:07] MEGAPAGOS: getTransactionInfo decoded: 15928
+[2026-07-14 18:39:07] MEGAPAGOS: encryptData OK
+[2026-07-14 18:39:07] MEGAPAGOS: getTransactionInfo encrypted: eyJlbmNyeXB0ZWREYXRhIjoiZXlKMllXeDFaU0k2SW1ScllYUktUVEJuVEVZ...
+[2026-07-14 18:39:08] MEGAPAGOS: getTransactionInfo response: HTTP 201 | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568106791",
+    "tiposolicitud_id": "5",
+    "status": 9,
+    "message": "Usuario abandonó la transacción en el banco",
+    "externalDetails": {
+        "payment_code": "5684673",
+        "entity_franquise": "1022",
+        "authorizationID": "00001",
+        "ticketId": 17840542693805,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 13:37:49",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 18:41:24] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:41:38] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:41:38] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=29&payment=28"
+        },
+        "step1": {
+            "name": "Tarjetas de Regalo De \/ Para",
+            "description": "Tarjetas de Regalo De \/ Para",
+            "value": 200,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 100,
+            "requested_units": 1,
+            "total_amount": 300,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1022",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-14 18:41:38] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 200,
+    "quantity": 1,
+    "shipping_cost": 100,
+    "total_amount": 300,
+    "expected_total": 300,
+    "bank_code": "1022",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-14 18:41:38] MEGAPAGOS: encryptData OK
+[2026-07-14 18:41:39] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5684677",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=oTohrIA7FKlObtSaDi3V%2fKcfuDQ1b%2bluoPvj7WduDkA%3d",
+        "transactionId": "MTU5Mjk="
+    }
+}
+[2026-07-14 18:43:26] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:43:26] MEGAPAGOS: getTransactionInfo raw: MTU5Mjk=
+[2026-07-14 18:43:26] MEGAPAGOS: getTransactionInfo decoded: 15929
+[2026-07-14 18:43:26] MEGAPAGOS: encryptData OK
+[2026-07-14 18:43:26] MEGAPAGOS: getTransactionInfo encrypted: eyJlbmNyeXB0ZWREYXRhIjoiZXlKMllXeDFaU0k2SWpCTWMyaHNOMk5xTm5W...
+[2026-07-14 18:43:27] MEGAPAGOS: getTransactionInfo response: HTTP 201 | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568219941",
+    "tiposolicitud_id": "5",
+    "status": 9,
+    "message": "Usuario abandonó la transacción en el banco",
+    "externalDetails": {
+        "payment_code": "5684677",
+        "entity_franquise": "1022",
+        "authorizationID": "00001",
+        "ticketId": 17840544978775,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 13:41:37",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 18:54:18] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:54:27] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:54:27] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=30&payment=29"
+        },
+        "step1": {
+            "name": "Tarjetas de Regalo De \/ Para",
+            "description": "Tarjetas de Regalo De \/ Para",
+            "value": 200,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 100,
+            "requested_units": 1,
+            "total_amount": 300,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1022",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-14 18:54:27] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 200,
+    "quantity": 1,
+    "shipping_cost": 100,
+    "total_amount": 300,
+    "expected_total": 300,
+    "bank_code": "1022",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-14 18:54:27] MEGAPAGOS: encryptData OK
+[2026-07-14 18:54:29] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5684686",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=oTohrIA7FKlObtSaDi3V%2fAk9qrnAQSpSHhVcPEBefJI%3d",
+        "transactionId": "MTU5MzA="
+    }
+}
+[2026-07-14 18:54:54] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:54:54] MEGAPAGOS: getTransactionInfo raw: MTU5MzA=
+[2026-07-14 18:54:54] MEGAPAGOS: getTransactionInfo decoded: 15930
+[2026-07-14 18:54:54] MEGAPAGOS: encryptData OK
+[2026-07-14 18:54:54] MEGAPAGOS: getTransactionInfo encrypted: eyJlbmNyeXB0ZWREYXRhIjoiZXlKMllXeDFaU0k2SW1OT1ZtNXVkU3RRUVZr...
+[2026-07-14 18:54:55] MEGAPAGOS: getTransactionInfo response: HTTP 201 | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568529917",
+    "tiposolicitud_id": "5",
+    "status": 9,
+    "message": "Usuario abandonó la transacción en el banco",
+    "externalDetails": {
+        "payment_code": "5684686",
+        "entity_franquise": "1022",
+        "authorizationID": "00001",
+        "ticketId": 17840552663737,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 13:54:26",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 18:57:52] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:58:04] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:58:04] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=31&payment=30"
+        },
+        "step1": {
+            "name": "Tarjetas de Regalo De \/ Para",
+            "description": "Tarjetas de Regalo De \/ Para",
+            "value": 200,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 100,
+            "requested_units": 1,
+            "total_amount": 300,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1022",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-14 18:58:04] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 200,
+    "quantity": 1,
+    "shipping_cost": 100,
+    "total_amount": 300,
+    "expected_total": 300,
+    "bank_code": "1022",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-14 18:58:05] MEGAPAGOS: encryptData OK
+[2026-07-14 18:58:06] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5684687",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=oTohrIA7FKlObtSaDi3V%2fMLwYObY7wtj1k%2fMe8L26L8%3d",
+        "transactionId": "MTU5MzE="
+    }
+}
+[2026-07-14 18:59:13] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 18:59:13] MEGAPAGOS: getTransactionInfo raw: MTU5MzE=
+[2026-07-14 18:59:13] MEGAPAGOS: getTransactionInfo decoded: 15931
+[2026-07-14 18:59:13] MEGAPAGOS: encryptData OK
+[2026-07-14 18:59:13] MEGAPAGOS: getTransactionInfo encrypted: eyJlbmNyeXB0ZWREYXRhIjoiZXlKMllXeDFaU0k2SWxsMFRWSnlZbUZwSzFk...
+[2026-07-14 18:59:15] MEGAPAGOS: getTransactionInfo response: HTTP 201 | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568646271",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5684687",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840554834775,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 13:58:03",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 19:02:25] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:02:35] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:02:36] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=32&payment=31"
+        },
+        "step1": {
+            "name": "Tarjetas de Regalo De \/ Para",
+            "description": "Tarjetas de Regalo De \/ Para",
+            "value": 200,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 100,
+            "requested_units": 1,
+            "total_amount": 300,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1022",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-14 19:02:36] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 200,
+    "quantity": 1,
+    "shipping_cost": 100,
+    "total_amount": 300,
+    "expected_total": 300,
+    "bank_code": "1022",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-14 19:02:36] MEGAPAGOS: encryptData OK
+[2026-07-14 19:02:37] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5684693",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=oTohrIA7FKlObtSaDi3V%2fMcblwKG%2bpIqE1ZQZGCuAws%3d",
+        "transactionId": "MTU5MzI="
+    }
+}
+[2026-07-14 19:03:01] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:03:01] MEGAPAGOS: getTransactionInfo raw: MTU5MzI=
+[2026-07-14 19:03:01] MEGAPAGOS: getTransactionInfo decoded: 15932
+[2026-07-14 19:03:01] MEGAPAGOS: encryptData OK
+[2026-07-14 19:03:01] MEGAPAGOS: getTransactionInfo encrypted: eyJlbmNyeXB0ZWREYXRhIjoiZXlKMllXeDFaU0k2SW5Nd2JuZDJZbXhjTHpV...
+[2026-07-14 19:03:02] MEGAPAGOS: getTransactionInfo response: HTTP 201 | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568756821",
+    "tiposolicitud_id": "5",
+    "status": 9,
+    "message": "Usuario abandonó la transacción en el banco",
+    "externalDetails": {
+        "payment_code": "5684693",
+        "entity_franquise": "1022",
+        "authorizationID": "00001",
+        "ticketId": 17840557558388,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 14:02:35",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 19:05:37] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:05:55] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:05:55] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=33&payment=32"
+        },
+        "step1": {
+            "name": "Tarjetas de Regalo De \/ Para",
+            "description": "Tarjetas de Regalo De \/ Para",
+            "value": 200,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 100,
+            "requested_units": 1,
+            "total_amount": 300,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1022",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-14 19:05:55] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 200,
+    "quantity": 1,
+    "shipping_cost": 100,
+    "total_amount": 300,
+    "expected_total": 300,
+    "bank_code": "1022",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-14 19:05:56] MEGAPAGOS: encryptData OK
+[2026-07-14 19:05:57] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5684699",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=oTohrIA7FKlObtSaDi3V%2fEtfT6bM38cAyuX4ywhWM9M%3d",
+        "transactionId": "MTU5MzM="
+    }
+}
+[2026-07-14 19:06:55] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:06:55] MEGAPAGOS: getTransactionInfo raw: MTU5MzM=
+[2026-07-14 19:06:55] MEGAPAGOS: getTransactionInfo decoded: 15933
+[2026-07-14 19:06:56] MEGAPAGOS: encryptData OK
+[2026-07-14 19:06:56] MEGAPAGOS: getTransactionInfo encrypted: eyJlbmNyeXB0ZWREYXRhIjoiZXlKMllXeDFaU0k2SWtnM1dWZDNjRTR3V21G...
+[2026-07-14 19:06:58] MEGAPAGOS: getTransactionInfo response: HTTP 201 | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568893006",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5684699",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840559555080,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 14:05:55",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 19:07:01] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:07:01] MEGAPAGOS: getTransactionInfo raw: MTU5MzM=
+[2026-07-14 19:07:01] MEGAPAGOS: getTransactionInfo decoded: 15933
+[2026-07-14 19:07:01] MEGAPAGOS: encryptData OK
+[2026-07-14 19:07:01] MEGAPAGOS: getTransactionInfo encrypted: eyJlbmNyeXB0ZWREYXRhIjoiZXlKMllXeDFaU0k2SWpaemJ6ZEljWEJyZDFn...
+[2026-07-14 19:07:02] MEGAPAGOS: getTransactionInfo response: HTTP 201 | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568893006",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5684699",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840559555080,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 14:05:55",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 19:07:03] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:07:03] MEGAPAGOS: getTransactionInfo raw: MTU5MzM=
+[2026-07-14 19:07:03] MEGAPAGOS: getTransactionInfo decoded: 15933
+[2026-07-14 19:07:03] MEGAPAGOS: encryptData OK
+[2026-07-14 19:07:03] MEGAPAGOS: getTransactionInfo encrypted: eyJlbmNyeXB0ZWREYXRhIjoiZXlKMllXeDFaU0k2SWs5eVRWbGlWbUZrTmxR...
+[2026-07-14 19:07:04] MEGAPAGOS: getTransactionInfo response: HTTP 201 | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568893006",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5684699",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840559555080,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 14:05:55",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 19:16:24] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:16:34] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:16:34] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=34&payment=33"
+        },
+        "step1": {
+            "name": "Tarjetas de Regalo De \/ Para",
+            "description": "Tarjetas de Regalo De \/ Para",
+            "value": 200,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 100,
+            "requested_units": 1,
+            "total_amount": 300,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1022",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-14 19:16:34] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 200,
+    "quantity": 1,
+    "shipping_cost": 100,
+    "total_amount": 300,
+    "expected_total": 300,
+    "bank_code": "1022",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-14 19:16:34] MEGAPAGOS: encryptData OK
+[2026-07-14 19:16:36] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5684722",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=Ymiw8o9692MDUHVDx6LpRTVW33hQ0I%2fnr6KF18NiFkA%3d",
+        "transactionId": "MTU5MzQ="
+    }
+}
+[2026-07-14 19:17:26] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:17:42] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:17:43] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=35&payment=34"
+        },
+        "step1": {
+            "name": "Tarjetas de Regalo De \/ Para",
+            "description": "Tarjetas de Regalo De \/ Para",
+            "value": 200,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 100,
+            "requested_units": 1,
+            "total_amount": 300,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1022",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-14 19:17:43] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 200,
+    "quantity": 1,
+    "shipping_cost": 100,
+    "total_amount": 300,
+    "expected_total": 300,
+    "bank_code": "1022",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-14 19:17:43] MEGAPAGOS: encryptData OK
+[2026-07-14 19:17:44] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5684727",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=Ymiw8o9692MDUHVDx6LpReupujowO5H7d4yDqNpb99c%3d",
+        "transactionId": "MTU5MzU="
+    }
+}
+[2026-07-14 19:19:18] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:19:18] MEGAPAGOS: getTransactionInfo raw: MTU5MzU=
+[2026-07-14 19:19:18] MEGAPAGOS: getTransactionInfo decoded: 15935
+[2026-07-14 19:19:19] MEGAPAGOS: encryptData OK
+[2026-07-14 19:19:19] MEGAPAGOS: getTransactionInfo encrypted: eyJlbmNyeXB0ZWREYXRhIjoiZXlKMllXeDFaU0k2SWtWelVrVkJUbXAyUjFj...
+[2026-07-14 19:19:19] MEGAPAGOS: getTransactionInfo response: HTTP 201 | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568561689",
+    "tiposolicitud_id": "5",
+    "status": 109,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5684727",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840566628003,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 14:17:42",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 19:20:33] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:20:52] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:20:53] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=36&payment=35"
+        },
+        "step1": {
+            "name": "Tarjetas de Regalo De \/ Para",
+            "description": "Tarjetas de Regalo De \/ Para",
+            "value": 200,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 100,
+            "requested_units": 1,
+            "total_amount": 300,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1022",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-14 19:20:53] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 200,
+    "quantity": 1,
+    "shipping_cost": 100,
+    "total_amount": 300,
+    "expected_total": 300,
+    "bank_code": "1022",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-14 19:20:53] MEGAPAGOS: encryptData OK
+[2026-07-14 19:20:55] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5684740",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=Ymiw8o9692MDUHVDx6LpRcFE73kzf6z7IqCyoVgKl6Y%3d",
+        "transactionId": "MTU5MzY="
+    }
+}
+[2026-07-14 19:22:03] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:22:03] MEGAPAGOS: getTransactionInfo raw: MTU5MzY=
+[2026-07-14 19:22:03] MEGAPAGOS: getTransactionInfo decoded: 15936
+[2026-07-14 19:22:03] MEGAPAGOS: encryptData OK
+[2026-07-14 19:22:03] MEGAPAGOS: getTransactionInfo encrypted: eyJlbmNyeXB0ZWREYXRhIjoiZXlKMllXeDFaU0k2SW14U1RHRmlaMHN3YVRW...
+[2026-07-14 19:22:04] MEGAPAGOS: getTransactionInfo response: HTTP 201 | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568142511",
+    "tiposolicitud_id": "5",
+    "status": 11,
+    "message": "",
+    "externalDetails": {
+        "payment_code": "5684740",
+        "entity_franquise": "1022",
+        "authorizationID": "",
+        "ticketId": 17840568529014,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 14:20:52",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 19:25:19] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:25:28] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:25:29] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=37&payment=36"
+        },
+        "step1": {
+            "name": "Tarjetas de Regalo De \/ Para",
+            "description": "Tarjetas de Regalo De \/ Para",
+            "value": 200,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 100,
+            "requested_units": 1,
+            "total_amount": 300,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1022",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-14 19:25:29] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 200,
+    "quantity": 1,
+    "shipping_cost": 100,
+    "total_amount": 300,
+    "expected_total": 300,
+    "bank_code": "1022",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-14 19:25:29] MEGAPAGOS: encryptData OK
+[2026-07-14 19:25:30] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5684748",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=Ymiw8o9692MDUHVDx6LpReJOfRoIMLx9DLd7phtvJIw%3d",
+        "transactionId": "MTU5Mzc="
+    }
+}
+[2026-07-14 19:25:57] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 19:25:57] MEGAPAGOS: getTransactionInfo raw: MTU5Mzc=
+[2026-07-14 19:25:57] MEGAPAGOS: getTransactionInfo decoded: 15937
+[2026-07-14 19:25:57] MEGAPAGOS: encryptData OK
+[2026-07-14 19:25:57] MEGAPAGOS: getTransactionInfo encrypted: eyJlbmNyeXB0ZWREYXRhIjoiZXlKMllXeDFaU0k2SWxGV1VETlZTalp3WVZr...
+[2026-07-14 19:25:59] MEGAPAGOS: getTransactionInfo response: HTTP 201 | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6568282482",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5684748",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840571288316,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 14:25:28",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 19:56:29] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 20:01:44] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 20:02:05] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 20:02:05] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=38&payment=37"
+        },
+        "step1": {
+            "name": "Tarjetas de Regalo De \/ Para",
+            "description": "Tarjetas de Regalo De \/ Para",
+            "value": 200,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 100,
+            "requested_units": 1,
+            "total_amount": 300,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1303",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-14 20:02:05] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 200,
+    "quantity": 1,
+    "shipping_cost": 100,
+    "total_amount": 300,
+    "expected_total": 300,
+    "bank_code": "1303",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-14 20:02:06] MEGAPAGOS: encryptData OK
+[2026-07-14 20:02:07] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5684832",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=lndJwmelhJEXv02LyLwiExrZThez4hm2g0mTaiP7m5k%3d",
+        "transactionId": "MTU5Mzg="
+    }
+}
+[2026-07-14 20:02:54] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 20:05:05] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 20:05:30] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 20:05:31] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=39&payment=38"
+        },
+        "step1": {
+            "name": "Tarjetas de Regalo De \/ Para",
+            "description": "Tarjetas de Regalo De \/ Para",
+            "value": 200,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 100,
+            "requested_units": 1,
+            "total_amount": 300,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1022",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-14 20:05:31] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 200,
+    "quantity": 1,
+    "shipping_cost": 100,
+    "total_amount": 300,
+    "expected_total": 300,
+    "bank_code": "1022",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-14 20:05:31] MEGAPAGOS: encryptData OK
+[2026-07-14 20:05:32] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5684844",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=lndJwmelhJEXv02LyLwiEwxXqgyzjSaEiDfMb9ZTPcI%3d",
+        "transactionId": "MTU5Mzk="
+    }
+}
+[2026-07-14 20:06:08] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 20:06:08] MEGAPAGOS: getTransactionInfo raw: MTU5Mzk=
+[2026-07-14 20:06:08] MEGAPAGOS: getTransactionInfo decoded: 15939
+[2026-07-14 20:06:08] MEGAPAGOS: encryptData OK
+[2026-07-14 20:06:08] MEGAPAGOS: getTransactionInfo encrypted: eyJlbmNyeXB0ZWREYXRhIjoiZXlKMllXeDFaU0k2SWpKWlNsZFhZMlZ0ZUZv...
+[2026-07-14 20:06:10] MEGAPAGOS: getTransactionInfo response: HTTP 201 | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6569689795",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5684844",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840595291947,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 15:05:29",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 20:56:59] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 21:02:23] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 21:02:23] MEGAPAGOS: createPseTransaction payload (plain) | {
+    "data": {
+        "extraData": {
+            "idusuario": "3483",
+            "idtipooperacion": 5,
+            "idtiposolicitud": 5,
+            "linkcode": "-1",
+            "solicitudenvio": "N",
+            "externalurl": "http:\/\/localhost\/ECOMERCE-PODERDOWN\/callback?order=40&payment=39"
+        },
+        "step1": {
+            "name": "Tarjetas de Regalo De \/ Para",
+            "description": "Tarjetas de Regalo De \/ Para",
+            "value": 200,
+            "in_stock": true,
+            "idimpuesto": 21,
+            "shipping_cost": 100,
+            "requested_units": 1,
+            "total_amount": 300,
+            "payment_amount": 0
+        },
+        "step3": {
+            "terms_and_conditions": true,
+            "payment_method": "pse",
+            "biller_name": "Cliente Prueba",
+            "biller_email": "prueba6@gmail.com",
+            "biller_address": "Diagonal 57 # 47 a 28",
+            "payment_info": {
+                "pse_bank": "1022",
+                "pse_person_type": "person",
+                "pse_document": "1001142067",
+                "pse_name": "Cliente Prueba",
+                "pse_phone": "310000000",
+                "pse_document_type": "CedulaDeCiudadania"
+            }
+        }
+    }
+}
+[2026-07-14 21:02:23] MEGAPAGOS: createPseTransaction numeric check | {
+    "unit_price": 200,
+    "quantity": 1,
+    "shipping_cost": 100,
+    "total_amount": 300,
+    "expected_total": 300,
+    "bank_code": "1022",
+    "document_type": "CedulaDeCiudadania (raw: CC)"
+}
+[2026-07-14 21:02:23] MEGAPAGOS: encryptData OK
+[2026-07-14 21:02:24] MEGAPAGOS: createPseTransaction OK | {
+    "data": {
+        "returnCode": "SUCCESS",
+        "errorDetails": null,
+        "trazabilityCode": "5685058",
+        "pseURL": "https:\/\/registro.desarrollo.pse.com.co\/PSENF\/index.html?enc=kcviIMNpH5QMCih13cPUNXL62CO7nb7MS%2fAXo3wTAxY%3d",
+        "transactionId": "MTU5NDA="
+    }
+}
+[2026-07-14 21:03:03] MEGAPAGOS: login OK, idusuario: 3483
+[2026-07-14 21:03:03] MEGAPAGOS: getTransactionInfo raw: MTU5NDA=
+[2026-07-14 21:03:03] MEGAPAGOS: getTransactionInfo decoded: 15940
+[2026-07-14 21:03:03] MEGAPAGOS: encryptData OK
+[2026-07-14 21:03:03] MEGAPAGOS: getTransactionInfo encrypted: eyJlbmNyeXB0ZWREYXRhIjoiZXlKMllXeDFaU0k2SW5kMGJrNXdiM0kwTWsx...
+[2026-07-14 21:03:05] MEGAPAGOS: getTransactionInfo response: HTTP 201 | {
+    "payment_type": "bank",
+    "payment_method": "PSE",
+    "amount": "300",
+    "transaction_id": "pse-6563651784",
+    "tiposolicitud_id": "5",
+    "status": 1,
+    "message": "Rechazada por banco",
+    "externalDetails": {
+        "payment_code": "5685058",
+        "entity_franquise": "1022",
+        "authorizationID": "12",
+        "ticketId": 17840629438832,
+        "payer_name": "Julian Clavijo",
+        "payer_email": "prueba6@gmail.com",
+        "serviceNIT": "9014063092",
+        "serviceName": "Megapagos co sas"
+    },
+    "internalDetails": {
+        "date_payment": "2026-07-14 16:02:23",
+        "total_value": 300,
+        "product": "Tarjetas de Regalo De \/ Para",
+        "description_product": "Tarjetas de Regalo De \/ Para",
+        "image_product": "",
+        "quantity": 1,
+        "unity_value": 200,
+        "percentage": "0",
+        "shipping_value": 100
+    },
+    "payerDetails": {
+        "name": "Cliente Prueba",
+        "email": "prueba6@gmail.com"
+    },
+    "comercialDetail": {
+        "name": "Poder Down",
+        "img": "https:\/\/qaapi.megapagos.co:50443\/api\/download\/comercios\/3264\/imagenes\/d19OuaV2orlfmOOShTxDtaXgWm6qT29xUZC4sHCx.jpg?signature=4754b8898919d3ef92a2b402ea6b2c734318fce133468ea0811112ec0f12b6dc",
+        "email": "info@poderdown.com",
+        "phone": "3137468039",
+        "address": "Calle 43 sur 46a 56"
+    }
+}
+[2026-07-14 21:41:38] MEGAPAGOS: login OK, idusuario: 3483

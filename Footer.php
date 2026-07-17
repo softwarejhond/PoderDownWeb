@@ -1,3 +1,4 @@
+</main>
 <!-- ===== FOOTER GRANDE — Poder Down ===== -->
 <footer class="footer-landing" id="contacto">
   <div class="container">

@@ -33,6 +33,7 @@ $pageTitle = 'Crear Cuenta — Poder Down';
 $pageDescription = 'Regístrate en Poder Down y accede a beneficios exclusivos.';
 $activePage = 'registro';
 $showNavSearch = false;
+$metaRobots = 'noindex, follow';
 require 'components/header.php';
 ?>
 

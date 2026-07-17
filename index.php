@@ -9,6 +9,33 @@ $activePage = 'inicio';
 $showNavSearch = true;
 require 'components/header.php';
 ?>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://poderdown.com/#organization",
+      "name": "Poder Down",
+      "url": "https://poderdown.com/",
+      "logo": "https://poderdown.com/img/logos/logo_pd_horizontal.png",
+      "email": "info@poderdown.com",
+      "sameAs": [
+        "https://www.instagram.com/diaadiaconcami",
+        "https://www.youtube.com/@elmundodecamiysuscuriosida6028"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://poderdown.com/#website",
+      "name": "Poder Down",
+      "url": "https://poderdown.com/",
+      "publisher": { "@id": "https://poderdown.com/#organization" },
+      "inLanguage": "es"
+    }
+  ]
+}
+</script>
 <style>
   :root {
     --cami-turquesa: #3CAEE0;
@@ -1481,7 +1508,7 @@ require 'components/header.php';
         <p class="section-eyebrow" style="color:var(--cami-turq);"><i class="bi bi-heart-fill"></i>Mi historia</p>
         <h2 class="section-title" style="color:white;">Soy Cami<span style="color:var(--cami-turq);">.</span></h2>
         <blockquote class="cami-quote">"Si le das oportunidades a una persona con Síndrome de Down desde pequeña, puede lograr grandes cosas."</blockquote>
-        <p class="cami-body">La neuroplasticidad funciona mejor cuando empezamos temprano. Mi familia siempre creyó en mí, me llevaron a terapias y me dieron las mismas oportunidades que a mi hermana.</p>
+        <p class="cami-body">La neuroplasticidad funciona mejor cuando empezamos temprano. Mi familia siempre creyó en mí, me llevaron a actividades y me dieron las mismas oportunidades que a mi hermana.</p>
         <p class="cami-body mt-3">Finalicé mi bachillerato, estudié en la <strong style="color:var(--cami-turq);">Universidad de Antioquia</strong> en el programa UIncluye para personas con discapacidad intelectual, he trabajado en varias empresas. He participado en eventos nacionales e internacionales, compartido en más de 150 experiencias con más de 13.000 personas impactadas y más de 60 empresas de varios sectores.</p>
         <div class="mt-4">
           <span class="cami-chip"><i class="bi bi-mortarboard-fill me-1"></i>Bachillerato completo</span>
@@ -1812,7 +1839,7 @@ require 'components/header.php';
       `<img src="${p.imagen}" alt="${p.nombre.replace(/"/g,'&quot;')}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="img-placeholder" style="display:none"><i class="bi bi-image" style="color:var(--cami-border);"></i></div>` :
       `<div class="img-placeholder"><i class="bi bi-image" style="color:var(--cami-border);"></i></div>`;
     return `
-  <div class="product-card-cami" onclick="window.location='producto.php?id=${p.id}'">
+  <a class="product-card-cami" href="producto.php?id=${p.id}" style="display:block;text-decoration:none;color:inherit;">
     <div class="img-wrap" style="position:relative">
       ${imgHtml}
       <span class="badge-cat">${p.categoria}</span>
@@ -1831,7 +1858,7 @@ require 'components/header.php';
         </button>
       </div>
     </div>
-  </div>`;
+  </a>`;
   }
 
   async function verProducto(id) {

@@ -54,40 +54,52 @@ if ($orderId && $paymentId) {
                 if ($status !== null) {
                     $status = (int) $status;
                 }
+            } catch (Exception $e) {
+                log_callback('API EXCEPTION: ' . $e->getMessage());
+                $info = null;
+                $status = null;
+            }
 
-                if (in_array($status, [1, 9])) {
+            if ($status !== null) {
+                log_callback('STATUS NUMERICO: ' . $status);
+
+                $message = $info['message'] ?? '';
+
+                if ($status === 1 || $status === 9) {
                     $estado = 'approved';
                     $mensaje = 'Tu pago fue aprobado exitosamente.';
                     $icono = 'bi-check-circle-fill';
                     $color = '#28a745';
-                } elseif (in_array($status, [2, 3, 5, 6, 7, 10, 11, 12, 13, 14, 15])) {
+                } elseif ($status === 109) {
                     $estado = 'rejected';
-                    $mensaje = 'El pago fue rechazado. Intenta nuevamente.';
+                    $mensaje = $info['message'] ?: 'El pago fue rechazado. Intenta nuevamente.';
                     $icono = 'bi-x-circle-fill';
                     $color = '#dc3545';
                 } elseif ($status === 4) {
                     $estado = 'expired';
-                    $mensaje = 'La sesión de pago expiró. Por favor intenta de nuevo.';
+                    $mensaje = 'La sesion de pago expiro. Por favor intenta de nuevo.';
                     $icono = 'bi-clock-fill';
                     $color = '#ffc107';
                 } else {
                     $estado = 'pending';
-                    $mensaje = 'Tu pago está siendo procesado. Te notificaremos cuando se confirme.';
+                    $mensaje = $info['message'] ?: 'Tu pago esta siendo procesado. Te notificaremos cuando se confirme.';
                     $icono = 'bi-hourglass-split';
                     $color = 'var(--cami-azul)';
                 }
 
                 $paymentStatus = $estado;
+                $orderPaymentStatus = ($estado === 'approved') ? 'paid' : (($estado === 'rejected') ? 'failed' : (($estado === 'expired') ? 'expired' : 'pending'));
                 $orderStatus = ($estado === 'approved') ? 'processing' : (($estado === 'rejected') ? 'cancelled' : 'pending');
 
-                $stmtUpd = mysqli_prepare($conn, "UPDATE payments SET status = ?, response_message = ?, franchise = 'PSE' WHERE id = ?");
+                $stmtUpd = mysqli_prepare($conn, "UPDATE payments SET status = ?, response_message = ?, franchise = 'PSE', raw_response = ? WHERE id = ?");
                 $infoDesc = $info['externalDetails']['payment_code'] ?? '';
-                mysqli_stmt_bind_param($stmtUpd, 'ssi', $paymentStatus, $infoDesc, $paymentId);
+                $rawJson = json_encode($info, JSON_UNESCAPED_UNICODE);
+                mysqli_stmt_bind_param($stmtUpd, 'sssi', $paymentStatus, $infoDesc, $rawJson, $paymentId);
                 mysqli_stmt_execute($stmtUpd);
                 mysqli_stmt_close($stmtUpd);
 
                 $stmtOrd = mysqli_prepare($conn, "UPDATE orders SET payment_status = ?, status = ?, updated_at = NOW() WHERE id = ?");
-                mysqli_stmt_bind_param($stmtOrd, 'ssi', $paymentStatus, $orderStatus, $orderId);
+                mysqli_stmt_bind_param($stmtOrd, 'ssi', $orderPaymentStatus, $orderStatus, $orderId);
                 mysqli_stmt_execute($stmtOrd);
                 mysqli_stmt_close($stmtOrd);
 
@@ -96,12 +108,18 @@ if ($orderId && $paymentId) {
                     mysqli_stmt_bind_param($stmtPayUpd, 'i', $paymentId);
                     mysqli_stmt_execute($stmtPayUpd);
                     mysqli_stmt_close($stmtPayUpd);
+
+                    try {
+                        require_once __DIR__ . '/controller/email.php';
+                        $mailer = new OrderMailer($conn);
+                        $sent = $mailer->sendOrderConfirmation($orderId, $paymentId);
+                        log_callback('EMAIL: ' . ($sent ? 'enviado' : 'fallo'));
+                    } catch (Exception $e) {
+                        log_callback('EMAIL EXCEPTION: ' . $e->getMessage());
+                    }
                 }
 
-            } catch (Exception $e) {
-                $mensaje = 'No pudimos verificar tu pago en este momento. Contáctanos si necesitas ayuda.';
-                $icono = 'bi-exclamation-triangle-fill';
-                $color = '#ffc107';
+                log_callback('DB UPDATED: estado=' . $estado);
             }
         }
     } else {
