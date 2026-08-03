@@ -9,11 +9,8 @@ if ($reqMethod === 'OPTIONS') { http_response_code(204); exit; }
 
 require __DIR__ . '/../../controller/conexion.php';
 
-/* ─── Configurable image base URL ───
-   En desarrollo apunta al directorio donde están las imágenes.
-   En producción cambia al dominio CDN correspondiente.           */
-define('IMAGES_BASE_URL', '/PODER-DOWN/');
-// define('IMAGES_BASE_URL', 'https://cdn.poderdown.com/');
+$isLocal = in_array($_SERVER['HTTP_HOST'] ?? '', ['localhost', '127.0.0.1', '::1']);
+define('IMAGES_BASE_URL', $isLocal ? '/PODER-DOWN/' : 'https://dashboard.poderdown.com/');
 
 $action = $_GET['action'] ?? '';
 

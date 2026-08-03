@@ -73,12 +73,14 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
       margin: 0;
     }
     /* NAVBAR */
-    .navbar-cami {
-      background: var(--cami-bg);
-      border-bottom: 2px solid var(--cami-border);
+    body > header {
       position: sticky;
       top: 0;
       z-index: 1000;
+    }
+    .navbar-cami {
+      background: var(--cami-bg);
+      border-bottom: 2px solid var(--cami-border);
       padding: .8rem 0;
     }
     .navbar-brand-cami {
@@ -614,7 +616,7 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
       <div class="d-none d-lg-flex align-items-center gap-3">
         <a class="nav-link-cami <?= $activePage === 'inicio' ? 'active' : '' ?>" href="<?= $activePage === 'inicio' ? '#inicio' : 'index.php' ?>" data-section="inicio">Inicio</a>
         <a class="nav-link-cami" href="<?= $activePage === 'inicio' ? '#sobre-mi' : 'index.php#sobre-mi' ?>" data-section="sobre-mi">Sobre mí</a>
-        <a class="nav-link-cami <?= $activePage === 'productos' ? 'active' : '' ?>" href="productos.php">Productos</a>
+        <a class="nav-link-cami <?= $activePage === 'productos' ? 'active' : '' ?>" href="productos.php">Tienda</a>
         <a class="nav-link-cami <?= $activePage === 'galeria' ? 'active' : '' ?>" href="galeria.php">Galería</a>
         <a class="nav-link-cami <?= $activePage === 'blog' ? 'active' : '' ?>" href="blog.php">Blog</a>
         <a class="nav-link-cami" href="<?= $activePage === 'inicio' ? '#contacto' : 'index.php#contacto' ?>" data-section="contacto">Contacto</a>
@@ -656,7 +658,7 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
     <div class="nav-mobile-menu" id="navMobileMenu">
       <a class="nav-link-cami <?= $activePage === 'inicio' ? 'active' : '' ?>" href="<?= $activePage === 'inicio' ? '#inicio' : 'index.php' ?>" data-section="inicio" onclick="closeMobileMenu()">Inicio</a>
       <a class="nav-link-cami" href="<?= $activePage === 'inicio' ? '#sobre-mi' : 'index.php#sobre-mi' ?>" data-section="sobre-mi" onclick="closeMobileMenu()">Sobre mí</a>
-      <a class="nav-link-cami <?= $activePage === 'productos' ? 'active' : '' ?>" href="productos.php" onclick="closeMobileMenu()">Productos</a>
+      <a class="nav-link-cami <?= $activePage === 'productos' ? 'active' : '' ?>" href="productos.php" onclick="closeMobileMenu()">Tienda</a>
       <a class="nav-link-cami <?= $activePage === 'galeria' ? 'active' : '' ?>" href="galeria.php" onclick="closeMobileMenu()">Galería</a>
       <a class="nav-link-cami <?= $activePage === 'blog' ? 'active' : '' ?>" href="blog.php" onclick="closeMobileMenu()">Blog</a>
       <a class="nav-link-cami" href="<?= $activePage === 'inicio' ? '#contacto' : 'index.php#contacto' ?>" data-section="contacto" onclick="closeMobileMenu()">Contacto</a>

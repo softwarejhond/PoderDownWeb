@@ -116,7 +116,7 @@ require 'components/header.php';
     z-index: 2;
     bottom: 0;
     left: 70%;
-    transform: translate(-70%, 70px);
+    transform: translate(-70%, 120px);
     height: 160%;
     width: auto;
     max-width: 160%;
@@ -1083,27 +1083,66 @@ require 'components/header.php';
     .hero-tagline {
       font-size: clamp(2.2rem, 6vw, 4rem);
     }
+
+    .hero-visual {
+      height: 450px;
+    }
+    .hero-photo-circle {
+      width: 360px;
+      height: 360px;
+    }
+    .hero-photo {
+      height: 120%;
+      max-width: 120%;
+      left: 50%;
+      transform: translate(-50%, 180px);
+    }
+    .hero-quote-card {
+      top: 15px;
+      right: 0;
+    }
   }
 
   @media (max-width:991px) {
     .hero-section {
       padding: 3rem 0 2.5rem;
+      overflow: visible;
     }
 
     .hero-photo-circle {
-      width: 300px;
-      height: 300px;
+      width: 280px;
+      height: 280px;
     }
     .hero-photo {
-      height: 140%;
-      max-width: 140%;
+      height: 100%;
+      max-width: 100%;
+      left: 50%;
+      transform: translate(-50%, 20px);
     }
     .hero-visual {
-      height: 400px;
+      height: 360px;
+      overflow: hidden;
+    }
+    .hero-quote-card {
+      top: 40px;
+      right: 20px;
     }
 
     .hero-sub {
       max-width: 100%;
+    }
+
+    .blob-dot-coral {
+      bottom: -5px;
+      right: -5px;
+      width: 70px;
+      height: 70px;
+    }
+    .blob-dot-yellow {
+      top: -5px;
+      right: -20px;
+      width: 40px;
+      height: 40px;
     }
   }
 
@@ -1509,7 +1548,7 @@ require 'components/header.php';
         <h2 class="section-title" style="color:white;">Soy Cami<span style="color:var(--cami-turq);">.</span></h2>
         <blockquote class="cami-quote">"Si le das oportunidades a una persona con Síndrome de Down desde pequeña, puede lograr grandes cosas."</blockquote>
         <p class="cami-body">La neuroplasticidad funciona mejor cuando empezamos temprano. Mi familia siempre creyó en mí, me llevaron a actividades y me dieron las mismas oportunidades que a mi hermana.</p>
-        <p class="cami-body mt-3">Finalicé mi bachillerato, estudié en la <strong style="color:var(--cami-turq);">Universidad de Antioquia</strong> en el programa UIncluye para personas con discapacidad intelectual, he trabajado en varias empresas. He participado en eventos nacionales e internacionales, compartido en más de 150 experiencias con más de 13.000 personas impactadas y más de 60 empresas de varios sectores.</p>
+        <p class="cami-body mt-3">Finalicé mi bachillerato, estudié en la <strong style="color:var(--cami-turq);">Universidad de Antioquia</strong> en el programa UIncluye para personas con discapacidad intelectual. He participado en eventos nacionales e internacionales. He trabajado en varias empresas compartiendo más de 150 experiencias con más de 13.000 personas impactadas y más de 60 empresas de varios sectores.</p>
         <div class="mt-4">
           <span class="cami-chip"><i class="bi bi-mortarboard-fill me-1"></i>Bachillerato completo</span>
           <span class="cami-chip"><i class="bi bi-mortarboard-fill me-1"></i>UdeA UIncluye</span>
@@ -1541,6 +1580,9 @@ require 'components/header.php';
               <p class="cami-stat-sub mt-1">Países<br>alcanzados</p>
             </div>
           </div>
+        </div>
+        <div class="mt-4 text-center">
+          <img src="img/logos/logo_pd_horizontal.png" alt="Logo PoderDown" class="img-fluid" style="max-width: 520px; width: 100%; height: auto;">
         </div>
       </div>
     </div>
@@ -1655,7 +1697,7 @@ require 'components/header.php';
 <section class="social-section" id="aliados">
   <div class="container">
     <div class="mini-banner">
-      <div class="mini-banner-item text-center"><span class="mini-banner-num">+30</span><span class="mini-banner-label">Charlas internacionales</span></div>
+      <div class="mini-banner-item text-center"><span class="mini-banner-num">+8</span><span class="mini-banner-label">Charlas internacionales</span></div>
       <div class="mini-banner-item text-center"><span class="mini-banner-num">+5</span><span class="mini-banner-label">Países alcanzados</span></div>
       <div class="mini-banner-item text-center"><span class="mini-banner-num"><i class="bi bi-mic-fill"></i></span><span class="mini-banner-label">Una sola misión</span></div>
     </div>
@@ -1663,7 +1705,7 @@ require 'components/header.php';
       <p class="section-eyebrow justify-content-center" style="color:var(--cami-turq);"><i class="bi bi-building"></i>Aliados que confían en mí</p>
     </div>
     <div class="text-center mb-5">
-      <?php $aliados = ['La Casa de Carlota', 'Comfama', 'Universidad San Martín', 'Colegio San Ignacio', 'SENA', 'Universidad María Cano', 'UdeA', 'Lupines', 'Artesas', 'Sin Etiquetas', 'DiversoLab', 'Municipio de Medellín', 'Crear Unidos'];
+      <?php $aliados = [ 'Comfama', 'Universidad San Martín', 'Colegio San Ignacio', 'SENA', 'Universidad María Cano', 'UdeA', 'Proyecto TOM', 'Cosmo Schools', 'Lupines Fundación', 'Corporación Artesas', 'Fundación Sin Etiquetas', 'DiversoLab', 'Municipio de Envigado', 'Corporación Crear Unidos', 'Fundación Saldarriaga Concha', 'Procuraduría General de la Nación', 'Corpoemprende'];
       foreach ($aliados as $al): ?><span class="aliado-chip"><?= htmlspecialchars($al) ?></span><?php endforeach; ?>
     </div>
     <div class="text-center mb-4">
@@ -1672,19 +1714,19 @@ require 'components/header.php';
     <div class="row g-4 mb-5">
       <div class="col-md-6">
         <div class="testimonial-card">
-          <p class="testimonial-text">"Camila cambió completamente la perspectiva de nuestros colaboradores sobre la inclusión. Su autenticidad es verdaderamente inspiradora."</p>
+          <p class="testimonial-text">"Camila logró en poco tiempo una alta participación de los empleados en las pausas activas. El ambiente laboral mejoró con su llegada. Recibimos felicitaciones por su amabilidad y alegría con los visitantes. Hubo reflexiones sobre la inclusión"</p>
           <p class="testimonial-author">— Directora de Talento Humano, Nutresa</p>
         </div>
       </div>
       <div class="col-md-6">
         <div class="testimonial-card">
-          <p class="testimonial-text">"Como padre de un niño con Síndrome de Down, la conferencia de Camila me dio esperanza y herramientas concretas para el camino."</p>
-          <p class="testimonial-author">— Padre de familia, Conferencia Sin Etiquetas</p>
+          <p class="testimonial-text">"Camila es un referente de superación y una defensora activa de derechos que ha demostrado que, cuando el potencial individual se combina con la ciencia y una familia comprometida, los resultados son memorables. Más allá de su condición de Síndrome de Down, es una joven empoderada con un gran 'Poder Down'."</p>
+          <p class="testimonial-author">— Andrea Torres, Lupines</p>
         </div>
       </div>
     </div>
     <div class="cierre-grande">
-      <p class="cierre-txt">No solo compras productos o contratas una charla.<br><span style="color:var(--cami-turq);">Inviertes en un mundo más inclusivo y consciente.</span></p>
+      <p class="cierre-txt">No solo compras productos o organizas una charla.<br><span style="color:var(--cami-turq);">Inviertes en un mundo más inclusivo y consciente.</span></p>
       <a href="#deseo" class="btn-p1" style="font-size:1rem;padding:.9rem 2.5rem;"><i class="bi bi-lightning-charge-fill"></i>Hablemos hoy</a>
     </div>
   </div>
