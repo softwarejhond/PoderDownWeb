@@ -71,7 +71,7 @@ if ($slug) {
       .gal-body { background: var(--cami-bg); padding: 2rem 0 4rem; }
 
       /* ---------- Escenario carrusel 3D ---------- */
-      .stage-wrap { position: relative; padding: 1.5rem 0 1rem; }
+      .stage-wrap { position: relative; z-index: 0; padding: 1.5rem 0 1rem; }
       .stage {
         perspective: 2000px;
         perspective-origin: 50% 45%;
@@ -101,6 +101,7 @@ if ($slug) {
         width: 100%;
         height: 100%;
         padding: 12px;
+        box-sizing: border-box;
         background: linear-gradient(120deg,
           var(--cami-turq), var(--cami-coral) 30%, var(--cami-amarillo, #F5C518) 55%, var(--cami-coral) 75%, var(--cami-turq) 100%);
         background-size: 300% 300%;
@@ -122,6 +123,7 @@ if ($slug) {
         background: white;
         border-radius: 10px;
         padding: 8px;
+        box-sizing: border-box;
       }
       .frame-mat img {
         width: 100%;
@@ -206,6 +208,7 @@ if ($slug) {
       .nav-btn:active { transform: translateY(-50%) scale(.94); }
 
       .plaque-zone {
+        position: relative; z-index: 2;
         max-width: 640px;
         margin: 2.2rem auto 0;
         text-align: center;
@@ -249,6 +252,7 @@ if ($slug) {
       }
 
       .thumbs {
+        position: relative; z-index: 2;
         display: flex;
         justify-content: center;
         gap: .7rem;
@@ -280,6 +284,7 @@ if ($slug) {
         border-radius: 6px;
       }
       .gal-hint {
+        position: relative; z-index: 2;
         text-align: center;
         font-family: var(--font-playpen);
         font-weight: 600;
@@ -369,6 +374,11 @@ if ($slug) {
     const BOX = isSmall ? { w: 300, h: 380 } : { w: 460, h: 540 };
     const PAD = 40; // padding del marco (frame-inner 12 + frame-mat 8) por lado * 2
     const radius = n > 1 ? Math.round(BOX.w / (2 * Math.tan(Math.PI / n))) + 90 : 0;
+
+    if (n > 1) {
+      document.querySelector('.stage').style.perspective = Math.max(2000, Math.round(radius * 5)) + 'px';
+    }
+
     let current = 0;
 
     function placeFrame(frame, i) {

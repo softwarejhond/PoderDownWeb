@@ -105,8 +105,8 @@ function getCurrentUser() {
 
     $stmt = mysqli_prepare($conn,
         "SELECT id, email, first_name, last_name, phone, document_type, document_number, gender, birthdate, avatar, newsletter_subscribed, created_at, last_login FROM customers WHERE id = ?");
-    mysqli_stmt_bind_param($stmt, "i", $cid);
     $cid = (int)$_SESSION['customer_id'];
+    mysqli_stmt_bind_param($stmt, "i", $cid);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
     $user = mysqli_fetch_assoc($result);

@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$updateError) {
         $result = updateProfile($user['id'], $data);
         if ($result['success']) {
-            header('Location: perfil.php?updated=success');
+            header('Location: perfil?updated=success');
             exit;
         } else {
             $updateError = $result['message'];
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($updateError) {
         $msg = urlencode($updateError);
-        header("Location: perfil.php?updated=error&msg={$msg}");
+        header("Location: perfil?updated=error&msg={$msg}");
         exit;
     }
 }
@@ -536,7 +536,7 @@ require 'components/header.php';
     }
 
     if (params.has('updated') || params.get('welcome') || params.get('login')) {
-        window.history.replaceState({}, document.title, 'perfil.php');
+        window.history.replaceState({}, document.title, 'perfil');
     }
 })();
 </script>
