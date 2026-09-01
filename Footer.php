@@ -60,12 +60,9 @@
       <div class="col-md-4">
         <p class="fl-col-title">Únete a la comunidad</p>
         <p class="fl-newsletter-desc">Recibe inspiración y novedades de Poder Down directamente en tu correo.</p>
-        <div class="d-flex gap-2 mt-3">
-          <input type="email" class="fl-input" placeholder="tucorreo@email.com">
-          <button class="fl-btn-send"><i class="bi bi-send-fill"></i></button>
-        </div>
-        <div class="mt-3">
-          <a href="#contacto" class="fl-btn-invite"><i class="bi bi-mic"></i> Invítanos a participar</a>
+        <div class="d-flex flex-column gap-2 mt-3 w-100">
+          <a href="registro" class="fl-btn-send w-100 justify-content-center">Regístrate <i class="bi bi-send-fill"></i></a>
+          <a href="https://wa.me/573137468039?text=Hola%2C%20quiero%20invitarte%20a%20participar%2C%20soy%3A%20" target="_blank" rel="noopener noreferrer" class="fl-btn-invite w-100 justify-content-center"><i class="bi bi-mic"></i> Invítanos a participar</a>
         </div>
       </div>
     </div>
@@ -209,6 +206,8 @@
   transition: background .2s, transform .2s;
   display: inline-flex;
   align-items: center;
+  gap: .4rem;
+  text-decoration: none;
 }
 .fl-btn-send:hover { background: #c94851; transform: translateY(-2px); }
 
